@@ -16,6 +16,7 @@ use Yii;
  */
 class Software extends \yii\db\ActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -51,5 +52,10 @@ class Software extends \yii\db\ActiveRecord
             'regisnumber' => 'Regisnumber',
             'enclosure' => 'Enclosure',
         ];
+    }
+
+    public static function getAll(){
+       //print_r(\GuzzleHttp\json_encode(Software::find()->asArray()->all()));
+       return Software::find()->asArray()->all();
     }
 }

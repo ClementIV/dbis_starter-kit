@@ -62,7 +62,56 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php echo $model['patent']; ?>
         </div>
         <div class="tab-pane" id="four">
-            <?php echo $model['software']; ?>
+
+            <div class="table-responsive">
+                <!-- Wide table with range of cols -->
+                <table class="table table-bordered table--wide table-present">
+                    <colgroup class="col-sm-width">
+                    </colgroup><colgroup class="col-sm-width">
+                    </colgroup><colgroup class="col-sm-width">
+                    </colgroup><colgroup class="col-sm-width">
+                    </colgroup><colgroup class="col-sm-width">
+                    </colgroup><colgroup class="col-sm-width">
+
+                    </colgroup><thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>著作权名称</th>
+                        <th>作者</th>
+                        <th>完成日</th>
+                        <th>登记号</th>
+                        <th>附件下载</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <?php
+                    foreach ($software as $key=>$value){
+                        $row = $software[$key];
+                        $time = substr($row['finishtime'],0,10);
+                        echo "<tr>
+                                <td>{$row['softid']}</td>
+                                <td>{$row['name']}</td>
+                                <td>{$row['author']}</td>
+                                <td>{$time}</td>
+                                <td class=\"table__wait\"><i class=\"fa fa-spinner\"></i> {$row['regisnumber']}</td>
+                                <td><a class=\"btn btn-primary btn-sm\" href=\"#\">{$row['enclosure']}</a></td>
+                            </tr>";
+                    }
+                    ?>
+<!--                    <tr>-->
+<!--                        <td>100032993</td>-->
+<!--                        <td>05/14/2015</td>-->
+<!--                        <td>John Stewart</td>-->
+<!--                        <td>$ 2 199.00</td>-->
+<!--                        <td class="table__wait"><i class="fa fa-spinner"></i> Pending</td>-->
+<!--                        <td><a class="btn btn-primary btn-sm" href="#">View Order</a></td>-->
+<!--                    </tr>-->
+                    </tbody>
+                </table>
+            </div>
+
+
         </div>
     </div>
 </div>

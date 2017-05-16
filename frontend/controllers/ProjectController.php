@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use Yii;
 use common\models\Project;
+use common\models\Software;
 use frontend\models\search\ProjectSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -53,6 +54,7 @@ class ProjectController extends Controller
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'software'=> Software::getAll()
         ]);
     }
 
