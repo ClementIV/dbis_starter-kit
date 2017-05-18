@@ -38,12 +38,69 @@ class PostController extends \yii\web\Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $wechat = Yii::$app->wechat;
+        $list1 = $wechat->listUser('1');
+        $list2 = $wechat->listDepartment();
+        $useridlist = array();
+        $usernamelist = array();
+        $departmentid = array();
+        $departmentname = array();
+        $selectuser = array();
+        $selectdepart = array();
+
+        foreach ($list1['userlist'] as $num => $item)
+        {
+            array_push($useridlist,$item['userid']);
+            array_push($usernamelist,$item['name']);
+        }
+        foreach ($list2['department'] as $num =>$item)
+        {
+            array_push($departmentid,$item['id']);
+            array_push($departmentname,$item['name']);
+        }
+        if ($model->load(Yii::$app->request->post())) {
+            $data=array(
+                'touser'=>'@all',
+                'toparty'=>'@all',
+                'totag'=>'@all',
+                'agentid'=>'15',
+                'msgtype'=>'text',
+                'text'=>array('content'=>$model->title.'\n'.'time:'.$model->begintime.'-'.$model->endtime.'\n'.$model->body),
+                'safe'=>0
+            );
+            if(is_array($model->touser))
+            {
+                foreach ($model->touser as $num =>$item)
+                {
+                    array_push($selectuser,$useridlist[$item]);
+                }
+                $model -> touser = implode('|',$selectuser);
+                $data['touser']=$model -> touser;
+            }
+            if(is_array($model->toparty))
+            {
+                foreach ($model->toparty as $num =>$item)
+                {
+                    array_push($selectdepart,$departmentid[$item]);
+                }
+                $model -> toparty = implode('|',$selectdepart);
+                $data['toparty'] = $model ->toparty;
+            }
+            if($model->save())
+            {
+                $wechat = Yii::$app->wechat;
+
+                if($wechat->sendMessage($data))
+                    return $this->redirect(['view', 'id' => $model->id]);
+            }
         } else {
+            $model->toparty="";
+            $model->touser="";
             return $this->render('update', [
                 'model' => $model,
                 'categories' => PostCategory::find()->all(),
+                'userlist' => $usernamelist,
+                'departmentlist'=> $departmentname
             ]);
         }
     }
@@ -62,27 +119,66 @@ class PostController extends \yii\web\Controller
         $list2 = $wechat->listDepartment();
         $useridlist = array();
         $usernamelist = array();
-        $department = array();
+        $departmentid = array();
+        $departmentname = array();
+        $selectuser = array();
+        $selectdepart = array();
         foreach ($list1['userlist'] as $num => $item)
         {
             array_push($useridlist,$item['userid']);
             array_push($usernamelist,$item['name']);
-/*            $useridlist = array_merge(array($item['userid'],$item['name']),$useridlist);
-            $useridlist = array_merge(array($item['userid'],$item['name']),$useridlist);*/
+            /*            $useridlist = array_merge(array($item['userid'],$item['name']),$useridlist);
+                        $useridlist = array_merge(array($item['userid'],$item['name']),$useridlist);*/
         }
         foreach ($list2['department'] as $num =>$item)
         {
-            $department = array_merge(array($item['id'],$item['name']),$department);
+            array_push($departmentid,$item['id']);
+            array_push($departmentname,$item['name']);
+            /*            $department = array_merge(array($item['id'],$item['name']),$department);*/
         }
         $model = new Post();
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+
+        if ($model->load(Yii::$app->request->post())) {
+            $data=array(
+                'touser'=>'@all',
+                'toparty'=>'@all',
+                'totag'=>'@all',
+                'agentid'=>'15',
+                'msgtype'=>'text',
+                'text'=>array('content'=>$model->title.'\n'.'time:'.$model->begintime.'-'.$model->endtime.'\n'.$model->body),
+                'safe'=>0
+            );
+            if(is_array($model->touser))
+            {
+                foreach ($model->touser as $num =>$item)
+                {
+                    array_push($selectuser,$useridlist[$item]);
+                }
+                $model -> touser = implode('|',$selectuser);
+                $data['touser']=$model -> touser;
+            }
+            if(is_array($model->toparty))
+            {
+                foreach ($model->toparty as $num =>$item)
+                {
+                    array_push($selectdepart,$departmentid[$item]);
+                }
+                $model -> toparty = implode('|',$selectdepart);
+                $data['toparty'] = $model ->toparty;
+            }
+            if($model->save())
+            {
+                $wechat = Yii::$app->wechat;
+
+                if($wechat->sendMessage($data))
+                    return $this->redirect(['view', 'id' => $model->id]);
+            }
         } else {
             return $this->render('create', [
                 'model' => $model,
                 'categories' => PostCategory::find()->all(),
                 'userlist' => $usernamelist,
-                'departmentlist'=> $department
+                'departmentlist'=> $departmentname
             ]);
         }
     }
@@ -124,10 +220,10 @@ class PostController extends \yii\web\Controller
             'toparty' =>'7',
             'totag'=>'@all',
             'agentid'=>'38',
-			'msgtype'=>'text',
+            'msgtype'=>'text',
             'text'=>array('content'=>'Test for send message'),
-			'safe'=>0
-		);
+            'safe'=>0
+        );
         var_dump($wechat->listUser('1'));
 //        return $this->render('wechat');
     }
