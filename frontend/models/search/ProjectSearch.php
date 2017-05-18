@@ -78,4 +78,23 @@ class ProjectSearch extends Project
 
         return $dataProvider;
     }
+
+    public function searchwithTag($tagid)
+    {
+        $query = Project::find();
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
+
+        $query->andFilterWhere(['like', 'tagid', $tagid]);
+        if (!$this->validate()) {
+            // uncomment the following line if you do not want to return any records when validation fails
+            // $query->where('0=1');
+            return $dataProvider;
+        }
+        return $dataProvider;
+
+    }
 }

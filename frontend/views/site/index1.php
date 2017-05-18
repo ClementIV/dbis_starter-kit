@@ -13,6 +13,64 @@ $this->title = Yii::$app->name;
         ],
     ]) ?>
 
+    <section class="container">
+        <h2 class="block-title block-title--top-larger">研究方向</h2>
+
+        <div class="row animated-services">
+            <div class="one-column col-xs-6 col-md-3">
+                <div class="service service--center animated">
+                    <div class="icon icon--shape icon--animate icon-present">
+                        <div class="icon__item">
+                            <i class="livicon" data-name="anchor" data-color="#fff" data-hovercolor="#fff" data-size="42"></i>
+                        </div>
+                    </div>
+                    <a class="service__link" href="/tag/index?tagid=1">
+                        <h3 class="service__heading">机器学习与数据挖掘</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="one-column col-xs-6 col-md-3">
+                <div class="service service--center animated">
+                    <div class="icon icon--shape icon--animate icon-present">
+                        <div class="icon__item">
+                            <i class="livicon" data-name="heart" data-color="#fff" data-hovercolor="#fff" data-size="42"></i>
+                        </div>
+                    </div>
+                    <a class="service__link" href="/tag/index?tagid=2">
+                        <h3 class="service__heading">自然语言处理与情感分析</h3>
+                    </a>
+               </div>
+            </div>
+
+            <div class="one-column col-xs-6 col-md-3">
+                <div class="service service--center animated">
+                    <div class="icon icon--shape icon--animate icon-present">
+                        <div class="icon__item">
+                            <i class="livicon" data-name="search" data-color="#fff" data-hovercolor="#fff" data-size="42"></i>
+                        </div>
+                    </div>
+                    <a class="service__link" href="/tag/index?tagid=5">
+                        <h3 class="service__heading">信息检索</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="one-column col-xs-6 col-md-3">
+                <div class="service service--center animated">
+                    <div class="icon icon--shape icon--animate icon-present">
+                        <div class="icon__item">
+                            <i class="livicon" data-name="thumbnails-big" data-color="#fff" data-hovercolor="#fff" data-size="42"></i>
+                        </div>
+                    </div>
+                    <a class="service__link" href="/tag/index?tagid=3">
+                        <h3 class="service__heading">图数据</h3>
+                    </a>
+                </div>
+            </div>
+
+        </div><!-- end row -->
+    </section><!-- end container -->
+
+
     <h2 class="block-title block-title--bottom">新闻</h2>
 
     <body>
@@ -88,31 +146,16 @@ $this->title = Yii::$app->name;
                             ,'summary'=>'',
                             'itemView'=>'_itemTeacher'
                         ])?>
-                        <!--Slide-->
-                        <a href="#" class="swiper-slide" data-src="http://placehold.it/300x200" data-head="Beeznees">
+                        <a href="#" class="swiper-slide" data-src="images/slider/sides-slider/3-preview.jpg" data-head="Appcorner">
                             <div class="image-container image-container--border">
-                                <img src="http://placehold.it/526x526" alt="">
+                                <img src="images/slider/sides-slider/3.jpg" alt="">
                             </div>
                         </a>
 
                         <!--Slide-->
-                        <a href="#" class="swiper-slide" data-src="http://placehold.it/300x200" data-head="AMovie">
+                        <a href="#" class="swiper-slide" data-src="images/slider/sides-slider/4-preview.jpg" data-head="Бандлер">
                             <div class="image-container image-container--border">
-                                <img src="http://placehold.it/526x526" alt="">
-                            </div>
-                        </a>
-
-                        <!--Slide-->
-                        <a href="#" class="swiper-slide" data-src="http://placehold.it/300x200" data-head="Appcorner">
-                            <div class="image-container image-container--border">
-                                <img src="http://placehold.it/526x526" alt="">
-                            </div>
-                        </a>
-
-                        <!--Slide-->
-                        <a href="#" class="swiper-slide" data-src="http://placehold.it/300x200" data-head="Бандлер">
-                            <div class="image-container image-container--border">
-                                <img src="http://placehold.it/526x526" alt="">
+                                <img src="images/slider/sides-slider/4.jpg" alt="">
                             </div>
                         </a>
 
@@ -137,6 +180,81 @@ $this->title = Yii::$app->name;
             <!--end swiper controls-->
         </div>
         <!-- end slider with 2 sides arrow -->
+
+        <section class="container">
+            <h2 class="block-title block-title--top-larger">What people Say</h2>
+                <div class="content">
+                    <ul class="testimonial-wrap">
+
+                        <li class="testimonial">
+                            <div class="testimonial__images">
+                                <img src="http://placehold.it/160x160" alt="">
+                            </div>
+                            <p class="testimonial__author">Valentino Sorano</p>
+                            <p class="testimonial__info">CEO, Themeforest</p>
+                            <p class="testimonial__text">“Donec euismod turpis id ullamcorper lobortis. Maecenas faucibus ipsum sem, sed consequat ante consectetur non. Nam at neque dui. Integer id risus sit amet justo varius semper quis ut enim.”</p>
+                        </li>
+
+                        <li class="testimonial">
+                            <div class="testimonial__images">
+                                <img src="http://placehold.it/160x160" alt="">
+                            </div>
+                            <p class="testimonial__author">Ashley Spencer</p>
+                            <p class="testimonial__info">CEO, Envato</p>
+                            <p class="testimonial__text">“Aenean rutrum aliquet odio, ut posuere ante eleifend ac. Donec venenatis diam sapien, malesuada euismod diam rutrum a. ”</p>
+                        </li>
+
+                        <li class="testimonial">
+                            <div class="testimonial__images">
+                                <img src="http://placehold.it/160x160" alt="">
+                            </div>
+                            <p class="testimonial__author">James Bennett</p>
+                            <p class="testimonial__info">CEO, Photodune</p>
+                            <p class="testimonial__text">Quisque feugiat facilisis ipsum ut lobortis. Integer hendrerit sodales nisl nec tristique. Aenean commodo sapien ac tellus pharetra, quis tristique mi posuere.</p>
+                        </li>
+
+                        <li class="testimonial">
+                            <div class="testimonial__images">
+                                <img src="http://placehold.it/160x160" alt="">
+                            </div>
+                            <p class="testimonial__author">Valentino Sorano</p>
+                            <p class="testimonial__info">CEO, Themeforest</p>
+                            <p class="testimonial__text">“Aenean rutrum aliquet odio, ut posuere ante eleifend ac. Donec venenatis diam sapien, malesuada euismod diam rutrum a. ”</p>
+                        </li>
+
+                        <li class="testimonial">
+                            <div class="testimonial__images">
+                                <img src="http://placehold.it/160x160" alt="">
+                            </div>
+                            <p class="testimonial__author">Valentino Sorano</p>
+                            <p class="testimonial__info">CEO, Themeforest</p>
+                            <p class="testimonial__text">Quisque feugiat facilisis ipsum ut lobortis. Integer hendrerit sodales nisl nec tristique. Aenean commodo sapien ac tellus pharetra, quis tristique mi posuere.</p>
+                        </li>
+
+                        <li class="testimonial">
+                            <div class="testimonial__images">
+                                <img src="http://placehold.it/160x160" alt="">
+                            </div>
+                            <p class="testimonial__author">Valentino Sorano</p>
+                            <p class="testimonial__info">CEO, Themeforest</p>
+                            <p class="testimonial__text">“Donec euismod turpis id ullamcorper lobortis. Maecenas faucibus ipsum sem, sed consequat ante consectetur non. Nam at neque dui. Integer id risus sit amet justo varius semper quis ut enim.”</p>
+                        </li>
+
+                        <li class="testimonial">
+                            <div class="testimonial__images">
+                                <img src="http://placehold.it/160x160" alt="">
+                            </div>
+                            <p class="testimonial__author">Ashley Spencer</p>
+                            <p class="testimonial__info">CEO, Envato</p>
+                            <p class="testimonial__text">“Aenean rutrum aliquet odio, ut posuere ante eleifend ac. Donec venenatis diam sapien, malesuada euismod diam rutrum a. ”</p>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </section>
+
+
 
         <div class="container">
             <h2 class="block-title block-title--top-larger">Available Services</h2>
@@ -430,5 +548,7 @@ $this->title = Yii::$app->name;
     $(document).ready(function() {
         numberStart();
         sliderSides();
+        scrollSlider();
+        fadingSlider();
     });
 </script>
