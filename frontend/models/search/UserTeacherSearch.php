@@ -67,11 +67,54 @@ class UserTeacherSearch extends UserTeacher
             'query' => $query,
         ]);
 
+
         if (!($this->load($params) && $this->validate())) {
             return $dataProvider;
         }
 
         return $dataProvider;
 
+
+        $this->load($params);
+
+        if (!$this->validate()) {
+            // uncomment the following line if you do not want to return any records when validation fails
+            // $query->where('0=1');
+            return $dataProvider;
+        }
+
+        // grid filtering conditions
+        $query->andFilterWhere([
+            'id' => $this->id,
+            'rating' => $this->rating,
+            'frequency' => $this->frequency,
+        ]);
+
+        $query->andFilterWhere(['like', 'tagname', $this->tagname]);
+
+        return $dataProvider;
+
     }
+
+    public function searchTeacherwithTag($tagid)
+    {
+        //$query = UserTeacher::find()->leftJoin('user_profile','user_teacher.userid=user_profile.user_id');
+        $query =new Query();
+        $query=$query->from(['user_profile','user_teacher'])->where('user_teacher.userid=user_profile.user_id');
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
+        //$this->load($params);
+
+        $query->andFilterWhere(['like', 'tagid', $tagid]);
+        if (!$this->validate()) {
+            // uncomment the following line if you do not want to return any records when validation fails
+            // $query->where('0=1');
+            return $dataProvider;
+        }
+        return $dataProvider;
+
+    }
+
 }

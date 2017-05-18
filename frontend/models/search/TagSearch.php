@@ -2,15 +2,16 @@
 
 namespace frontend\models\search;
 
+use common\models\UserTeacher;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Project;
+use common\models\Tag;
 
 /**
- * ProjectSearch represents the model behind the search form about `common\models\Project`.
+ * TagSearch represents the model behind the search form about `common\models\Tag`.
  */
-class ProjectSearch extends Project
+class TagSearch extends Tag
 {
     /**
      * @inheritdoc
@@ -18,8 +19,8 @@ class ProjectSearch extends Project
     public function rules()
     {
         return [
-            [['id', 'teacherid', 'status'], 'integer'],
-            [['name', 'startdate', 'enddate', 'source', 'introduction', 'project_num', 'finance_account', 'paper', 'patent', 'software', 'displayurl'], 'safe'],
+            [['id', 'rating', 'frequency'], 'integer'],
+            [['tagname'], 'safe'],
         ];
     }
 
@@ -41,7 +42,7 @@ class ProjectSearch extends Project
      */
     public function search($params)
     {
-        $query = Project::find();
+        $query = Tag::find();
 
         // add conditions that should always apply here
 
@@ -60,41 +61,51 @@ class ProjectSearch extends Project
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'startdate' => $this->startdate,
-            'enddate' => $this->enddate,
-            'teacherid' => $this->teacherid,
-            'status' => $this->status,
+            'rating' => $this->rating,
+            'frequency' => $this->frequency,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'source', $this->source])
-            ->andFilterWhere(['like', 'introduction', $this->introduction])
-            ->andFilterWhere(['like', 'project_num', $this->project_num])
-            ->andFilterWhere(['like', 'finance_account', $this->finance_account])
-            ->andFilterWhere(['like', 'paper', $this->paper])
-            ->andFilterWhere(['like', 'patent', $this->patent])
-            ->andFilterWhere(['like', 'software', $this->software])
-            ->andFilterWhere(['like', 'displayurl', $this->displayurl]);
+        $query->andFilterWhere(['like', 'tagname', $this->tagname]);
 
         return $dataProvider;
     }
-
-    public function searchwithTag($tagid)
+    public function searchOneTag($tagid)
     {
-        $query = Project::find();
+        $query = Tag::find();
+
+        // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
 
 
-        $query->andFilterWhere(['like', 'tagid', $tagid]);
+
+        // grid filtering conditions
+        $query->andFilterWhere([
+            'id' => $tagid,
+        ]);
+        return $dataProvider;
+    }
+
+    public function searchTeacher($tagid)
+    {
+        $query = UserTeacher::find();
+
+        // add conditions that should always apply here
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
             return $dataProvider;
         }
-        return $dataProvider;
 
+        $query->andFilterWhere(['like', 'tagid', $tagid]);
+
+        return $dataProvider;
     }
 }
