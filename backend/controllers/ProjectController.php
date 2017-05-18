@@ -9,6 +9,7 @@ use backend\models\search\ProjectSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use common\models\Tag;
 
 /**
  * ProjectController implements the CRUD actions for Project model.
@@ -65,15 +66,33 @@ class ProjectController extends Controller
     public function actionCreate()
     {
         $model = new Project();
+        $tags = Tag::find()->all();
+        $taglist = array();
+        foreach ($tags as $num => $item)
+        {
+            array_push($taglist,$item->getTagName());
+        }
         $teachers = UserProfile::find()->where('user_id in(select userid from user_teacher)')->all();
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
+        if ($model->load(Yii::$app->request->post())) {
+            $selecttagid = array();
+            if (is_array($model->tagid)) {
+                foreach ($model->tagid as $num => $item) {
+                    array_push($selecttagid, $item+1);
+                }
+                $model->tagid = implode(',', $selecttagid);
+                if($model->save())
+                {
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
+            }
+        }else {
             return $this->render('create', [
                 'model' => $model,
                 'teachers' => $teachers,
+                'taglist' => $taglist,
             ]);
         }
+
     }
 
     /**
@@ -85,13 +104,29 @@ class ProjectController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        $tags = Tag::find()->all();
+        $taglist = array();
+        foreach ($tags as $num => $item)
+        {
+            array_push($taglist,$item->getTagName());
+        }
+        if ($model->load(Yii::$app->request->post())) {
+            $selecttagid = array();
+            if (is_array($model->tagid)) {
+                foreach ($model->tagid as $num => $item) {
+                    array_push($selecttagid, $item+1);
+                }
+                $model->tagid = implode(',', $selecttagid);
+                if($model->save())
+                {
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
+            }
         } else {
             return $this->render('update', [
                 'model' => $model,
-                'teachers' => UserProfile::find()->where('user_id in(select userid from user_teacher)')->all()
+                'teachers' => UserProfile::find()->where('user_id in(select userid from user_teacher)')->all(),
+                'taglist' => $taglist,
             ]);
         }
     }
@@ -127,4 +162,3 @@ class ProjectController extends Controller
         }
     }
 }
-
