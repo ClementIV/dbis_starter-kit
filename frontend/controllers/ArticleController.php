@@ -65,7 +65,12 @@ class ArticleController extends Controller
         if (!$model) {
             throw new NotFoundHttpException;
         }
-
+//        $array = ArticleAttachment::find()->asArray()->all();
+//        foreach($array as $key=>$value){
+//            $row = $array[$key];
+//            print_r($row);
+//        }
+//        print_r(ArticleAttachment::find()->asArray()->all());
         return Yii::$app->response->sendStreamAsFile(
             Yii::$app->fileStorage->getFilesystem()->readStream($model->path),
             $model->name

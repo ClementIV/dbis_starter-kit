@@ -89,13 +89,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     foreach ($software as $key=>$value){
                         $row = $software[$key];
                         $time = substr($row['finishtime'],0,10);
+                        $location = '/dbis_starter-kit/frontend/web/article/attachment-download?id=3';
                         echo "<tr>
                             <td>{$row['softid']}</td>
                             <td>{$row['name']}</td>
                             <td>{$row['author']}</td>
                             <td>{$time}</td>
                             <td class=\"table__wait\"><i class=\"fa fa-spinner\"></i> {$row['regisnumber']}</td>
-                            <td><a class=\"btn btn-primary btn-sm\" href=\"#\">{$row['enclosure']}</a></td>
+                            <td><a class=\"btn btn-primary btn-sm\" href=\"{$location}\">{$row['enclosure']}</a></td>
                         </tr>";
                     }
                     ?>
