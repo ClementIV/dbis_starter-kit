@@ -90,13 +90,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         $row = $software[$key];
                         $time = substr($row['finishtime'],0,10);
                         echo "<tr>
-                                <td>{$row['softid']}</td>
-                                <td>{$row['name']}</td>
-                                <td>{$row['author']}</td>
-                                <td>{$time}</td>
-                                <td class=\"table__wait\"><i class=\"fa fa-spinner\"></i> {$row['regisnumber']}</td>
-                                <td><a class=\"btn btn-primary btn-sm\" href=\"#\">{$row['enclosure']}</a></td>
-                            </tr>";
+                            <td>{$row['softid']}</td>
+                            <td>{$row['name']}</td>
+                            <td>{$row['author']}</td>
+                            <td>{$time}</td>
+                            <td class=\"table__wait\"><i class=\"fa fa-spinner\"></i> {$row['regisnumber']}</td>
+                            <td><a class=\"btn btn-primary btn-sm\" href=\"#\">{$row['enclosure']}</a></td>
+                        </tr>";
                     }
                     ?>
 <!--                    <tr>-->

@@ -54,7 +54,8 @@ class ProjectController extends Controller
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
-            'software'=> Software::getAll()
+            //'software'=> Software::getAll()
+            'software'=> Software::getById($id)
         ]);
     }
 

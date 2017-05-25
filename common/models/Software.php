@@ -53,6 +53,11 @@ class Software extends \yii\db\ActiveRecord
             'enclosure' => 'Enclosure',
         ];
     }
+    public static function getById($id){
+        $rtnArray = [];
+        $rtnArray[0]=Software::findOne($id);
+        return $rtnArray;
+    }
 
     public static function getAll(){
        //print_r(\GuzzleHttp\json_encode(Software::find()->asArray()->all()));
