@@ -133,9 +133,11 @@ $bundle = BackendAsset::register($this);
                             'options' => ['class' => 'header']
                         ],
                         [
-                            'label'=>Yii::t('backend', 'Attendence'),
-                            'icon'=>'<i class="fa fa-users"></i>',
-                            'url'=>['/attendance/index'],
+                            'label'=>Yii::t('backend', 'Timeline'),
+                            'icon'=>'<i class="fa fa-bar-chart-o"></i>',
+                            'url'=>['/timeline-event/index'],
+                            'badge'=> TimelineEvent::find()->today()->count(),
+                            'badgeBgClass'=>'label-success',
                         ],
                         [
                             'label'=>Yii::t('backend', 'Content'),
@@ -146,8 +148,6 @@ $bundle = BackendAsset::register($this);
                                 ['label'=>Yii::t('backend', 'Static pages'), 'url'=>['/page/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
                                 ['label'=>Yii::t('backend', 'Articles'), 'url'=>['/article/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
                                 ['label'=>Yii::t('backend', 'Article Categories'), 'url'=>['/article-category/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
-                                ['label'=>Yii::t('backend', 'Post'), 'url'=>['/post/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>', 'visible'=>Yii::$app->user->can('post')],
-                                ['label'=>Yii::t('backend', 'Project'), 'url'=>['/project/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>', 'visible'=>Yii::$app->user->can('project')],
                                 ['label'=>Yii::t('backend', 'Text Widgets'), 'url'=>['/widget-text/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
                                 ['label'=>Yii::t('backend', 'Menu Widgets'), 'url'=>['/widget-menu/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
                                 ['label'=>Yii::t('backend', 'Carousel Widgets'), 'url'=>['/widget-carousel/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],

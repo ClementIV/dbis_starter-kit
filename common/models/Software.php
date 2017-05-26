@@ -22,7 +22,7 @@ class Software extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'software';
+        return '{{%software}}';
     }
 
     /**

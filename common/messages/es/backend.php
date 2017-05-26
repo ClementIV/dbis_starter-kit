@@ -108,6 +108,7 @@ return [
     'Password' => 'Contraseña',
     'Password Confirm' => 'Confirmar Contraseña',
     'Port' => 'Puerto',
+    'Post' => 'Post',
     'Prefix' => 'Prefijo',
     'Processor' => 'Procesador',
     'Processor Architecture' => 'Arquitectura del procesador',

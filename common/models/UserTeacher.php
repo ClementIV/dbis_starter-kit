@@ -20,6 +20,7 @@ use common\models\query\UserTeacherQuery;
  * @property string $plurality
  * @property string $office
  * @property integer $status
+ * @property  string $tagid
  */
 class UserTeacher extends \yii\db\ActiveRecord
 {
@@ -28,7 +29,7 @@ class UserTeacher extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'user_teacher';
+        return '{{%user_teacher}}';
     }
 
     /**
@@ -42,7 +43,8 @@ class UserTeacher extends \yii\db\ActiveRecord
             [['plurality'], 'string'],
             [['teacher_id', 'degree', 'title', 'telephone'], 'string', 'max' => 20],
             [['direction',  'office'], 'string', 'max' => 255],
-            [['project', 'achievement'],'string']
+            [['project', 'achievement'],'string'],
+            [['tagid'],'safe']
         ];
     }
 

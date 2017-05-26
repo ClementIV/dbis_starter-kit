@@ -33,7 +33,7 @@ class Post extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'post';
+        return '{{%post}}';
     }
 
     public function behaviors()
@@ -58,10 +58,12 @@ class Post extends \yii\db\ActiveRecord
             [['title'], 'string', 'max' => 255],
             [['summary','body','place', 'created_by'], 'string'],
             [['thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
-            [[ 'thumbnail'], 'safe'],
+            [[ 'thumbnail','touser','toparty','published_at','begintime','endtime'], 'safe'],
             [['published_at','begintime','endtime'], 'default', 'value' => function () {
                 return date(DATE_ISO8601);
             }],
+            [['published_at','begintime','endtime'], 'filter', 'filter' => 'strtotime', 'skipOnEmpty' => true],
+            ['begintime', 'compare', 'compareValue' => 'endtime', 'operator' => '<']
         ];
     }
 
@@ -96,5 +98,17 @@ class Post extends \yii\db\ActiveRecord
     public static function find()
     {
         return new \common\models\query\PostQuery(get_called_class());
+    }
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            /*$this -> touser = implode(',',$this -> touser);
+            $this -> toparty = implode(',',$this ->toparty);*/
+            return true;
+        }else
+        {
+            return false;
+        }
     }
 }

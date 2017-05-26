@@ -62,8 +62,11 @@ class UserStudentController extends Controller
     {
         $model = new UserStudent();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->userid]);
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->save())
+            {
+                return $this->redirect(['view', 'id' => $model->userid]);
+            }
         } else {
             return $this->render('create', [
                 'model' => $model,

@@ -25,6 +25,7 @@ use yii\db\ActiveRecord;
  * @property string $patent
  * @property string $software
  * @property string $displayurl
+ * @property  string $tagid
  */
 class Project extends ActiveRecord
 {
@@ -35,7 +36,7 @@ class Project extends ActiveRecord
      */
     public static function tableName()
     {
-        return 'project';
+        return '{{%project}}';
     }
 
     public function behaviors()
@@ -68,6 +69,7 @@ class Project extends ActiveRecord
             [['source'], 'string', 'max' => 100],
             [[ 'thumbnail'], 'safe'],
             [['paper', 'patent', 'software'], 'string'],
+            [['tagid'],'safe']
         ];
     }
 

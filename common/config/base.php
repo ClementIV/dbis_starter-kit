@@ -76,7 +76,7 @@ $config = [
                         return sprintf('[%s][%s]', Yii::$app->id, $url);
                     },
                     'logVars'=>[],
-                    'logTable'=>'{{%system_log}}'
+                    'logTable'=>'{{%dbis_system_log}}'
                 ]
             ],
         ],
@@ -188,6 +188,7 @@ $config = [
             '讲师',
             '高级实验师'
         ],
+        'tablePrefix'=>'dbis_'
     ],
 ];
 
