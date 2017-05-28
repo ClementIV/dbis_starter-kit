@@ -20,7 +20,7 @@ class JuiAsset extends AssetBundle
         'jquery-ui.js',
     ];
     public $css = [
-        'themes/smoothness/jquery-ui.css',
+        'themes/south-street/jquery-ui.css',
     ];
     public $depends = [
         'yii\web\JqueryAsset',

@@ -14,13 +14,11 @@ Yii::setAlias('@backend', realpath(__DIR__.'/../../backend'));
 Yii::setAlias('@console', realpath(__DIR__.'/../../console'));
 Yii::setAlias('@storage', realpath(__DIR__.'/../../storage'));
 Yii::setAlias('@tests', realpath(__DIR__.'/../../tests'));
-
+Yii::setAlias('@install', realpath(__DIR__.'/../../install'));
 /**
  * Setting url aliases
  */
 Yii::setAlias('@frontendUrl', env('FRONTEND_URL'));
+Yii::setAlias('@installUrl', env('INSTALL_URL'));
 Yii::setAlias('@backendUrl', env('BACKEND_URL'));
 Yii::setAlias('@storageUrl', env('STORAGE_URL'));
-
-
-
