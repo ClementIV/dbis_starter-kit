@@ -13,6 +13,7 @@ use install\models\CreateDatabase;
 use yii\helpers\Html;
 use yii\web\ErrorAction;
 use yii\base\Exception;
+use yii\helpers\Url;
 /**
  * Site controller
  */
@@ -27,7 +28,7 @@ class SiteController extends Controller
      *这里地行为设置为access方法，用于只有是login和error可以执行，然后在相应的action里面进行页面跳转
      *对于已经登录的页面而言，只有登出和首页，但是需要role设置
      */
-   /*public function behaviors()
+/*   public function behaviors()
     {
        return [
             //命名行为，配置相应的数组。
@@ -37,26 +38,17 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index','error','check-env','login',],
+                        'actions' => ['index','error','check-env','database','congratulation'],
                         'allow' => true,
                         'roles'=>['?'],
                     ],
                     //这里要求对用户组件要正确配置
-                    [
-                        'actions' => ['logout', 'index'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
+
                 ],
             ],
             //命名行为，配置数组 verbs的具体事项，需要查阅相关类
             //过滤行为？负责登出，
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
+
         ];
    }*/
    public function getCount(){
@@ -81,9 +73,25 @@ class SiteController extends Controller
     @check php
     @get OS and free space
    */
+   public function actionCongratulation()
+   {
+    if (!file_exists('lock.lock')){
+      fopen('lock.lock','x');
+      return $this->render('congratulation');
+    }
+    else
+    {
+      return $this->redirect(yii::getAlias('@frontendUrl'));
+    }
+
+    return ;
+   }
    public function actionCheckEnv()
    {
     // return $this->goHome();
+    if(file_exists('lock.lock')){
+      return $this->redirect(yii::getAlias('@frontendUrl'));
+    }
      $model=new CheckEnv();
      $result='defeat!';
      //$yiiVersion=getVersion();
@@ -98,11 +106,17 @@ class SiteController extends Controller
    */
    public function actionInstall()
    {
-    // echo Html::encode($this->render('install'));
-     return $this->render('install');
+     if(file_exists('lock.lock')){
+       return $this->redirect(yii::getAlias('@frontendUrl'));
+     }
+    //echo Html::encode($this->render('install'));
+      $this->redirect(['congratulation']);
    }
    public function actionDatabase()
    {
+     if(file_exists('lock.lock')){
+       return $this->redirect(yii::getAlias('@frontendUrl'));
+     }
      $model=new CreateDatabase();
   //   $model->load(Yii::$app->request->post());
      if($model->load(Yii::$app->request->post())&&$model->validate())
@@ -111,19 +125,23 @@ class SiteController extends Controller
        $check=$model->checkConnect();
        if($check['1'])
        {
-         try{
+      try{
+
           $model->CreateDB();
           echo  $this->render('install');
           $model->ImportData();
           //$mdoel->ChangeConfig();
          //&&$model->checkConnect()
          //render();
+           echo '<script> window.location.assign("'.Url::to(['congratulation'], true).'")</script>';
+           return;
+
        }catch(Exception $e)
        {
          throw new Exception("Error Processing Request", $e);
 
        }
-         echo "success!";
+
          //return $this->goHome();
        }
        else
@@ -166,6 +184,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+      if(file_exists('lock.lock')){
+        return $this->redirect(yii::getAlias('@frontendUrl'));
+      }
         return $this->render('index');
     }
 

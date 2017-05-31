@@ -1,6 +1,6 @@
 <?php
 $config = [
-    'homeUrl'=>Yii::getAlias('@installUrl'),
+    'homeUrl'=> $homeUrl,
     'controllerNamespace' => 'install\controllers',
     'defaultRoute'=>'site/index',
     'controllerMap'=>[
@@ -29,7 +29,7 @@ $config = [
         'class'=>'yii\web\User',
         'identityClass' => 'common\models\User',
         'loginUrl'=>['sign-in/login'],
-        'enableAutoLogin' => true,
+        'enableAutoLogin' => false,
         'as afterLogin' => 'common\behaviors\LoginTimestampBehavior'
     ],
 ],

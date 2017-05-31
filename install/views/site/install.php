@@ -16,7 +16,7 @@ $this->title = 'Welcome Install';
   <ol class="cd-multi-steps text-center custom-icons">
     <li class="visited"><a>Welcome</a></li>
     <li class="visited"><a>Check </a></li>
-    <li class="visited"><a> Database </a></li>
+    <li class="visited"><a>Database</a></li>
     <li class="current"><em>Install</em></li>
   </ol>
 

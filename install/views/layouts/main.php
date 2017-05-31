@@ -94,7 +94,7 @@ AppAsset::register($this);
 
   function valueChang(){
   //  document.getElementById('txt').value=i
-      i=i+2;
+      i=i+4;
       jQuery('#w10').progressbar({'value':i})
        t=setTimeout("valueChang()",500)
        if(i==100)
@@ -103,7 +103,8 @@ AppAsset::register($this);
        }
     }
 
-setTimeout(" valueChang()",1000);
+ var a=setTimeout(" valueChang()",1000)
+ //clearTimeout(a);
 </script>
 </body>
 </html>
