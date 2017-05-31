@@ -27,6 +27,10 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <script>
+    var i=0
+    var t
+    </script>
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -86,6 +90,21 @@ AppAsset::register($this);
 </footer>
 
 <?php $this->endBody() ?>
+<script type="text/javascript">
+
+  function valueChang(){
+  //  document.getElementById('txt').value=i
+      i=i+2;
+      jQuery('#w10').progressbar({'value':i})
+       t=setTimeout("valueChang()",500)
+       if(i==100)
+       {
+          clearTimeout(t)
+       }
+    }
+
+setTimeout(" valueChang()",1000);
+</script>
 </body>
 </html>
 <?php $this->endPage() ?>

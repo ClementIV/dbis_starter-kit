@@ -38,8 +38,8 @@ $this->title = 'Welcome Install';
                         <div align="center">
                           <nav>
                             <ol class="cd-multi-steps text-center">
-                              <li class="visited">'.Html::a('Previous',['index'], ['class' => 'link']).'</li>
-                              <li class="current">'.Html::a('GO Next',['database'], ['class' => 'link']).'</li>
+                              <li class="visited">'.Html::a('Previous',['site/index'], ['class' => 'link']).'</li>
+                              <li class="current">'.Html::a('GO Next',['site/database'], ['class' => 'link']).'</li>
                             <ol>
                             </nav>
                             </div>

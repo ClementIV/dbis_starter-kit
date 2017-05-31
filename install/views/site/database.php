@@ -57,8 +57,7 @@ $this->title = 'Welcome Install';
         'headerOptions' => ['tag' => 'h3',],
         'clientOptions' => ['collapsible' =>true],
     ]);
-    ?>
-    </div>
-  <nav>
-
-  <?=Html::endTag('section');?>
+?>
+  </div>
+<nav>
+<?=Html::endTag('section');?>

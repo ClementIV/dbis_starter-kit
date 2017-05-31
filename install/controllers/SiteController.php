@@ -11,6 +11,8 @@ use install\models\CheckEnv;
 use install\models\NewDB;
 use install\models\CreateDatabase;
 use yii\helpers\Html;
+use yii\web\ErrorAction;
+use yii\base\Exception;
 /**
  * Site controller
  */
@@ -19,7 +21,7 @@ class SiteController extends Controller
     /**
      * @inheritdoc
      */
-     public $count;
+
      //修改behaviors可以实现按步骤执行的结果
      /*
      *这里地行为设置为access方法，用于只有是login和error可以执行，然后在相应的action里面进行页面跳转
@@ -109,14 +111,19 @@ class SiteController extends Controller
        $check=$model->checkConnect();
        if($check['1'])
        {
-
+         try{
           $model->CreateDB();
-          return $this->render('install');
+          echo  $this->render('install');
           $model->ImportData();
           //$mdoel->ChangeConfig();
          //&&$model->checkConnect()
          //render();
-          echo "success";
+       }catch(Exception $e)
+       {
+         throw new Exception("Error Processing Request", $e);
+
+       }
+         echo "success!";
          //return $this->goHome();
        }
        else
