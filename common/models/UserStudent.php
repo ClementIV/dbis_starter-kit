@@ -11,10 +11,13 @@ use Yii;
  * @property integer $student_id
  * @property integer $grade
  * @property string $teacherid
+ * @property string $telephone
  * @property string $direction
  * @property string $graduation
+ * @property string $workplace
  * @property integer $status
  * @property string $recommend
+ * @property int $tagid
  */
 class UserStudent extends \yii\db\ActiveRecord
 {
@@ -50,8 +53,10 @@ class UserStudent extends \yii\db\ActiveRecord
             'student_id' => '学号',
             'grade' => '入学年份',
             'teacherid' => '指导老师',
+            'telephone' => '联系电话',
             'direction' => '研究方向',
             'graduation' => '毕业去向',
+            'workplace' => '工作地',
             'status' => 'Status',
             'recommend' => '寄语',
         ];
