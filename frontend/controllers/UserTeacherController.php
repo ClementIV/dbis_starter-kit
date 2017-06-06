@@ -31,7 +31,8 @@ class UserTeacherController extends \yii\web\Controller
 
     public function actionView($id)
     {
-        $model =(new Query()) ->from(['user_profile','user_teacher','user'])->where('user_teacher.userid=user_profile.user_id')->andWhere(['userid'=>$id])->andWhere('user_teacher.userid=user.id')->one();
+        $searchModel = new UserTeacherSearch();
+        $model = $searchModel->searchUserTeacherById($id);
         if (!$model) {
             throw new NotFoundHttpException;
         }
