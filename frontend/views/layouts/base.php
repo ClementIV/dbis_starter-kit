@@ -25,7 +25,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                 ['label' => Yii::t('frontend', 'teacherList'), 'url' => ['/user-teacher/index'],'options' => ['class' => 'z-nav__item'],'linkOptions' => ['class' => 'z-nav__link']],
                 ['label' => Yii::t('frontend', 'Articles'), 'url' => ['/article/index'],'options' => ['class' => 'z-nav__item'],'linkOptions' => ['class' => 'z-nav__link']],
                 ['label' => Yii::t('frontend', 'Project'), 'url' => ['/project/index'],'options' => ['class' => 'z-nav__item'],'linkOptions' => ['class' => 'z-nav__link']],
-                ['label' => Yii::t('frontend', 'Signup'), 'url' => ['/user/sign-in/signup'], 'visible'=>Yii::$app->user->isGuest,'options' => ['class' => 'z-nav__item'],'linkOptions' => ['class' => 'z-nav__link']],
+                ['label' => Yii::t('frontend', 'Signup'), 'url' => ['/user/sign-in/signup'], 'visible'=>Yii::$app->user->isGuest&&env('USER_REGISTER'),'options' => ['class' => 'z-nav__item'],'linkOptions' => ['class' => 'z-nav__link']],
                 ['label' => Yii::t('frontend', 'Login'), 'url' => ['/user/sign-in/login'], 'visible'=>Yii::$app->user->isGuest,'options' => ['class' => 'z-nav__item'],'linkOptions' => ['class' => 'z-nav__link']],
                 [
                     'childOptions'=>['class' => 'z-nav__list-secondary'],
