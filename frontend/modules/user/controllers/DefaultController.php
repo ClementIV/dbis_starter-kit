@@ -10,6 +10,7 @@ use trntv\filekit\actions\UploadAction;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use common\models\UserStudent;
 
 class DefaultController extends Controller
 {
@@ -60,11 +61,13 @@ class DefaultController extends Controller
     {
         $accountForm = new AccountForm();
         $accountForm->setUser(Yii::$app->user->identity);
+        $userStudent = UserStudent::findById(Yii::$app->user->id);
 
         $model = new MultiModel([
             'models' => [
                 'account' => $accountForm,
-                'profile' => Yii::$app->user->identity->userProfile
+                'profile' => Yii::$app->user->identity->userProfile,
+                'userStudent' => $userStudent
             ]
         ]);
 

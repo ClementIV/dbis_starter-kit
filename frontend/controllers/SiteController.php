@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use frontend\models\search\UserStudentSearch;
 use frontend\models\search\UserTeacherSearch;
 use common\models\query\UserTeacherQuery;
 use Yii;
@@ -35,12 +36,9 @@ class SiteController extends Controller
         ];
     }
 
-    public function actionIndex()
-    {
-        return $this->render('index');
-    }
 
-    public function actionIndex1()
+
+    public function actionIndex()
     {
         $this->layout = "base";
         //article
@@ -52,9 +50,13 @@ class SiteController extends Controller
         $dataProvider->query->limit(3);
         //userteacher
         $searchModelUserQuery = new UserTeacherSearch();
-        $dataProviderTeacher = $searchModelUserQuery->searchUserProfile(Yii::$app->request->queryParams);
-        return $this->render('index1', [
-            'dataProvider'=>['data0'=>$dataProvider,'data1'=> $dataProviderTeacher]
+        $TeacherModel = $searchModelUserQuery->searchUserProfile1(Yii::$app->request->queryParams);
+        $searchModelStudent = new UserStudentSearch();
+        $studentModel = $searchModelStudent->searchStudent1(Yii::$app->request->queryParams);
+        return $this->render('index', [
+            'dataProvider'=>['data0'=>$dataProvider],
+            'teacherModel'=>$TeacherModel,
+            'studentModel'=>$studentModel
         ]);
     }
 

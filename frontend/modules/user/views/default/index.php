@@ -24,13 +24,10 @@ $this->title = Yii::t('frontend', 'User Settings')
         ]
     )?>
 
-    <?php echo $form->field($model->getModel('profile'), 'firstname')->textInput(['maxlength' => 255]) ?>
+    <?php echo $form->field($model->getModel('profile'), 'name')->textInput(['maxlength' => 255]) ?>
 
-    <?php echo $form->field($model->getModel('profile'), 'middlename')->textInput(['maxlength' => 255]) ?>
 
-    <?php echo $form->field($model->getModel('profile'), 'lastname')->textInput(['maxlength' => 255]) ?>
-
-    <?php echo $form->field($model->getModel('profile'), 'locale')->dropDownlist(Yii::$app->params['availableLocales']) ?>
+<!--    --><?php /*echo $form->field($model->getModel('profile'), 'locale')->dropDownlist(Yii::$app->params['availableLocales']) */?>
 
     <?php echo $form->field($model->getModel('profile'), 'gender')->dropDownlist([
         \common\models\UserProfile::GENDER_FEMALE => Yii::t('frontend', 'Female'),
@@ -46,6 +43,20 @@ $this->title = Yii::t('frontend', 'User Settings')
     <?php echo $form->field($model->getModel('account'), 'password')->passwordInput() ?>
 
     <?php echo $form->field($model->getModel('account'), 'password_confirm')->passwordInput() ?>
+
+    <h2><?php echo Yii::t('frontend', 'Student Settings') ?></h2>
+
+    <?php echo $form->field($model->getModel('userStudent'), 'grade') ?>
+
+    <?php echo $form->field($model->getModel('userStudent'), 'teacherid') ?>
+
+    <?php echo $form->field($model->getModel('userStudent'), 'direction') ?>
+
+    <?php echo $form->field($model->getModel('userStudent'), 'graduation') ?>
+
+    <?php echo $form->field($model->getModel('userStudent'), 'workplace') ?>
+
+
 
     <div class="form-group">
         <?php echo Html::submitButton(Yii::t('frontend', 'Update'), ['class' => 'btn btn-primary']) ?>

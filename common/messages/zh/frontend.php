@@ -55,6 +55,7 @@ return [
     'Remember Me' => '记住我',
     'Request password reset' => '请求重置密码',
     'Reset password' => '重置密码',
+    'Student Settings' => '学生信息',
     'Settings' => '设置',
     'Sign up with' => '注册',
     'Signup' => '注册',

@@ -39,6 +39,8 @@ class User extends ActiveRecord implements IdentityInterface
     const ROLE_USER = 'user';
     const ROLE_MANAGER = 'manager';
     const ROLE_ADMINISTRATOR = 'administrator';
+    const ROLE_STUDENT = 'student';
+    const ROLE_TEACHER = 'teacher';
 
     const EVENT_AFTER_SIGNUP = 'afterSignup';
     const EVENT_AFTER_LOGIN = 'afterLogin';
@@ -272,6 +274,28 @@ class User extends ActiveRecord implements IdentityInterface
         $auth->assign($auth->getRole(User::ROLE_USER), $this->getId());
     }
 
+    public function afterStudentSignup(array $profileData = [])
+    {
+        $this->refresh();
+        Yii::$app->commandBus->handle(new AddToTimelineCommand([
+            'category' => 'user',
+            'event' => 'signup',
+            'data' => [
+                'public_identity' => $this->getPublicIdentity(),
+                'user_id' => $this->getId(),
+                'created_at' => $this->created_at
+            ]
+        ]));
+        $profile = new UserProfile();
+        $profile->locale = Yii::$app->language;
+        $profile->load($profileData, '');
+        $this->link('userProfile', $profile);
+        $this->trigger(self::EVENT_AFTER_SIGNUP);
+        // Default role
+        $auth = Yii::$app->authManager;
+        $auth->assign($auth->getRole(User::ROLE_STUDENT), $this->getId());
+    }
+
     /**
      * @return string
      */
@@ -284,5 +308,19 @@ class User extends ActiveRecord implements IdentityInterface
             return $this->username;
         }
         return $this->email;
+    }
+
+    public function  canPermission($permission)
+    {
+        $query=select(['item_name'])->from('dbis_rbac_auth_assignment');
+        $list=$query->all();
+        if(count($list)>0)
+        {
+            if(in_array($permission,$list))
+                return true;
+            else return false;
+
+        }
+
     }
 }

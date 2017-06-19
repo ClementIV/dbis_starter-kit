@@ -11,7 +11,8 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
     <div class="wrap">
         <?php
         NavBar::begin([
-            'brandLabel' => Yii::$app->name,
+            /*'brandLabel' => Yii::$app->name,*/
+            'brandLabel' => '<image class="header-logo" src="/css/images/logo.png" />',
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
                 'class' => 'z-nav',
@@ -21,7 +22,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
         <?php echo Nav::widget([
             'options' => ['class' => 'z-nav__list'],
             'items' => [
-                ['label' => Yii::t('frontend', 'Home'), 'url' => ['/site/index'],'options' => ['class' => 'z-nav__item'],'linkOptions' => ['class' => 'z-nav__link']],
+                ['label' => Yii::t('frontend', 'Home'), 'url' => ['/site/index1'],'options' => ['class' => 'z-nav__item'],'linkOptions' => ['class' => 'z-nav__link']],
                 ['label' => Yii::t('frontend', 'teacherList'), 'url' => ['/user-teacher/index'],'options' => ['class' => 'z-nav__item'],'linkOptions' => ['class' => 'z-nav__link']],
                 ['label' => Yii::t('frontend', 'Articles'), 'url' => ['/article/index'],'options' => ['class' => 'z-nav__item'],'linkOptions' => ['class' => 'z-nav__link']],
                 ['label' => Yii::t('frontend', 'Project'), 'url' => ['/project/index'],'options' => ['class' => 'z-nav__item'],'linkOptions' => ['class' => 'z-nav__link']],
@@ -42,6 +43,13 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                             'label' => Yii::t('frontend', 'Backend'),
                             'url' => Yii::getAlias('@backendUrl'),
                             'visible'=>Yii::$app->user->can('manager')
+                            ,'options' => ['class' => 'z-nav__item']
+                            ,'linkOptions' => ['class' => 'z-nav__link']
+                        ],
+                        [
+                            'label' => Yii::t('common', 'Information'),
+                            'url' => ['/user-student/update'],
+                            'visible'=>Yii::$app->user->can('student')
                             ,'options' => ['class' => 'z-nav__item']
                             ,'linkOptions' => ['class' => 'z-nav__link']
                         ],

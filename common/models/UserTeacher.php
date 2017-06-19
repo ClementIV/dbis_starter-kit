@@ -84,8 +84,15 @@ class UserTeacher extends \yii\db\ActiveRecord
         return new UserTeacherQuery(get_called_class());
     }
 
+    public static function findById($id)
+    {
+        return static::find()
+            ->andWhere(['userid' => $id])
+            ->one();
+    }
+
     public function getUserProfile()
     {
-
+        return $this->hasOne(UserProfile::className(), ['user_id' => 'userid']);
     }
 }

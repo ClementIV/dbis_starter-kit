@@ -58,17 +58,11 @@ class UserTeacherSearch extends UserTeacher
         return $dataProvider;
     }
 
-    public function searchUserTeacherById($id)
-    {
-        $model = (new Query()) ->from(['dbis_user_profile','dbis_user_teacher','dbis_user'])->where('dbis_user_teacher.userid=dbis_user_profile.user_id')->andWhere(['userid'=>$id])->andWhere('dbis_user_teacher.userid=dbis_user.id')->one();
-        return $model;
-    }
-
     public function searchTeacherInfo($params)
     {
         //$query = UserTeacher::find()->leftJoin('user_profile','user_teacher.userid=user_profile.user_id');
         $query =new Query();
-        $query=$query->from(['dbis_user_profile','dbis_user_teacher'])->where('dbis_user_teacher.userid=user_profile.user_id');
+        $query=$query->from(['dbis_user_profile','dbis_user_teacher'])->where('dbis_user_teacher.userid=dbis_user_profile.user_id');
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);

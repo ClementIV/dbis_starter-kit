@@ -18,8 +18,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?php echo Html::a(Yii::t('backend', 'Create {modelClass}', [
-    'modelClass' => 'User',
-]), ['create'], ['class' => 'btn btn-success']) ?>
+            'modelClass' => 'User',
+        ]), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php echo GridView::widget([
@@ -38,10 +38,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'enum' => User::statuses(),
                 'filter' => User::statuses()
             ],
-            'created_at:datetime',
-            'logged_at:datetime',
             // 'updated_at',
-
+            [
+                "class" => "yii\grid\CheckboxColumn",
+                "lable"=> "student",
+                "name" => "id",
+                'value'=> User::canPermission('student')
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

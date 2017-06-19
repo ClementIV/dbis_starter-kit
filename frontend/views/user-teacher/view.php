@@ -28,16 +28,6 @@
 
             <div class="clearfix visible-sm"></div>
 
-            <h3 class="heading-helper">Share</h3>
-
-            <!-- Small share buttons-->
-            <div class="share share--small">
-                <a class="share__item share__item--facebook" href="#"><i class="fa fa-facebook"></i>Share</a>
-                <a class="share__item share__item--twitter" href="#"><i class="fa fa-twitter"></i>Tweet</a>
-                <a class="share__item share__item--gplus share__item--empty" href="#"><i class="fa fa-google-plus"></i></a>
-                <a class="share__item share__item--pinterest" href="#"><i class="fa fa-pinterest"></i>Pin it</a>
-                <a class="share__item share__item--linkedin" href="#"><i class="fa fa-linkedin"></i>Share</a>
-            </div>
 
         </div>
     </div><!-- end col -->

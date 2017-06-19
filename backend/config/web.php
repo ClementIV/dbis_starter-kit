@@ -32,12 +32,17 @@ $config = [
             'enableAutoLogin' => true,
             'as afterLogin' => 'common\behaviors\LoginTimestampBehavior'
         ],
+
     ],
     'modules'=>[
         'i18n' => [
             'class' => 'backend\modules\i18n\Module',
             'defaultRoute'=>'i18n-message/index'
+        ],
+        'admin' => [
+            'class' => 'mdm\admin\Module',
         ]
+
     ],
     'as globalAccess'=>[
         'class'=>'\common\behaviors\GlobalAccessBehavior',
@@ -79,7 +84,14 @@ $config = [
                 'roles' => ['manager'],
             ]
         ]
-    ]
+    ],
+/*    'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            'site/*',//允许访问的节点，可自行添加
+            'admin/*',//允许所有人访问admin节点及其子节点
+        ]
+    ],*/
 ];
 
 if (YII_ENV_DEV) {

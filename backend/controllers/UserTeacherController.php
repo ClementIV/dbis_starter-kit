@@ -5,7 +5,7 @@ namespace backend\controllers;
 use common\models\Tag;
 use Yii;
 use common\models\UserTeacher;
-use backend\models\search\TeachertSearch;
+use backend\models\search\UserTeacherSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -33,7 +33,7 @@ class UserTeacherController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new TeachertSearch();
+        $searchModel = new UserTeacherSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [

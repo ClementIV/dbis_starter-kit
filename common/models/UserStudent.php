@@ -57,7 +57,7 @@ class UserStudent extends \yii\db\ActiveRecord
             'direction' => '研究方向',
             'graduation' => '毕业去向',
             'workplace' => '工作地',
-            'status' => 'Status',
+            'status' => '最高学历',
             'recommend' => '寄语',
         ];
     }
@@ -69,5 +69,18 @@ class UserStudent extends \yii\db\ActiveRecord
     public static function find()
     {
         return new \common\models\query\UserStudentQuery(get_called_class());
+    }
+
+    public function getUserProfile()
+    {
+        return $this->hasOne(UserProfile::className(), ['user_id' => 'userid']);
+    }
+
+
+    public static function findById($id)
+    {
+        return static::find()
+            ->andWhere(['userid' => $id])
+            ->one();
     }
 }

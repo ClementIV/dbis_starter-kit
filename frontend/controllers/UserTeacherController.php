@@ -17,11 +17,11 @@ class UserTeacherController extends \yii\web\Controller
     public function actionIndex()
     {
         $searchModel = new UserTeacherSearch();
-        $dataProvider = $searchModel->searchTeacherInfo(Yii::$app->request->queryParams);
+        $model = $searchModel->searchTeacherInfo1(Yii::$app->request->queryParams);
        /* $dataProvider->sort = [
             'defaultOrder' => ['user_teacher.title' => SORT_ASC]
         ];*/
-        return $this->render('index', ['dataProvider'=>$dataProvider]);
+        return $this->render('index', ['model'=>$model]);
     }
 
     public function actionUpdate()
@@ -32,7 +32,7 @@ class UserTeacherController extends \yii\web\Controller
     public function actionView($id)
     {
         $searchModel = new UserTeacherSearch();
-        $model = $searchModel->searchUserTeacherById($id);
+        $model = $searchModel->searchTeacherById($id);
         if (!$model) {
             throw new NotFoundHttpException;
         }

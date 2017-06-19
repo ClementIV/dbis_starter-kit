@@ -24,6 +24,7 @@ class FrontendAsset extends AssetBundle
         'css/external/z-nav/z-nav.css',
         'css/external/rs-plugin/css/settings.css',
         'css/external/swiper/idangerous.swiper.css',
+        'css/external/mCustomScrollbar/jquery.mCustomScrollbar.css'
 
     ];
 
@@ -43,7 +44,10 @@ class FrontendAsset extends AssetBundle
 		"css/external/livicons/raphael-min.js",
 	    "css/external/waypoint/waypoints.min.js",
         "css/external/inview/jquery.inview.js",
+        'css/external/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js',
         "js/custom.js",
+        "css/external/livicons/livicons-1.3.min.js",
+		"css/external/livicons/raphael-min.js"
 
     ];
 
@@ -51,6 +55,7 @@ class FrontendAsset extends AssetBundle
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
         'common\assets\Html5shiv',
+        'common\assets\FontAwesome'
     ];
 
     public $jsOptions = [
