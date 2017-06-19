@@ -58,6 +58,23 @@ class UserTeacherSearch extends UserTeacher
         return $dataProvider;
     }
 
+    public function searchUserProfile1($params)
+    {
+        $ids="";
+        $teachers=UserTeacher::find()->all();
+        foreach ($teachers as $key =>$val)
+        {
+            $ids.=$val['userid'].',';
+        }
+        $ids=substr($ids,0,-1);
+        $ids=explode(',',$ids);
+        $query = UserProfile::find()->where(['user_id'=>$ids]);
+        $model = $query->all();
+        return $model;
+
+
+    }
+
     public function searchTeacherInfo($params)
     {
         //$query = UserTeacher::find()->leftJoin('user_profile','user_teacher.userid=user_profile.user_id');
@@ -96,6 +113,20 @@ class UserTeacherSearch extends UserTeacher
 
     }
 
+    public function searchTeacherInfo1($params)
+    {
+        //$query = UserTeacher::find()->leftJoin('user_profile','user_teacher.userid=user_profile.user_id');
+        $query =new Query();
+        $query=$query->from(['dbis_user_profile','dbis_user_teacher'])->where('dbis_user_teacher.userid=dbis_user_profile.user_id');
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+        $model = $query->all();
+        return $model;
+
+
+    }
+
     public function searchTeacherwithTag($tagid)
     {
         //$query = UserTeacher::find()->leftJoin('user_profile','user_teacher.userid=user_profile.user_id');
@@ -115,6 +146,12 @@ class UserTeacherSearch extends UserTeacher
         }
         return $dataProvider;
 
+    }
+
+    public function searchTeacherById($id)
+    {
+        $model =(new Query()) ->from(['dbis_user_profile','dbis_user_teacher','dbis_user'])->where('dbis_user_teacher.userid=dbis_user_profile.user_id')->andWhere(['userid'=>$id])->andWhere('dbis_user_teacher.userid=dbis_user.id')->one();
+        return $model;
     }
 
 }
