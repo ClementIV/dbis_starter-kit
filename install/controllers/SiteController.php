@@ -125,7 +125,7 @@ class SiteController extends Controller
        $check=$model->checkConnect();
        if($check['1'])
        {
-      try{
+		try{
 
           $model->CreateDB();
           echo  $this->render('install');
@@ -138,11 +138,11 @@ class SiteController extends Controller
           echo '<script> window.location.assign("'.Url::to(['congratulation'], true).'")</script>';
            return;
 
-       }catch(Exception $e)
-       {
-         throw new Exception("Error Processing Request", $e);
+		}catch(Exception $e)
+		{
+			throw new Exception("Error Processing Request", $e);
 
-       }
+		}
 
          //return $this->goHome();
        }
