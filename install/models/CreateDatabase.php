@@ -69,7 +69,7 @@ class CreateDatabase extends Model
       return ['1'=>true,];
   }
   //import all  data into database
-  // 
+  //
   public function importData()
   {
     set_time_limit(0);
@@ -89,9 +89,14 @@ class CreateDatabase extends Model
   //change the whole db config
   public function ChangeConfig()
   {
-    $config=require(__DIR__ . '/../../common/config/main-local.php');
-    $config['components']['db']=['dsn'=>'mysql:host='.$this->dbserver.'; dbname='."$this->dbname",'username'=>$this->user,'password'=>$this->password,'charset' => 'utf8',];
-    //$file =fopen
+    $filePath=dirname(__FILE__)."./../../common/newDB.php";
+    $string='<?
+        putenv("DB_DSN = mysql:host='.$this->dbserver.';port=3306;dbname='.$this->dbname.'");
+        putenv("DB_USERNAME ='.$this->user.'");
+        putenv("DB_PASSWORD = '.$this->password.'");
+        putenv("DB_TABLE_PREFIX ='.$this->prefix.'");
+    ';
+    file_put_contents($filePath,$string);
   }
   public function attributeLabels()
   {
