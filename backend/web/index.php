@@ -3,8 +3,6 @@
 require(__DIR__ . '/../../vendor/autoload.php');
 
 // Environment
-require_once(__DIR__ . '/../../common/helpers.php');
-require(__DIR__.'/../../common/newDB.php');
 require(__DIR__ . '/../../common/env.php');
 
 // Yii

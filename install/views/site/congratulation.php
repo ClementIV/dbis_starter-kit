@@ -25,8 +25,8 @@ $this->title = 'congratulation';
                         <div align="center">
                           <nav>
                             <ol class="cd-multi-steps text-center">
-                              <li ><a href="'.yii::getAlias('@frontendUrl').'">Go to Frontend</a></li>
-                              <li ><a href="'.yii::getAlias('@backendUrl').'">Go to Backend</a></li>
+                              <li >'.Html::a('Frontend',[yii::getAlias('@frontendUrl')], ['class' => 'link']).'</li>
+                              <li >'.Html::a('Backend',[yii::getAlias('@backendUrl')], ['class' => 'link']).'</li>
                             <ol>
                             </nav>
                             </div>

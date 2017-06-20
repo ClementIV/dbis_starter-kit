@@ -74,8 +74,3 @@ function env($key, $default = false) {
 
     return $value;
 }
-function setEnv($key,$value)
-{
-  $_SERVER[$key]=$value;
-  return ;
-}

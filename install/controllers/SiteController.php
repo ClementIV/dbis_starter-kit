@@ -75,17 +75,17 @@ class SiteController extends Controller
    */
    public function actionCongratulation()
    {
-   if (!file_exists('lock.lock')){
+    if (!file_exists('lock.lock')){
       fopen('lock.lock','x');
-    return $this->render('congratulation');
+      return $this->render('congratulation');
     }
     else
     {
       return $this->redirect(yii::getAlias('@frontendUrl'));
     }
 
-  //  return ;
-  }
+    return ;
+   }
    public function actionCheckEnv()
    {
     // return $this->goHome();
@@ -133,9 +133,7 @@ class SiteController extends Controller
           //$mdoel->ChangeConfig();
          //&&$model->checkConnect()
          //render();
-         $model->ChangeConfig();
-        //return  $this->redirect(['congratulation']);
-          echo '<script> window.location.assign("'.Url::to(['congratulation'], true).'")</script>';
+           echo '<script> window.location.assign("'.Url::to(['congratulation'], true).'")</script>';
            return;
 
        }catch(Exception $e)
