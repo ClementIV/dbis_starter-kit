@@ -4,7 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Software;
-use common\models\query\SoftWareQuery;
+use common\models\query\SoftwareQuery;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * SoftWareController implements the CRUD actions for Software model.
  */
-class SoftWareController extends Controller
+class SoftwareController extends Controller
 {
     public function behaviors()
     {
@@ -32,7 +32,7 @@ class SoftWareController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new SoftWareQuery();
+        $searchModel = new SoftwareQuery();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [

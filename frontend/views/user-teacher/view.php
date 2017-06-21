@@ -38,6 +38,7 @@
     <ul class="nav nav-tabs">
         <li class="active"><a href="#one" data-toggle="tab">项目</a></li>
         <li><a href="#two" data-toggle="tab">荣誉</a></li>
+        <li><a href="#three" data-toggle="tab">所授课程</a></li>
     </ul>
 
     <!-- Tab panes -->
@@ -47,6 +48,9 @@
         </div>
         <div class="tab-pane" id="two">
             <?php echo $model['achievement']; ?>
+        </div>
+        <div class="tab-pane" id="three">
+            <?php echo $model['course']; ?>
         </div>
     </div>
 </div>
