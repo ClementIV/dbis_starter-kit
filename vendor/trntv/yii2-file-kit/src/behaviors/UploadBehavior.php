@@ -62,10 +62,14 @@ class UploadBehavior extends Behavior
      */
     public $orderAttribute;
 
+    public $itemtypeAttribute;
+
     /**
      * @var string name of the relation
      */
     public $uploadRelation;
+
+
     /**
      * @var $uploadModel
      * Schema example:
@@ -134,7 +138,8 @@ class UploadBehavior extends Behavior
             'type' => $this->typeAttribute,
             'size' => $this->sizeAttribute,
             'name' => $this->nameAttribute,
-            'order' => $this->orderAttribute
+            'order' => $this->orderAttribute,
+            'itemtype' => $this->itemtypeAttribute
         ];
 
         if ($this->attributePrefix !== null) {
@@ -142,6 +147,7 @@ class UploadBehavior extends Behavior
                 return $this->attributePrefix . $fieldName;
             }, $fields);
         }
+
 
         return $fields;
     }
@@ -295,6 +301,11 @@ class UploadBehavior extends Behavior
             $model = new $modelClass;
             $model->setScenario($this->uploadModelScenario);
             $model = $this->loadModel($model, $file);
+            if(get_class($model)=='common\models\ItemAttachment')
+            {
+                var_dump($this->owner->getRelatedRecords()['itemAttachments'][0]->getItemType());
+                $model->setItemType($this->owner->getRelatedRecords()['itemAttachments'][0]->getItemType());
+            }
             if ($this->getUploadRelation()->via !== null) {
                 $model->save(false);
             }
@@ -313,6 +324,11 @@ class UploadBehavior extends Behavior
             if ($model) {
                 $model->setScenario($this->uploadModelScenario);
                 $model = $this->loadModel($model, $file);
+                if(get_class($model)=='common\models\ItemAttachment')
+                {
+                    var_dump($this->owner->getRelatedRecords()['itemAttachments'][0]->getItemType());
+                    $model->setItemType($this->owner->getRelatedRecords()['itemAttachments'][0]->getItemType());
+                }
                 $model->save(false);
             }
         }

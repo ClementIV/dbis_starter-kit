@@ -83,23 +83,31 @@ $this->params['breadcrumbs'][] = $this->title;
                         <th>附件下载</th>
                     </tr>
                     </thead>
-
                     <tbody>
-                    <?php
-                    foreach ($software as $key=>$value){
-                        $row = $software[$key];
-                        $time = substr($row['finishtime'],0,10);
-                        $location = '../article/attachment-download?id=3';
-                        echo "<tr>
-                            <td>{$row['softid']}</td>
-                            <td>{$row['name']}</td>
-                            <td>{$row['author']}</td>
-                            <td>{$time}</td>
-                            <td class=\"table__wait\"><i class=\"fa fa-spinner\"></i> {$row['regisnumber']}</td>
-                            <td><a class=\"btn btn-primary btn-sm\" href=\"{$location}\">{$row['enclosure']}</a></td>
-                        </tr>";
-                    }
-                    ?>
+                    <?php foreach ($software as $model): ?>
+                        <tr>
+                            <td><?php echo $model->softid?></td>
+                            <td><?php echo $model->name?></td>
+                            <td><?php echo $model->author?></td>
+                            <td><?php echo substr($model->finishtime,0,10)?></td>
+                            <td class="table__wait"><i class="fa fa-spinner"></i><?php echo  $model->regisnumber?></td>
+                            <td>
+                                <?php if (!$model->itemAttachments==null): ?>
+                                    <ul id="item-attachments">
+                                        <?php foreach ($model->itemAttachments as $attachment): ?>
+                                            <li>
+                                                <?php echo \yii\helpers\Html::a(
+                                                    $attachment->name,
+                                                    ['../article/attachment-download', 'id' => $attachment->id])
+                                                ?>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                <?php endif; ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+
 <!--                    <tr>-->
 <!--                        <td>100032993</td>-->
 <!--                        <td>05/14/2015</td>-->

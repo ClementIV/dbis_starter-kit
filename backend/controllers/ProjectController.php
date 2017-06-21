@@ -72,7 +72,7 @@ class ProjectController extends Controller
         {
             array_push($taglist,$item->getTagName());
         }
-        $teachers = UserProfile::find()->where('user_id in(select userid from user_teacher)')->all();
+        $teachers = UserProfile::find()->where('user_id in(select userid from dbis_user_teacher)')->all();
         if ($model->load(Yii::$app->request->post())) {
             $selecttagid = array();
             if (is_array($model->tagid)) {

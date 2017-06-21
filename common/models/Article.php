@@ -32,7 +32,7 @@ use yii\db\ActiveRecord;
  * @property User $author
  * @property User $updater
  * @property ArticleCategory $category
- * @property ArticleAttachment[] $articleAttachments
+ * @property ItemAttachment[] $itemAttachments
  */
 class Article extends ActiveRecord
 {
@@ -82,13 +82,14 @@ class Article extends ActiveRecord
                 'class' => UploadBehavior::className(),
                 'attribute' => 'attachments',
                 'multiple' => true,
-                'uploadRelation' => 'articleAttachments',
+                'uploadRelation' => 'itemAttachments',
                 'pathAttribute' => 'path',
                 'baseUrlAttribute' => 'base_url',
                 'orderAttribute' => 'order',
                 'typeAttribute' => 'type',
                 'sizeAttribute' => 'size',
                 'nameAttribute' => 'name',
+                'itemtypeAttribute' => 'itemtype'
             ],
             [
                 'class' => UploadBehavior::className(),
@@ -170,8 +171,8 @@ class Article extends ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getArticleAttachments()
+    public function getItemAttachments()
     {
-        return $this->hasMany(ArticleAttachment::className(), ['article_id' => 'id']);
+        return $this->hasMany(ItemAttachment::className(), ['item_id' => 'id'])->andWhere(['itemtype' => 0]);;
     }
 }

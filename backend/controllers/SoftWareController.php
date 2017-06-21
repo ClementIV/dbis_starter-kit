@@ -62,9 +62,13 @@ class SoftwareController extends Controller
     {
         $model = new Software();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->softid]);
-        } else {
+        if ($model->load(Yii::$app->request->post())) {
+            $model->itemAttachments[0]->setItemType(3);
+            if($model->save())
+            {
+                return $this->redirect(['view', 'id' => $model->softid]);
+            }
+        }else {
             return $this->render('create', [
                 'model' => $model,
             ]);
@@ -81,8 +85,12 @@ class SoftwareController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->softid]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->itemAttachments[0]->setItemType(3);
+            if($model->save())
+            {
+                return $this->redirect(['view', 'id' => $model->softid]);
+            }
         } else {
             return $this->render('update', [
                 'model' => $model,

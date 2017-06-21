@@ -76,7 +76,7 @@ $config = [
                         return sprintf('[%s][%s]', Yii::$app->id, $url);
                     },
                     'logVars'=>[],
-                    'logTable'=>'{{%dbis_system_log}}'
+                    'logTable'=>'{{%system_log}}'
                 ]
             ],
         ],

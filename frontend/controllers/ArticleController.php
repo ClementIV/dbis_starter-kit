@@ -3,7 +3,7 @@
 namespace frontend\controllers;
 
 use common\models\Article;
-use common\models\ArticleAttachment;
+use common\models\ItemAttachment;
 use frontend\models\search\ArticleSearch;
 use Yii;
 use yii\web\Controller;
@@ -42,9 +42,9 @@ class ArticleController extends Controller
      * @return string
      * @throws NotFoundHttpException
      */
-    public function actionView($slug)
+    public function actionView($id)
     {
-        $model = Article::find()->published()->andWhere(['slug'=>$slug])->one();
+        $model = Article::find()->published()->andWhere(['id'=>$id])->one();
         if (!$model) {
             throw new NotFoundHttpException;
         }
@@ -61,16 +61,11 @@ class ArticleController extends Controller
      */
     public function actionAttachmentDownload($id)
     {
-        $model = ArticleAttachment::findOne($id);
+        $model = ItemAttachment::findOne($id);
         if (!$model) {
             throw new NotFoundHttpException;
         }
-//        $array = ArticleAttachment::find()->asArray()->all();
-//        foreach($array as $key=>$value){
-//            $row = $array[$key];
-//            print_r($row);
-//        }
-//        print_r(ArticleAttachment::find()->asArray()->all());
+
         return Yii::$app->response->sendStreamAsFile(
             Yii::$app->fileStorage->getFilesystem()->readStream($model->path),
             $model->name
