@@ -51,7 +51,8 @@ class SiteController extends Controller
 
         ];
    }*/
-   public function getCount(){
+   public function getCount()
+   {
      return $this->count;
    }
    public function actionForm()
@@ -62,10 +63,11 @@ class SiteController extends Controller
    public function actionNewDb()
    {
      $model=new NewDB();
-     if($model->Overwrite){
-
+     if($model->Overwrite)
+     {
      }
-     else {
+     else
+     {
        return $this->render('new-db',['model'=>$model]);
      }
    }
@@ -75,29 +77,32 @@ class SiteController extends Controller
    */
    public function actionCongratulation()
    {
-   if (!file_exists('lock.lock')){
-      fopen('lock.lock','x');
-    return $this->render('congratulation');
-    }
-    else
-    {
-      return $this->redirect(yii::getAlias('@frontendUrl'));
-    }
-
-  //  return ;
-  }
+     if (!file_exists('lock.lock'))
+     {
+       fopen('lock.lock','x');
+       return $this->render('congratulation');
+     }
+     else
+     {
+       return $this->redirect(yii::getAlias('@frontendUrl'));
+     }
+   }
    public function actionCheckEnv()
    {
     // return $this->goHome();
-    if(file_exists('lock.lock')){
+    if(file_exists('lock.lock'))
+    {
       return $this->redirect(yii::getAlias('@frontendUrl'));
     }
-     $model=new CheckEnv();
-     $result='defeat!';
-     //$yiiVersion=getVersion();
-     if($model->checkPHP()){$result=PHP_VERSION;}
+    $model=new CheckEnv();
+    $result='defeat!';
+    // $yiiVersion=getVersion();
+    if($model->checkPHP())
+    {
+      $result=PHP_VERSION;
+    }
     // echo Html::encode($this->render('check-env',['phpve'=>$result,'os'=>$model->getOS(),'space'=>$model->getFreeSpace(),]));
-     return $this->render('check-env',['phpve'=>$result,'os'=>$model->getOS(),'space'=>$model->getFreeSpace(),]);
+    return $this->render('check-env',['phpve'=>$result,'os'=>$model->getOS(),'space'=>$model->getFreeSpace(),]);
    }
    /*
     @1 check dbserver connnected
@@ -106,54 +111,53 @@ class SiteController extends Controller
    */
    public function actionInstall()
    {
-     if(file_exists('lock.lock')){
+     if(file_exists('lock.lock'))
+     {
        return $this->redirect(yii::getAlias('@frontendUrl'));
      }
     //echo Html::encode($this->render('install'));
-      $this->redirect(['congratulation']);
+     $this->redirect(['congratulation']);
    }
    public function actionDatabase()
    {
-     if(file_exists('lock.lock')){
+     if(file_exists('lock.lock'))
+     {
        return $this->redirect(yii::getAlias('@frontendUrl'));
      }
      $model=new CreateDatabase();
-  //   $model->load(Yii::$app->request->post());
+     // $model->load(Yii::$app->request->post());
      if($model->load(Yii::$app->request->post())&&$model->validate())
      {
-
        $check=$model->checkConnect();
-       if($check['1'])
+       if($check['isConnect'])
        {
-      try{
-
-          $model->CreateDB();
-          echo  $this->render('install');
-          $model->ImportData();
-          //$mdoel->ChangeConfig();
-         //&&$model->checkConnect()
-         //render();
-         $model->ChangeConfig();
-        //return  $this->redirect(['congratulation']);
-          echo '<script> window.location.assign("'.Url::to(['congratulation'], true).'")</script>';
+         try
+         {
+           $model->CreateDB();
+           echo  $this->render('install');
+           $model->ImportData();
+           //$mdoel->ChangeConfig();
+           //&&$model->checkConnect()
+           //render();
+           $model->ChangeConfig();
+           //return  $this->redirect(['congratulation']);
+           echo '<script> window.location.assign("'.Url::to(['congratulation'], true).'")</script>';
            return;
-
-       }catch(Exception $e)
-       {
-         throw new Exception("Error Processing Request", $e);
-
-       }
-
-         //return $this->goHome();
-       }
-       else
-       {
-         //这里要求就是要提示错误信息。
+		      }
+          catch(Exception $e)
+		      {
+			      throw new Exception("Error Processing Request", $e);
+          }
+          //return $this->goHome();
+        }
+        else
+        {
+          //这里要求就是要提示错误信息。
           return $this->render('database',['model'=>$model,'message'=>'Check your user name and password!',]);
-        //  return $this->goHome();
-       }
+          //  return $this->goHome();
+        }
 
-     }
+      }
      else
      {
        return $this->render('database',['model'=>$model,'message'=>'']);
@@ -161,22 +165,19 @@ class SiteController extends Controller
    }
    public function actionTest()
    {
-
      $theTime=date("D M j G:is T Y");
-    return  $this->render('Test',['time'=>$theTime]);
+     return  $this->render('Test',['time'=>$theTime]);
    }
-
-
     /**
      * @inheritdoc
      */
-   public function actions()
+    public function actions()
     {
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-        ];
+      return [
+        'error' => [
+          'class' => 'yii\web\ErrorAction',
+        ],
+      ];
     }
 
     /**
@@ -186,10 +187,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-      if(file_exists('lock.lock')){
+      if(file_exists('lock.lock'))
+      {
         return $this->redirect(yii::getAlias('@frontendUrl'));
       }
-        return $this->render('index');
+      return $this->render('index');
     }
 
     /**
@@ -199,19 +201,22 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        if (!Yii::$app->user->isGuest) {
-          return $this->goHome();
-          //return $this->render('index');
-        }
-
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } else {
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
+      if (!Yii::$app->user->isGuest)
+      {
+        return $this->goHome();
+        //return $this->render('index');
+      }
+      $model = new LoginForm();
+      if ($model->load(Yii::$app->request->post()) && $model->login())
+      {
+        return $this->goBack();
+      }
+      else
+      {
+        return $this->render('login', [
+          'model' => $model,
+        ]);
+      }
     }
 
     /**
@@ -219,10 +224,9 @@ class SiteController extends Controller
      *
      * @return string
      */
-   public function actionLogout()
+    public function actionLogout()
     {
-        Yii::$app->user->logout();
-
-        return $this->goHome();
+      Yii::$app->user->logout();
+      return $this->goHome();
     }
 }

@@ -25,10 +25,10 @@ $this->title = 'Welcome Install';
       'items' => [
           [
               'header' => 'Check Your Envirment!',
-              'content' =>'<li><label>PHP Version:</label> '.Html::encode($phpve)."</li>
-                                <li><label>Option System : </label>".Html::encode($os)."</li>
-                                <li><label>Free Space :</label>". Html::encode($space).'</li>
-                            '
+              'content' =>' <li><label>PHP Version:</label> '.Html::encode($phpve)."</li>
+                            <li><label>Option System : </label>".Html::encode($os)."</li>
+                            <li><label>Free Space :</label>". Html::encode($space).'</li>
+                          '
 
               ,
           ],
@@ -41,8 +41,8 @@ $this->title = 'Welcome Install';
                               <li class="visited">'.Html::a('Previous',['site/index'], ['class' => 'link']).'</li>
                               <li class="current">'.Html::a('GO Next',['site/database'], ['class' => 'link']).'</li>
                             <ol>
-                            </nav>
-                            </div>
+                          </nav>
+                        </div>
                         ',
           ],
 

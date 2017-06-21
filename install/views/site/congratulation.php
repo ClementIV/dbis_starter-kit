@@ -28,8 +28,8 @@ $this->title = 'congratulation';
                               <li ><a href="'.yii::getAlias('@frontendUrl').'">Go to Frontend</a></li>
                               <li ><a href="'.yii::getAlias('@backendUrl').'">Go to Backend</a></li>
                             <ol>
-                            </nav>
-                            </div>
+                          </nav>
+                        </div>
                         ',
           ],
 

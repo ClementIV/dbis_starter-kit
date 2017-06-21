@@ -20,19 +20,16 @@ $this->title = 'Welcome Install';
     <li class="current"><em>Install</em></li>
   </ol>
 
-<div align="center" style=" width:80%;height:80%;  ">
+  <div align="center" style=" width:80%;height:80%;  ">
   <?
   echo ProgressBar::widget(
-   [
-
+  [
      'id'=>'w10',
-   'clientOptions'=>[
-     //'_refreshValue'=>$val,
-   ],
-
-    ]);
+     'clientOptions'=>[
+       //'_refreshValue'=>$val,
+     ],
+  ]);
   ?>
-</div>
-<nav>
-
+  </div>
+</nav>
 <?=Html::endTag('section');?>
