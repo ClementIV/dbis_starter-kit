@@ -76,7 +76,7 @@ $config = [
                         return sprintf('[%s][%s]', Yii::$app->id, $url);
                     },
                     'logVars'=>[],
-                    'logTable'=>'{{%dbis_system_log}}'
+                    'logTable'=>'{{%system_log}}'
                 ]
             ],
         ],
@@ -186,7 +186,10 @@ $config = [
             '兼职教授',
             '讲座教授',
             '讲师',
-            '高级实验师'
+            '高级实验师',
+            '实验师',
+            '助理实验师',
+            '其他'
         ],
         'availableStudentDegrees'=>[
             '本科在读',

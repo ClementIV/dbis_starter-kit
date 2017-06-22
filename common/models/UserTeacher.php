@@ -18,6 +18,7 @@ use common\models\query\UserTeacherQuery;
  * @property string $project
  * @property string $achievement
  * @property string $plurality
+ * @property string $course
  * @property string $office
  * @property integer $status
  * @property  string $tagid
@@ -40,7 +41,7 @@ class UserTeacher extends \yii\db\ActiveRecord
         return [
             [['userid'], 'required'],
             [['userid', 'status'], 'integer'],
-            [['plurality'], 'string'],
+            [['plurality','course'], 'string'],
             [['teacher_id', 'degree', 'title', 'telephone'], 'string', 'max' => 20],
             [['direction',  'office'], 'string', 'max' => 255],
             [['project', 'achievement'],'string'],
@@ -63,8 +64,9 @@ class UserTeacher extends \yii\db\ActiveRecord
             'project' => '项目',
             'achievement' => '主要成果',
             'plurality' => '社会职位',
+            'course' => '所授课程',
             'office' => '办公地点',
-            'status' => 'Status',
+            'status' => '状态',
         ];
     }
 

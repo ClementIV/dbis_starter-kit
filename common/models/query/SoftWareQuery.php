@@ -10,18 +10,9 @@ use common\models\Software;
 /**
  * SoftWareQuery represents the model behind the search form about `common\models\Software`.
  */
-class SoftWareQuery extends Software
+class SoftwareQuery extends Software
 {
-    /**
-     * @inheritdoc
-     */
-    public function rules()
-    {
-        return [
-            [['softid'], 'integer'],
-            [['name', 'author', 'finishtime', 'regisnumber', 'enclosure'], 'safe'],
-        ];
-    }
+
 
     /**
      * @inheritdoc
@@ -62,5 +53,18 @@ class SoftWareQuery extends Software
             ->andFilterWhere(['like', 'enclosure', $this->enclosure]);
 
         return $dataProvider;
+    }
+
+    public function searchByProjectId($projectid)
+    {
+        $query = Software::find();
+
+
+        $query->andFilterWhere([
+            'projectid' => $projectid,
+        ]);
+
+        $model = $query->all();
+        return $model;
     }
 }

@@ -4,7 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Software;
-use common\models\query\SoftWareQuery;
+use common\models\query\SoftwareQuery;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * SoftWareController implements the CRUD actions for Software model.
  */
-class SoftWareController extends Controller
+class SoftwareController extends Controller
 {
     public function behaviors()
     {
@@ -32,7 +32,7 @@ class SoftWareController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new SoftWareQuery();
+        $searchModel = new SoftwareQuery();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -62,9 +62,13 @@ class SoftWareController extends Controller
     {
         $model = new Software();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->softid]);
-        } else {
+        if ($model->load(Yii::$app->request->post())) {
+            $model->itemAttachments[0]->setItemType(3);
+            if($model->save())
+            {
+                return $this->redirect(['view', 'id' => $model->softid]);
+            }
+        }else {
             return $this->render('create', [
                 'model' => $model,
             ]);
@@ -81,8 +85,12 @@ class SoftWareController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->softid]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->itemAttachments[0]->setItemType(3);
+            if($model->save())
+            {
+                return $this->redirect(['view', 'id' => $model->softid]);
+            }
         } else {
             return $this->render('update', [
                 'model' => $model,

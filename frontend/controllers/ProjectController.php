@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\models\query\SoftwareQuery;
 use Yii;
 use common\models\Project;
 use common\models\Software;
@@ -55,7 +56,7 @@ class ProjectController extends Controller
         return $this->render('view', [
             'model' => $this->findModel($id),
             //'software'=> Software::getAll()
-            'software'=> Software::getById($id)
+            'software'=> SoftwareQuery::searchByProjectId($id)
         ]);
     }
 
