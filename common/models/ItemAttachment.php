@@ -91,6 +91,11 @@ class ItemAttachment extends ActiveRecord
         return $this->hasOne(Software::className(), ['softid' => 'item_id']);
     }
 
+    public function getPatent()
+    {
+        return $this->hasOne(Patent::className(), ['patent_id' => 'item_id']);
+    }
+
     public function getItemType()
     {
         return $this->itemtype;
