@@ -43,10 +43,6 @@ $this->title = 'Welcome Install';
             [
                 'header' => 'Connect Database !',
                 'content' =>'<p style="color: red; font-weight:bold; ">'."$message".'</p>'.$this->render('form',['model'=>$model])
-
-
-
-
                 ,
             ],
 
@@ -60,4 +56,4 @@ $this->title = 'Welcome Install';
 ?>
   </div>
 <nav>
-<?=Html::endTag('section');?>
+  <?=Html::endTag('section');?>

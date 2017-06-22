@@ -12,7 +12,7 @@ use yii\bootstrap\ActiveForm;
           <?echo $form->field($model, 'user');?>
           <?echo  $form->field($model, 'password')->passwordInput();?>
           <?=$form->field($model,'prefix')->textInput(['value'=>'yii_']);?>
-          <?echo  $form->field($model, 'Overwrite')->inline()->RadioList(['1'=>'Yes','2'=>'No'],['class'=>'CreateDatabase']);?>
+          <?echo  $form->field($model, 'overwrite')->inline()->RadioList(['1'=>'Yes','2'=>'No'],['class'=>'CreateDatabase']);?>
 
 
           <div class="form-group">

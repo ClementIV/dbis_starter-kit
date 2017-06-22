@@ -14,13 +14,14 @@ class CreateDatabase extends Model
   public $user;
   public $password;
   public $prefix;
- public $Overwrite;
+  public $overwrite;
   public $conn;
   public function rules()
   {
     return[
-        [['dbserver','user','password','Overwrite','dbname','prefix'],'required'],
-        'password'=>[['password'],'string','max'=>60],
+      [['dbserver','user','password','overwrite','dbname','prefix'],'required'],
+        'password'=>[['password'],'string','max'=>60，
+      ],
     ];
   }
   //check userName  and  passwprd
@@ -29,44 +30,49 @@ class CreateDatabase extends Model
   public function checkConnect()
   {
     //echo $this->Old;
-    try{
+    try
+    {
       $this->conn=new Connection(['dsn'=>'mysql:host='.$this->dbserver,'username'=>$this->user,'password'=>$this->password,'charset' => 'utf8']);
       $this->conn->open();
       $this->conn->close();
-      return ['1'=>true];
+      return ['isConnect'=>true];
     }
     catch (Exception $e)
     {
-      return ['1'=>false,'2'=>$e->getName()];
+      return ['isConnect'=>false,'connError'=>$e->getName()];
     }
   }
   /*
   * create a new db of overwrite a db
   */
-  public function CreateDB()
+  public function createDB()
   {
-     $this->conn=new Connection(['dsn'=>'mysql:host='.$this->dbserver,'username'=>$this->user,'password'=>$this->password,'charset' => 'utf8',]);
-     $this->conn->open();
-
-     try {
-       //overwirte or create a new db
-        if($this->Overwrite==1)
-        {
-            $this->conn->createCommand('DROP DATABASE IF  EXISTS '.$this->dbname.';')->execute();
-            $this->conn->createCommand('CREATE DATABASE IF NOT EXISTS '.$this->dbname.' DEFAULT CHARACTER SET "utf8"'.';')->execute();
-        }
-        else{
-          $this->conn->createCommand('CREATE DATABASE IF NOT EXISTS '.$this->dbname.' DEFAULT CHARACTER SET "utf8"'.';')->execute();
+    $this->conn=new Connection(['dsn'=>'mysql:host='.$this->dbserver,'username'=>$this->user,'password'=>$this->password,'charset' => 'utf8',]);
+    try
+    {
+      $this->conn->open();
+      //overwirte or create a new db
+      if($this->overwrite==1)
+      {
+        $this->conn->createCommand('DROP DATABASE IF  EXISTS '.$this->dbname.';')->execute();
+        $this->conn->createCommand('CREATE DATABASE IF NOT EXISTS '.$this->dbname.' DEFAULT CHARACTER SET "utf8"'.';')->execute();
+      }
+      else
+      {
+        $this->conn->createCommand('CREATE DATABASE IF NOT EXISTS '.$this->dbname.' DEFAULT CHARACTER SET "utf8"'.';')->execute();
       }
     }
-      catch(Exception $e)
-      {
+    catch(Exception $e)
+    {
       //$this->conn->close();
       //  print_r($e);
-        return ['1'=>false,'2'=>$e,];
-      };
+      return ['isCreate'=>false,'createError'=>$e,];
+    };
+    finally
+    {
       $this->conn->close();
-      return ['1'=>true,];
+    }
+    return ['1'=>true,];
   }
   //import all  data into database
   //
@@ -100,15 +106,15 @@ class CreateDatabase extends Model
   }
   public function attributeLabels()
   {
-        return [
-            //'' => 'Delete Old Datebase!',
-              'dbserver'=>'Datebase Server',
-              'user'=>'User Name',
-              'password'=>'Password',
-              'dbname'=>'Database Name',
-              'prefix'=>'Table Prefix',
-             'Overwrite'=>'Delete The Original Data?'
-        ];
+    return [
+      //'' => 'Delete Old Datebase!',
+      'dbserver'=>'Datebase Server',
+      'user'=>'User Name',
+      'password'=>'Password',
+      'dbname'=>'Database Name',
+      'prefix'=>'Table Prefix',
+      'overwrite'=>'Delete The Original Data?'
+    ];
   }
 }
 ?>
