@@ -131,7 +131,7 @@ class SiteController extends Controller
        $check=$model->checkConnect();
        if($check['isConnect'])
        {
-<<<<<<< HEAD
+
          try
          {
            $model->CreateDB();
@@ -154,32 +154,6 @@ class SiteController extends Controller
         else
         {
           //这里要求就是要提示错误信息。
-=======
-		try{
-
-          $model->CreateDB();
-          echo  $this->render('install');
-          $model->ImportData();
-          //$mdoel->ChangeConfig();
-         //&&$model->checkConnect()
-         //render();
-         $model->ChangeConfig();
-        //return  $this->redirect(['congratulation']);
-          echo '<script> window.location.assign("'.Url::to(['congratulation'], true).'")</script>';
-           return;
-
-		}catch(Exception $e)
-		{
-			throw new Exception("Error Processing Request", $e);
-
-		}
-
-         //return $this->goHome();
-       }
-       else
-       {
-         //这里要求就是要提示错误信息。
->>>>>>> origin/master
           return $this->render('database',['model'=>$model,'message'=>'Check your user name and password!',]);
           //  return $this->goHome();
         }
