@@ -10,7 +10,7 @@ use yii\helpers\Html;
 <div class="article-item row">
     <div class="col-xs-12">
         <h2 class="article-title">
-            <?php echo Html::a($model->title, ['view', 'slug'=>$model->slug]) ?>
+            <?php echo Html::a($model->title, ['view', 'id'=>$model->id]) ?>
         </h2>
         <div class="article-meta">
             <span class="article-date">
@@ -24,16 +24,6 @@ use yii\helpers\Html;
             </span>
         </div>
         <div class="article-content">
-            <?php if ($model->thumbnail_path): ?>
-                <?php echo Html::img(
-                    Yii::$app->glide->createSignedUrl([
-                        'glide/index',
-                        'path' => $model->thumbnail_path,
-                        'w' => 400
-                    ], true),
-                    ['class' => 'article-thumb img-rounded pull-left']
-                ) ?>
-            <?php endif; ?>
             <div class="article-text">
                 <?php echo \yii\helpers\StringHelper::truncate($model->body, 150, '...', null, true) ?>
             </div>
