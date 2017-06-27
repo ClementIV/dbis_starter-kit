@@ -4,17 +4,17 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Paper */
+/* @var $model common\models\Patent */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => '论文', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '专利', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="paper-view">
+<div class="patent-view">
 
     <p>
-        <?php echo Html::a('更改', ['update', 'id' => $model->paper_id], ['class' => 'btn btn-primary']) ?>
-        <?php echo Html::a('删除', ['delete', 'id' => $model->paper_id], [
+        <?php echo Html::a('更改', ['update', 'id' => $model->patent_id], ['class' => 'btn btn-primary']) ?>
+        <?php echo Html::a('删除', ['delete', 'id' => $model->patent_id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -26,12 +26,15 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php echo DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'paper_id',
+            'patent_id',
             'project_id',
             'title',
-            'author',
-            'journal_name',
-            'publish_time',
+            'inventors',
+            'status',
+            'application_date',
+            'authorization_date',
+            'application_number',
+            'patent_number',
             'attachment',
         ],
     ]) ?>

@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Paper */
+/* @var $model common\models\Patent */
 /* @var $form yii\bootstrap\ActiveForm */
 ?>
 
-<div class="paper-form">
+<div class="patent-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
@@ -18,11 +18,17 @@ use yii\bootstrap\ActiveForm;
 
     <?php echo $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?php echo $form->field($model, 'author')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'inventors')->textInput(['maxlength' => true]) ?>
 
-    <?php echo $form->field($model, 'journal_name')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'status')->textInput(['maxlength' => true]) ?>
 
-    <?php echo $form->field($model, 'publish_time')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'application_date')->textInput() ?>
+
+    <?php echo $form->field($model, 'authorization_date')->textInput() ?>
+
+    <?php echo $form->field($model, 'application_number')->textInput(['maxlength' => true]) ?>
+
+    <?php echo $form->field($model, 'patent_number')->textInput(['maxlength' => true]) ?>
 
     <?php echo $form->field($model, 'attachment')->textInput(['maxlength' => true]) ?>
 

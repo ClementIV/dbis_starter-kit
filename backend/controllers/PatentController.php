@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Paper;
-use common\models\query\PaperQuery;
+use common\models\Patent;
+use common\models\query\PatentQuery;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * PaperController implements the CRUD actions for Paper model.
+ * PatentController implements the CRUD actions for Patent model.
  */
-class PaperController extends Controller
+class PatentController extends Controller
 {
     public function behaviors()
     {
@@ -27,12 +27,12 @@ class PaperController extends Controller
     }
 
     /**
-     * Lists all Paper models.
+     * Lists all Patent models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new PaperQuery();
+        $searchModel = new PatentQuery();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +42,7 @@ class PaperController extends Controller
     }
 
     /**
-     * Displays a single Paper model.
+     * Displays a single Patent model.
      * @param integer $id
      * @return mixed
      */
@@ -54,16 +54,16 @@ class PaperController extends Controller
     }
 
     /**
-     * Creates a new Paper model.
+     * Creates a new Patent model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Paper();
+        $model = new Patent();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->patent_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -72,7 +72,7 @@ class PaperController extends Controller
     }
 
     /**
-     * Updates an existing Paper model.
+     * Updates an existing Patent model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -82,7 +82,7 @@ class PaperController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->patent_id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -91,7 +91,7 @@ class PaperController extends Controller
     }
 
     /**
-     * Deletes an existing Paper model.
+     * Deletes an existing Patent model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -104,15 +104,15 @@ class PaperController extends Controller
     }
 
     /**
-     * Finds the Paper model based on its primary key value.
+     * Finds the Patent model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Paper the loaded model
+     * @return Patent the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Paper::findOne($id)) !== null) {
+        if (($model = Patent::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
