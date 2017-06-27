@@ -56,7 +56,51 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php echo $model['introduction']; ?>
         </div>
         <div class="tab-pane" id="two">
-            <?php echo $model['paper']; ?>
+            <div class="table-responsive">
+                <!-- Wide table with range of cols -->
+                <table class="table table-bordered table--wide table-present">
+                    <colgroup class="col-sm-width">
+                    </colgroup><colgroup class="col-sm-width">
+                    </colgroup><colgroup class="col-sm-width">
+                    </colgroup><colgroup class="col-sm-width">
+                    </colgroup><colgroup class="col-sm-width">
+                    </colgroup><colgroup class="col-sm-width">
+
+                    </colgroup><thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>论文名称</th>
+                        <th>作者</th>
+                        <th>会议/期刊名称</th>
+                        <th>附件下载</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($paper as $model): ?>
+                        <tr>
+                            <td><?php echo $model->paper_id?></td>
+                            <td><?php echo $model->title?></td>
+                            <td><?php echo $model->author?></td>
+                            <td><?php echo $model->journal_name?></td>
+                            <td>
+                                <?php if (!$model->itemAttachments==null): ?>
+                                    <ul id="item-attachments">
+                                        <?php foreach ($model->itemAttachments as $attachment): ?>
+                                            <li>
+                                                <?php echo \yii\helpers\Html::a(
+                                                    $attachment->name,
+                                                    ['../article/attachment-download', 'id' => $attachment->id])
+                                                ?>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                <?php endif; ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="tab-pane" id="three">
             <div class="table-responsive">

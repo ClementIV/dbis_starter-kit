@@ -99,7 +99,7 @@ class Patent extends \yii\db\ActiveRecord
      */
     public static function getAll(){
         //print_r(\GuzzleHttp\json_encode(Software::find()->asArray()->all()));
-        return Software::find()->asArray()->all();
+        return Patent::find()->asArray()->all();
     }
 
     /**

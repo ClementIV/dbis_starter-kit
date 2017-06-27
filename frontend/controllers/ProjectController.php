@@ -4,10 +4,9 @@ namespace frontend\controllers;
 
 use common\models\query\SoftwareQuery;
 use common\models\query\PatentQuery;
+use common\models\query\PaperQuery;
 use Yii;
 use common\models\Project;
-use common\models\Software;
-use common\models\Patent;
 use frontend\models\search\ProjectSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -59,7 +58,8 @@ class ProjectController extends Controller
             'model' => $this->findModel($id),
             //'software'=> Software::getAll()
             'software'=> SoftwareQuery::searchByProjectId($id),
-            'patent'=> PatentQuery::searchByProjectId($id)
+            'patent'=> PatentQuery::searchByProjectId($id),
+            'paper'=> PaperQuery::searchByProjectId($id)
         ]);
     }
 
