@@ -7,14 +7,14 @@ use yii\widgets\DetailView;
 /* @var $model common\models\Software */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Softwares', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '软件著作权', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="software-view">
 
     <p>
-        <?php echo Html::a('Update', ['update', 'id' => $model->softid], ['class' => 'btn btn-primary']) ?>
-        <?php echo Html::a('Delete', ['delete', 'id' => $model->softid], [
+        <?php echo Html::a('更改', ['update', 'id' => $model->softid], ['class' => 'btn btn-primary']) ?>
+        <?php echo Html::a('删除', ['delete', 'id' => $model->softid], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',

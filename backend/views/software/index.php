@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\query\SoftwareQuery */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Softwares';
+$this->title = '软件著作权';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="software-index">
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?php echo Html::a('Create Software', ['create'], ['class' => 'btn btn-success']) ?>
+        <?php echo Html::a('插入软件著作权', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php echo GridView::widget([

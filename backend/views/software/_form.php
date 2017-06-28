@@ -37,7 +37,7 @@ use trntv\filekit\widget\Upload;
     ?>
 
     <div class="form-group">
-        <?php echo Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?php echo Html::submitButton($model->isNewRecord ? '插入' : '更改', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
