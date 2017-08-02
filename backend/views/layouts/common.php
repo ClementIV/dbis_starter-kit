@@ -135,7 +135,13 @@ $bundle = BackendAsset::register($this);
                         [
                             'label'=>Yii::t('backend', 'Attendence'),
                             'icon'=>'<i class="fa fa-users"></i>',
-                            'url'=>['/attendance/index'],
+                            'url'=>'#',
+                            'options'=>['class'=>'treeview'],
+                            'items'=>[
+                                ['label'=>Yii::t('backend', 'test1'), 'url'=>['/attendance/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
+                                ['label'=>Yii::t('backend', 'test2'), 'url'=>['/article/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
+                                ['label'=>Yii::t('backend', 'test3'), 'url'=>['/article-category/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>']
+                            ]
                         ],
                         [
                             'label'=>Yii::t('backend', 'Content'),
