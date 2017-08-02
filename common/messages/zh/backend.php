@@ -28,6 +28,7 @@ return [
     'Are you sure you want to flush this cache?' => '你确定要清空所以缓存?',
     'Article Categories' => '文章分类',
     'Articles' => '文章',
+    'Attendence'=>'考勤',
     'Backend sidebar collapsed' => '后台边栏',
     'Backend theme' => '后台主题',
     'Boxed backend layout' => 'Boxed backend layout',
