@@ -31,12 +31,12 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js',['depends'=
     <div style="margin-left: 30px;">
     <table>
     <tr style="height:200px;">
-    	<div style="width: 1000px">
+    	<div >
     	<td>
-	    	<div style="width: 920px;">今日签到</div>
+	    	<div style="width: 920px">今日签到</div>
 	    </td>
 	    <td>
-	    	<div style="margin-left: 150px;">
+	    	<div style="margin-left: 10%;">
 	    	  <div class="row" style="width:400px;">
 		        <div style="width: 100%">
 		            <div class="widget widget-info widget-padding-sm">
@@ -54,8 +54,8 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js',['depends'=
 	<tr>
 	    <div>
 	    <td>
-	    	<div>	    		
-			    <div class="page-content" style="width:1000px">
+	    	<div style="width: 920px;">
+			    <div class="page-content" >
 		        	<div id="tab-general">
 		            <div id="sum_box" class="row mbl">
 		                <div class="col-sm-6 col-md-3">
@@ -66,7 +66,7 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js',['depends'=
 		                            </p>
 		                            <h4 class="value">
 		                                            <span data-counter="" data-start="10" data-end="50" data-step="1" data-duration="0">
-		                                            </span><span>07:00-09:00</span></h4>
+		                                            </span><span>08:30-09:00</span></h4>
 <!--		                            <p class="description">-->
 <!--		                                Profit description</p>-->
 <!--		                            <div class="progress progress-sm mbn">-->
@@ -74,10 +74,12 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js',['depends'=
 <!--		                                    <span class="sr-only">80% Complete (success)</span></div>-->
 <!--		                            </div>-->
                                     <div style="margin-top: 60px;">
-                                        <div style="float: left;">
+                                        <div style="float: left;margin-right: 250px;">
                                             已签到
                                         </div>
-                                        <div>√</div>
+                                        <div>
+                                            <img src="/dbis_starter-kit/backend/web/img/check.png" width="50" height="50">
+                                        </div>
                                     </div>
 
 		                        </div>
@@ -90,13 +92,15 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js',['depends'=
 		                                <i class="icon fa fa-folder"></i>
 		                            </p>
 		                            <h4 class="value">
-		                                <span>215</span><span>$</span></h4>
-		                            <p class="description">
-		                                Income detail</p>
-		                            <div class="progress progress-sm mbn">
-		                                <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;" class="progress-bar progress-bar-info">
-		                                    <span class="sr-only">60% Complete (success)</span></div>
-		                            </div>
+		                                <span>11:30-13:00</span></h4>
+                                    <div style="margin-top: 60px;">
+                                        <div style="float: left;margin-right: 250px;">
+                                            已签到
+                                        </div>
+                                        <div>
+                                            <img src="/dbis_starter-kit/backend/web/img/check.png" width="50" height="50">
+                                        </div>
+                                    </div>
 		                        </div>
 		                    </div>
 		                </div>
@@ -107,13 +111,15 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js',['depends'=
 		                                <i class="icon fa fa-shopping-cart"></i>
 		                            </p>
 		                            <h4 class="value">
-		                                <span>215</span></h4>
-		                            <p class="description">
-		                                Task completed</p>
-		                            <div class="progress progress-sm mbn">
-		                                <div role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;" class="progress-bar progress-bar-danger">
-		                                    <span class="sr-only">50% Complete (success)</span></div>
-		                            </div>
+		                                <span>13:30-14:00</span></h4>
+                                    <div style="margin-top: 60px;">
+                                        <div style="float: left;margin-right: 250px;">
+                                            已签到
+                                        </div>
+                                        <div>
+                                            <img src="/dbis_starter-kit/backend/web/img/check.png" width="50" height="50">
+                                        </div>
+                                    </div>
 		                        </div>
 		                    </div>
 		                </div>
@@ -124,13 +130,15 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js',['depends'=
 		                                <i class="icon fa fa-folder"></i>
 		                            </p>
 		                            <h4 class="value">
-		                                <span>128</span></h4>
-		                            <p class="description">
-		                                Visitor description</p>
-		                            <div class="progress progress-sm mbn">
-		                                <div role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;" class="progress-bar progress-bar-warning">
-		                                    <span class="sr-only">70% Complete (success)</span></div>
-		                            </div>
+		                                <span>17:30-19:00</span></h4>
+                                    <div style="margin-top: 60px;">
+                                        <div style="float: left;margin-right: 250px;">
+                                            未签到
+                                        </div>
+                                        <div>
+                                            <img src="/dbis_starter-kit/backend/web/img/not_check.png" width="50" height="50">
+                                        </div>
+                                    </div>
 		                        </div>
 		                    </div>
 		                </div>
