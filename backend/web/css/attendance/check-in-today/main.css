@@ -1,0 +1,132 @@
+#sum_box h4 {
+    text-align: left;
+    margin-top: 0px;
+    font-size: 30px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+
+#sum_box .db:hover {
+    background: #40516f;
+    color: #fff;
+}
+
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 微软雅黑;
+    font-weight: 300;
+}
+
+body {
+    font-family: 微软雅黑;
+    /*font-size: 13px;*/
+    line-height: 1.42857143;
+    color: #999999;
+    background-color: #f0f2f5;
+    height: 100%;
+}
+
+.page-content {
+    padding: 20px 20px 50px 20px;
+    min-height: 700px;
+}
+
+
+.panel {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+    border: 5px solid #e5e5e5;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.mbm,
+.mvm,
+.mam {
+    margin-bottom: 10px !important;
+}
+
+#sum_box .icon {
+    color: #999999;
+    font-size: 55px;
+    margin-top: 7px;
+    margin-bottom: 0px;
+    float: right;
+}
+
+#sum_box h4 {
+    text-align: left;
+    margin-top: 0px;
+    font-size: 30px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+#sum_box h4 span:last-child {
+    font-size: 25px;
+}
+
+[class^="fa-"],
+[class^="glyphicon-"],
+[class^="icon-"],
+[class*=" fa-"],
+[class*=" glyphicon-"],
+[class*=" icon-"] {
+    display: inline-block;
+    margin-top: 1px;
+    font-size: 14px;
+    * margin-right: .3em;
+    line-height: 14px;
+    -webkit-font-smoothing: antialiased;
+}
+
+#sum_box h4 span:last-child {
+    font-size: 25px;
+}
+
+#sum_box p.description {
+    margin-top: 0px;
+    opacity: .6;
+}
+
+.progress.progress-sm {
+    height: 11px;
+    margin-top: 5px;
+}
+
+.progress {
+    position: relative;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+#sum_box .db {
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}

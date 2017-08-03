@@ -8,5 +8,8 @@ class AttendanceController extends \yii\web\Controller
     {
         return $this->render('index');
     }
-
+    public function actionCheckInToday()
+    {
+        return $this->render('check-in-today');
+    }
 }
