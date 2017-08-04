@@ -3,7 +3,7 @@
 namespace backend\models;
 
 use backend\models\AtdUser;
-
+use backend\models\AtdRule;
 /**
  * This is the model class for table "dbis_atd_record".
  *
@@ -19,7 +19,7 @@ class AtdRecord extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'dbis_atd_record';
+        return '{{%atd_record}}';
     }
 
     /**
@@ -52,17 +52,18 @@ class AtdRecord extends \yii\db\ActiveRecord
      */
     public static function getRecordById($uid)
     {
+        $rule = AtdRule::getRule();
         //做根据日期和ccid返回一个数组带四个值
         $ccid = AtdUser::findOne($uid)['ccid'];
 
-        $time1 = date('Y-m-d').date(" 07:00:00");
-        $time2 = date('Y-m-d').date(" 09:00:00");
-        $time3 = date('Y-m-d').date(" 11:30:00");
-        $time4 = date('Y-m-d').date(" 12:50:00");
-        $time5 = date('Y-m-d').date(" 13:00:00");
-        $time6 = date('Y-m-d').date(" 14:00:00");
-        $time7 = date('Y-m-d').date(" 17:30:00");
-        $time8 = date('Y-m-d').date(" 18:50:00");
+        $time1 = date('Y-m-d ').date($rule['morning_begin']);
+        $time2 = date('Y-m-d ').date($rule['morining_in']);
+        $time3 = date('Y-m-d ').date($rule['morining_out']);
+        $time4 = date('Y-m-d ').date($rule['morning_end']);
+        $time5 = date('Y-m-d ').date($rule['afternoon_begin']);
+        $time6 = date('Y-m-d ').date($rule['afternoon_in']);
+        $time7 = date('Y-m-d ').date($rule['afternoon_out']);
+        $time8 = date('Y-m-d ').date($rule['afternoon_end']);
 
         $result = [];
         $result[0] = AtdRecord::find()
@@ -85,6 +86,7 @@ class AtdRecord extends \yii\db\ActiveRecord
             ->andWhere(['>','clock_time',$time7])
             ->andWhere(['<','clock_time',$time8])
             ->count() ;
-        return $result;
+
+        return [$result,$rule];
     }
 }

@@ -84,7 +84,7 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js',['depends'=
 		                            </p>
 		                            <h4 class="value">
 		                                            <span data-counter="" data-start="10" data-end="50" data-step="1" data-duration="0">
-		                                            </span><span>08:30-09:00</span></h4>
+		                                            </span><span><?php echo $rule['morning_begin'].'-'.$rule['morining_in'] ?></span></h4>
 <!--		                            <p class="description">-->
 <!--		                                Profit description</p>-->
 <!--		                            <div class="progress progress-sm mbn">-->
@@ -106,7 +106,7 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js',['depends'=
 		                                <i class="icon fa fa-folder"></i>
 		                            </p>
 		                            <h4 class="value">
-		                                <span>11:30-13:00</span></h4>
+		                                <span><?php echo $rule['morining_out'].'-'.$rule['morning_end'] ?></span></h4>
                                     <?php
                                     if($model[1] > 0)
                                         echo $str_check;
@@ -122,7 +122,7 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js',['depends'=
 		                                <i class="icon fa fa-shopping-cart"></i>
 		                            </p>
 		                            <h4 class="value">
-		                                <span>13:30-14:00</span></h4>
+		                                <span><?php echo $rule['afternoon_begin'].'-'.$rule['afternoon_in'] ?></span></h4>
                                     <?php
                                     if($model[2] > 0)
                                         echo $str_check;
@@ -138,7 +138,7 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js',['depends'=
 		                                <i class="icon fa fa-folder"></i>
 		                            </p>
 		                            <h4 class="value">
-		                                <span>17:30-19:00</span></h4>
+		                                <span><?php echo $rule['afternoon_out'].'-'.$rule['afternoon_end'] ?></span></h4>
                                     <?php
                                     if($model[3] > 0)
                                         echo $str_check;

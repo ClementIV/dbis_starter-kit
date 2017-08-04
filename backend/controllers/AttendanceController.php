@@ -15,7 +15,8 @@ class AttendanceController extends \yii\web\Controller
         $model = AtdRecord::getRecordById(Yii::$app->user->identity->id);
 
         return $this->render('check-in-today',[
-            'model' => $model
+            'model' => $model[0],
+            'rule' => $model[1]
         ]);
     }
 }
