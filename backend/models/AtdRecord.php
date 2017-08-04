@@ -48,25 +48,43 @@ class AtdRecord extends \yii\db\ActiveRecord
     }
 
     /**
-     * find one's whole record by ccid
+     *  传入当前人的id,返回四个时间段是否存在的数组
      */
     public static function getRecordById($uid)
     {
         //做根据日期和ccid返回一个数组带四个值
         $ccid = AtdUser::findOne($uid)['ccid'];
 
-        $time1 = date('Y-m-d').date(" 08:30:00");
+        $time1 = date('Y-m-d').date(" 07:00:00");
         $time2 = date('Y-m-d').date(" 09:00:00");
+        $time3 = date('Y-m-d').date(" 11:30:00");
+        $time4 = date('Y-m-d').date(" 12:50:00");
+        $time5 = date('Y-m-d').date(" 13:00:00");
+        $time6 = date('Y-m-d').date(" 14:00:00");
+        $time7 = date('Y-m-d').date(" 17:30:00");
+        $time8 = date('Y-m-d').date(" 18:50:00");
 
-        print_r(
-            AtdRecord::find()
+        $result = [];
+        $result[0] = AtdRecord::find()
             ->where(['ccid'=>$ccid])
-            ->asArray()
-            ->all()
-        );
-//        return AtdRecord::find()
-//            ->where(['ccid'=>$ccid,])
-//            ->asArray()
-//            ->all();
+            ->andWhere(['>','clock_time',$time1])
+            ->andWhere(['<','clock_time',$time2])
+            ->count() ;
+        $result[1] = AtdRecord::find()
+            ->where(['ccid'=>$ccid])
+            ->andWhere(['>','clock_time',$time3])
+            ->andWhere(['<','clock_time',$time4])
+            ->count() ;
+        $result[2] = AtdRecord::find()
+            ->where(['ccid'=>$ccid])
+            ->andWhere(['>','clock_time',$time5])
+            ->andWhere(['<','clock_time',$time6])
+            ->count() ;
+        $result[3] = AtdRecord::find()
+            ->where(['ccid'=>$ccid])
+            ->andWhere(['>','clock_time',$time7])
+            ->andWhere(['<','clock_time',$time8])
+            ->count() ;
+        return $result;
     }
 }

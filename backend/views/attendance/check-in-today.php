@@ -25,6 +25,24 @@ $this->registerJsFile('@web/js/attendance/check-in-today/plugins/owl/owl.carouse
 $this->registerJsFile('@web/js/attendance/check-in-today/plugins.js',['depends'=>['backend\assets\BackendAsset']]);
 $this->registerJsFile('@web/js/attendance/check-in-today/actions.js',['depends'=>['backend\assets\BackendAsset']]);
 ?>
+<?php
+    $str_check = '<div style="margin-top: 60px;">
+                                        <div style="float: left;margin-right: 250px;">
+                                            已签到
+                                        </div>
+                                        <div>
+                                            <img src="/dbis_starter-kit/backend/web/img/check.png" width="50" height="50">
+                                        </div>
+                                    </div>';
+    $str_not_check = '<div style="margin-top: 60px;">
+                                        <div style="float: left;margin-right: 250px;">
+                                            未签到
+                                        </div>
+                                        <div>
+                                            <img src="/dbis_starter-kit/backend/web/img/not_check.png" width="50" height="50">
+                                        </div>
+                                    </div>';
+?>
 <body>
 <div>
     <!--BEGIN CONTENT-->
@@ -66,22 +84,18 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js',['depends'=
 		                            </p>
 		                            <h4 class="value">
 		                                            <span data-counter="" data-start="10" data-end="50" data-step="1" data-duration="0">
-		                                            </span><span>08:30-09:00 <?php echo $model ?></span></h4>
+		                                            </span><span>08:30-09:00</span></h4>
 <!--		                            <p class="description">-->
 <!--		                                Profit description</p>-->
 <!--		                            <div class="progress progress-sm mbn">-->
 <!--		                                <div role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;" class="progress-bar progress-bar-success">-->
 <!--		                                    <span class="sr-only">80% Complete (success)</span></div>-->
 <!--		                            </div>-->
-                                    <div style="margin-top: 60px;">
-                                        <div style="float: left;margin-right: 250px;">
-                                            已签到
-                                        </div>
-                                        <div>
-                                            <img src="/dbis_starter-kit/backend/web/img/check.png" width="50" height="50">
-                                        </div>
-                                    </div>
-
+                                    <?php
+                                    if($model[0] > 0)
+                                        echo $str_check;
+                                    else echo $str_not_check;
+                                    ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -93,14 +107,11 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js',['depends'=
 		                            </p>
 		                            <h4 class="value">
 		                                <span>11:30-13:00</span></h4>
-                                    <div style="margin-top: 60px;">
-                                        <div style="float: left;margin-right: 250px;">
-                                            已签到
-                                        </div>
-                                        <div>
-                                            <img src="/dbis_starter-kit/backend/web/img/check.png" width="50" height="50">
-                                        </div>
-                                    </div>
+                                    <?php
+                                    if($model[1] > 0)
+                                        echo $str_check;
+                                    else echo $str_not_check;
+                                    ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -112,14 +123,11 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js',['depends'=
 		                            </p>
 		                            <h4 class="value">
 		                                <span>13:30-14:00</span></h4>
-                                    <div style="margin-top: 60px;">
-                                        <div style="float: left;margin-right: 250px;">
-                                            已签到
-                                        </div>
-                                        <div>
-                                            <img src="/dbis_starter-kit/backend/web/img/check.png" width="50" height="50">
-                                        </div>
-                                    </div>
+                                    <?php
+                                    if($model[2] > 0)
+                                        echo $str_check;
+                                    else echo $str_not_check;
+                                    ?>
 		                        </div>
 		                    </div>
 		                </div>
@@ -131,14 +139,11 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js',['depends'=
 		                            </p>
 		                            <h4 class="value">
 		                                <span>17:30-19:00</span></h4>
-                                    <div style="margin-top: 60px;">
-                                        <div style="float: left;margin-right: 250px;">
-                                            未签到
-                                        </div>
-                                        <div>
-                                            <img src="/dbis_starter-kit/backend/web/img/not_check.png" width="50" height="50">
-                                        </div>
-                                    </div>
+                                    <?php
+                                    if($model[3] > 0)
+                                        echo $str_check;
+                                    else echo $str_not_check;
+                                    ?>
 		                        </div>
 		                    </div>
 		                </div>
