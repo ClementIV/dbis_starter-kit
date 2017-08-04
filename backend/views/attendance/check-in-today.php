@@ -66,7 +66,7 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js',['depends'=
 		                            </p>
 		                            <h4 class="value">
 		                                            <span data-counter="" data-start="10" data-end="50" data-step="1" data-duration="0">
-		                                            </span><span>08:30-09:00</span></h4>
+		                                            </span><span>08:30-09:00 <?php echo $model ?></span></h4>
 <!--		                            <p class="description">-->
 <!--		                                Profit description</p>-->
 <!--		                            <div class="progress progress-sm mbn">-->
