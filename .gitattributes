@@ -33,4 +33,3 @@
 /.vhost.conf.dist       export-ignore
 /tests                  export-ignore
 /docs                   export-ignore
-/vendor                  export-ignore
