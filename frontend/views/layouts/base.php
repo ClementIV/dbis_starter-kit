@@ -13,7 +13,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
         <?php
         NavBar::begin([
             /*'brandLabel' => Yii::$app->name,*/
-            'brandLabel' => '<image class="header-logo" src="'.yii::getAlias('@frontendUrl').'./css/images/logo.png">',
+            'brandLabel' => '<image class="header-logo" src="'.yii::getAlias('@frontendUrl').'/css/images/logo.png">',
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
                 'class' => 'z-nav',

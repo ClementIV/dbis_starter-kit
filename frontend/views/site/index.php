@@ -141,7 +141,7 @@ $this->title = Yii::$app->name;
                 <div class="swiper-container carousel-sides">
                     <div class="swiper-wrapper">
                         <?php foreach ($teacherModel as $teacher): ?>
-                            <a href="/user-teacher/view?id=<?php echo $teacher->user_id?>" class="swiper-slide" data-src="http://placehold.it/300x200">
+                            <a href=<?php echo Url::to(['/user-teacher/view?id=']).$teacher->user_id?> class="swiper-slide" data-src="http://placehold.it/300x200">
                             <div class="image-container image-container--border">
                                 <img src="<?php echo $teacher->getAvatar()?>">
                             </div>
@@ -251,28 +251,28 @@ $this->title = Yii::$app->name;
 
                         <a href="http://www.gbase.cn/" class="swiper-slide col-sm-4 col-md-3" data-src="http://placehold.it/300x200" data-head="南大通用">
                             <div class="image-container image-container--border">
-                                <img src="http://storage.yii2-starter-kit.dev/source/1/gbase.png" alt="">
+                                <img src=<?php echo yii::getAlias('@storageUrl')."/web/source/1/gbase.png"?> alt="">
                             </div>
                         </a>
 
                         <!--Slide-->
                         <a href="http://www.10086.cn" class="swiper-slide col-sm-4 col-md-3" data-src="http://placehold.it/300x200" data-head="中国移动">
                             <div class="image-container image-container--border">
-                                <img src="http://storage.yii2-starter-kit.dev/source/1/Chinamobile.png" alt="">
+                                <img src=<?php echo yii::getAlias('@storageUrl')."/web/source/1/Chinamobile.png"?> alt="">
                             </div>
                         </a>
 
                         <!--Slide-->
                         <a href="http://www.mobivans.com/" class="swiper-slide col-sm-4 col-md-3" data-src="http://placehold.it/300x200" data-head="摩比数据">
                             <div class="image-container image-container--border">
-                                <img src="http://storage.yii2-starter-kit.dev/source/1/mobidata.png" alt="">
+                                <img src=<?php echo yii::getAlias('@storageUrl')."/web/source/1/mobidata.png"?> alt="">
                             </div>
                         </a>
 
                         <!--Slide-->
                         <a href="http://www.bonc.com.cn/" class="swiper-slide col-sm-4 col-md-3" data-src="http://placehold.it/300x200" data-head="东方国信">
                             <div class="image-container image-container--border">
-                                <img src="http://storage.yii2-starter-kit.dev/source/1/bonc.png" alt="">
+                                <img src=<?php echo yii::getAlias('@storageUrl')."/web/source/1/bonc.png" ?> alt="">
                             </div>
                         </a>
 
