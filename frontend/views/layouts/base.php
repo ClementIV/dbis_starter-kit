@@ -2,18 +2,18 @@
 
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
-use yii\helpers\Url;
+use yii\helpers\Html;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
 $this->beginContent('@frontend/views/layouts/_clear.php')
 ?>
-
     <div class="wrap">
         <?php
         NavBar::begin([
             /*'brandLabel' => Yii::$app->name,*/
-            'brandLabel' => '<image class="header-logo" src="'.yii::getAlias('@frontendUrl').'/css/images/logo.png">',
+            'brandLabel' => '<img class="logo" src="'.yii::getAlias('@frontendUrl').'/css/images/logo-sm.png"> &nbsp;&nbsp; 南开大学数据库与信息系统实验室<br><br>
+                            <div style="padding-left:6em;">DBIS, Nankai University</div></img>',
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
                 'class' => 'z-nav',
@@ -53,8 +53,8 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                     ,'options' => ['class' => 'z-nav__item']
                     ,'linkOptions' => ['class' => 'z-nav__link']
                 ],
-                ['label' => Yii::t('frontend', 'Signup'), 'url' => ['/user/sign-in/signup'],'visible'=>Yii::$app->user->isGuest, 'options' => ['class' => 'z-nav__item'],'linkOptions' => ['class' => 'z-nav__link']],
-                ['label' => Yii::t('frontend', 'Login'), 'url' =>  ['/user/sign-in/login'], 'visible'=>Yii::$app->user->isGuest,'options' => ['class' => 'z-nav__item'],'linkOptions' => ['class' => 'z-nav__link']],
+                ['label' => Yii::t('frontend', 'Signup'), 'url' => ['/user/sign-in/signup'],'visible'=>env('USER_REGISTER'), 'options' => ['class' => 'z-nav__item'],'linkOptions' => ['class' => 'z-nav__link']],
+                ['label' => Yii::t('frontend', 'Login'), 'url' =>  ['/user/sign-in/login'], 'visible'=>env('USER_REGISTER'),'options' => ['class' => 'z-nav__item'],'linkOptions' => ['class' => 'z-nav__link']],
                 [
                     'childOptions'=>['class' => 'z-nav__list-secondary'],
                     'label' => Yii::$app->user->isGuest ? '' : Yii::$app->user->identity->getPublicIdentity(),
@@ -147,7 +147,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
 									</span>
                                 <span class="contact-info__item">
 										<i class="fa fa-mobile"></i>
-										+1-888-555-5555 / +1-888-123-3535
+										 85358995
 									</span>
                             </div>
 
@@ -209,5 +209,4 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
         <p class="pull-right"><?php /*echo Yii::powered() */?></p>
     </div>
 </footer>-->
-
 <?php $this->endContent() ?>

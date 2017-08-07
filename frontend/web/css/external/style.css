@@ -2285,7 +2285,7 @@ ol {
   font: 28px 'Varela Round', sans-serif;
   line-height: 16px;
   color: #ffffff;
-  background-image: url(../images/logo.png);
+  background-image: url(../images/logo-sm.png);
   background-size: 46px;
   background-repeat: no-repeat;
   background-position: 0 2px;
@@ -12766,7 +12766,7 @@ table th[class*="col-"] {
   padding-top: 6px;
 }
 .icon--shape.icon--animate .icon__item {
-  padding-top: 22px;
+  padding-top: 42px;
 }
 .icon--border.icon--animate .icon__item {
   padding-top: 3px;
