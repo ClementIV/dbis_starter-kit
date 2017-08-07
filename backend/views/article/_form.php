@@ -56,7 +56,7 @@ use yii\bootstrap\ActiveForm;
             'url' => ['/file-storage/upload'],
             'sortable' => true,
             'maxFileSize' => 10000000, // 10 MiB
-            'maxNumberOfFiles' => 10,
+            'maxNumberOfFiles' => 10
         ]);
     ?>
 

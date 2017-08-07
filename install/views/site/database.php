@@ -10,7 +10,7 @@ use yii\jui\Accordion;
 
 $this->title = 'Welcome Install';
 ?>
-<?=Html::beginTag('section')?>
+<?php echo Html::beginTag('section')?>
 
 <h2>3-Database</h2>
 
@@ -56,4 +56,4 @@ $this->title = 'Welcome Install';
 ?>
   </div>
 <nav>
-  <?=Html::endTag('section');?>
+  <?php echo Html::endTag('section');?>

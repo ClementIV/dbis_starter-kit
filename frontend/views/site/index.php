@@ -1,7 +1,7 @@
 
 <?php
 /* @var $this yii\web\View */
-
+use yii\helpers\Url;
 $this->title = Yii::$app->name;
 ?>
 <div class="container">
@@ -26,7 +26,7 @@ $this->title = Yii::$app->name;
                             <i class="livicon" data-name="anchor" data-color="#fff" data-hovercolor="#fff" data-size="42"></i>
                         </div>
                     </div>
-                    <a class="service__link" href="/tag/index?tagid=1">
+                    <a class="service__link" href=<?php echo Url::to(['/tag/index?tagid=1']); ?> >
                         <h3 class="service__heading">机器学习与数据挖掘</h3>
                     </a>
                 </div>
@@ -38,7 +38,7 @@ $this->title = Yii::$app->name;
                             <i class="livicon" data-name="heart" data-color="#fff" data-hovercolor="#fff" data-size="42"></i>
                         </div>
                     </div>
-                    <a class="service__link" href="/tag/index?tagid=2">
+                    <a class="service__link" href=<?php echo Url::to(['/tag/index?tagid=2'])?> >
                         <h3 class="service__heading">自然语言处理与情感分析</h3>
                     </a>
                </div>
@@ -51,7 +51,7 @@ $this->title = Yii::$app->name;
                             <i class="livicon" data-name="search" data-color="#fff" data-hovercolor="#fff" data-size="42"></i>
                         </div>
                     </div>
-                    <a class="service__link" href="/tag/index?tagid=5">
+                    <a class="service__link" href= <?php echo Url::to(['/tag/index?tagid=5'])?> >
                         <h3 class="service__heading">信息检索</h3>
                     </a>
                 </div>
@@ -63,7 +63,7 @@ $this->title = Yii::$app->name;
                             <i class="livicon" data-name="thumbnails-big" data-color="#fff" data-hovercolor="#fff" data-size="42"></i>
                         </div>
                     </div>
-                    <a class="service__link" href="/tag/index?tagid=3">
+                    <a class="service__link" href=<?php echo Url::to(['/tag/index?tagid=3']); ?> >
                         <h3 class="service__heading">图数据</h3>
                     </a>
                 </div>

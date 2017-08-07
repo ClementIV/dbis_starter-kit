@@ -3,7 +3,7 @@ use yii\helpers\Html;
 use yii\jui\Accordion;
 $this->title = 'congratulation';
 ?>
-<?=Html::beginTag('section')?>
+<?php echo Html::beginTag('section')?>
 
 <h2>Congratulation!</h2>
 
@@ -43,4 +43,4 @@ $this->title = 'congratulation';
   </div>
 <nav>
 
-<?=Html::endTag('section');?>
+<?php echo Html::endTag('section');?>

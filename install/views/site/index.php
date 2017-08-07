@@ -1,15 +1,12 @@
-<?
+<?php
 /* @var $this yii\web\View */
-
 use yii\jui\Accordion;
-
-
 use yii\helpers\Html;
 $this->title = 'Welcome install';
 ?>
 <!--<table width="400px" background="#9fc5e8" align="center",>-->
 
-<?=Html::beginTag('section')?>
+<?= Html::beginTag('section')?>
 
 <h2>1-Welcome</h2>
 
@@ -24,8 +21,8 @@ $this->title = 'Welcome install';
 
 
 <div style="width=80%" align="center">
-<?
-echo Accordion::widget([
+<?php
+    echo Accordion::widget([
     'items' => [
         [
             'header' => 'Welcome!',
@@ -40,13 +37,14 @@ echo Accordion::widget([
             'header' => 'Previous-Next!',
             'content' => '
                 <div align="center">
-                  <nav>
-                    <ol class="cd-multi-steps text-center custom-icons">
-                      <li class="visited">'.Html::a('GO Next',['check-env'], ['class' => 'link']).'</li>
-                      <ol>
-                      </nav>
-                      </div>
-                      ',
+                    <nav>
+                        <ol class="cd-multi-steps text-center custom-icons">
+                        <li class="visited">'. Html::a('GO Next',['check-env'], ['class' => 'link']).
+                        '</li>
+                        <ol>
+                    </nav>
+                </div> '
+                ,
         ],
 
     ],
@@ -59,7 +57,7 @@ echo Accordion::widget([
 </div>
 </nav>
 
-<?=Html::endTag('section');?>
+<?php echo Html::endTag('section');?>
 <!--/table>-->
 
 <div class="site-index">

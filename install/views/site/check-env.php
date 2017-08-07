@@ -8,7 +8,7 @@ use yii\jui\Accordion;
 
 $this->title = 'Welcome Install';
 ?>
-<?=Html::beginTag('section')?>
+<?php echo Html::beginTag('section')?>
 
 <h2>2-Check your Environment</h2>
 
@@ -20,7 +20,7 @@ $this->title = 'Welcome Install';
     <li><em>Install</em></li>
   </ol>
   <div style="width=80%" align="center">
-  <?
+  <?php
   echo Accordion::widget([
       'items' => [
           [
@@ -56,4 +56,4 @@ $this->title = 'Welcome Install';
   </div>
 <nav>
 
-<?=Html::endTag('section');?>
+<?php echo Html::endTag('section');?>
