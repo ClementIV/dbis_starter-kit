@@ -54,7 +54,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                     ,'linkOptions' => ['class' => 'z-nav__link']
                 ],
                 ['label' => Yii::t('frontend', 'Signup'), 'url' => ['/user/sign-in/signup'],'visible'=>env('USER_REGISTER'), 'options' => ['class' => 'z-nav__item'],'linkOptions' => ['class' => 'z-nav__link']],
-                ['label' => Yii::t('frontend', 'Login'), 'url' =>  ['/user/sign-in/login'], 'visible'=>env('USER_REGISTER'),'options' => ['class' => 'z-nav__item'],'linkOptions' => ['class' => 'z-nav__link']],
+                ['label' => Yii::t('frontend', 'Login'), 'url' =>  ['/user/sign-in/login'], 'visible'=>env('USER_LOGININ'),'options' => ['class' => 'z-nav__item'],'linkOptions' => ['class' => 'z-nav__link']],
                 [
                     'childOptions'=>['class' => 'z-nav__list-secondary'],
                     'label' => Yii::$app->user->isGuest ? '' : Yii::$app->user->identity->getPublicIdentity(),
