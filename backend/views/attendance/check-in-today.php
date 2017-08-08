@@ -157,19 +157,21 @@ $str_not_check = '<div style="margin-top: 60px;">
                             </div>
                         </div>
                     </td>
-                    <td valign="top">
+                    <td valign="top" style="padding-top: 59px;">
+                        <div class="single-member effect  info-color" style="margin: 0 0 0 90px;min-height: 0px;">
+                        <div class="member-info">
+                            <h2 style="font-size: 24px;color: #ffffff; font-weight: bold;  text-transform: uppercase; text-align: center;">用户信息</h2>
+                            <hr style="margin-bottom: 0px;">
+                        </div>
+                        </div>
+                        <div class="single-member effect info-color" style="margin-left: 90px;">
 
-                        <div class="single-member effect info-color" style="margin-left: 150px;">
-                            <div class="member-info" style="margin-top: 20px;">
-                                <h2 style="font-size: 24px;color: #ffffff; font-weight: bold; margin: 0 0 40px 0; text-transform: uppercase; text-align: center;">用户信息</h2>
-                                <hr>
-                            </div>
 
                             <div class="member-image">
                                 <img src="<?php echo Yii::$app->user->identity->userProfile->getAvatar($this->assetManager->getAssetUrl($bundle, 'img/anonymous.jpg')) ?>"
                                       />
                             </div>
-                            <div class="more-info"style="margin-top: 40px;">
+                            <div class="more-info"style="margin-top: 40px;margin-left: 9px;">
                                 <p style="font-size: 14px; font-weight: 300; line-height: 22px; padding: 0 30px; margin-bottom: 10px;">
                                 <h4 style="font-weight: bold;font-size: 20px;color: #ffffff;" >用户id：<?php echo $info['uid'] ?></h4>
                                 <h4 style="font-weight: bold;font-size: 20px;color: #ffffff;">用户名：<?php echo $info['username'] ?></h4>
@@ -179,7 +181,6 @@ $str_not_check = '<div style="margin-top: 60px;">
                                 </p>
                             </div>
                         </div>
-
                     </td>
                 </div>
             </tr>
