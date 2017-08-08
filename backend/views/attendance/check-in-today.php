@@ -158,29 +158,32 @@ $str_not_check = '<div style="margin-top: 60px;">
                         </div>
                     </td>
                     <td valign="top" style="padding-top: 59px;">
-                        <div class="single-member effect  info-color" style="margin: 0 0 0 90px;min-height: 0px;">
+                        <div class="single-member effect-3 info-color" style="margin: 0 0 0 90px;min-height: 0px;">
                         <div class="member-info">
                             <h2 style="font-size: 24px;color: #ffffff; font-weight: bold;  text-transform: uppercase; text-align: center;">用户信息</h2>
                             <hr style="margin-bottom: 0px;">
                         </div>
                         </div>
-                        <div class="single-member effect info-color" style="margin-left: 90px;">
-
-
-                            <div class="member-image">
+                        <div class="single-member effect-3 info-color" style="margin-left: 90px;" >
+                            <div class=" member-image " >
                                 <img src="<?php echo Yii::$app->user->identity->userProfile->getAvatar($this->assetManager->getAssetUrl($bundle, 'img/anonymous.jpg')) ?>"
-                                      />
+                                alt="Member">
                             </div>
-                            <div class="more-info"style="margin-top: 40px;margin-left: 9px;">
-                                <p style="font-size: 14px; font-weight: 300; line-height: 22px; padding: 0 30px; margin-bottom: 10px;">
+                            <div class="more-info"style="margin-top:-10px;margin-left: 15px;margin-right:15px">
+                                <p style="font-size: 14px; font-weight: 300; line-height: 22px; padding: 0 30px; margin-bottom: 0px;">
+                                <h3 style="color:#ffffff;font-weight: bold; text-align:center;">个人考勤信息</h3>
                                 <h4 style="font-weight: bold;font-size: 20px;color: #ffffff;" >用户id：<?php echo $info['uid'] ?></h4>
                                 <h4 style="font-weight: bold;font-size: 20px;color: #ffffff;">用户名：<?php echo $info['username'] ?></h4>
                                 <h4 style="font-weight: bold;font-size: 20px;color: #ffffff;">工位号：<?php echo $info['ccid'] ?></h4>
                                 <h4 style="font-weight: bold;font-size: 20px;color: #ffffff;">部门：<?php echo $info['deptname'] ?></h4>
                                 <h4 style="font-weight: bold;font-size: 20px;color: #ffffff;">email：<?php echo $info['email'] ?></h4>
                                 </p>
+                                <div class="social-touch" style="align:center;">
+                                    <a class="" href="#"></a>
+                                </div>
                             </div>
                         </div>
+
                     </td>
                 </div>
             </tr>

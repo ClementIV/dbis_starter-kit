@@ -16,11 +16,11 @@ class AttendanceController extends \yii\web\Controller
     {
         $model = AtdRecord::getRecordById(Yii::$app->user->identity->id);
         $info = ViewInfo::getInfoById(Yii::$app->user->identity->id);
-        //print_r($info[0]);
+        //print_r($info);
         return $this->render('check-in-today',[
             'model' => $model[0],
             'rule' => $model[1],
-            'info' => $info[0]
+            'info' => $info[0],
         ]);
     }
 }

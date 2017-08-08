@@ -1,14 +1,171 @@
 /*= common css to all effects =*/
-.single-member{width: 300px; float: left; margin-bottom: 30px; background-color: #fff; position: relative;}
+.single-member {
+    width: 300px;
+    float: left;
+    margin-bottom: 30px;
+    background-color: #fff;
+    position: relative;
+}
 /*= common css to all effects end =*/
 
+.member-image img {
+    max-width: 100%;
+    vertical-align: middle;
+}
 /*= effect-7 css =*/
-.effect{min-height: 289px; overflow: hidden;}
-.effect h3{line-height: 35px;}
-.effect .member-image{position: absolute; bottom: 0; width: 100%; transition: 0.4s; z-index: 1;}
-.effect .member-image img{width: 100%; transition: 0.4s; opacity: 1; height: 100%;}
-.effect .more-info{height: 208px; transition: 0.4s; overflow: hidden; position: relative;}
-.effect:hover .member-image{bottom: 40%;}
-.effect:hover .member-image img{width: 0; height: 0; transition: 0.4s; opacity: 0;}
+
+.effect {
+    min-height: 289px;
+    overflow: hidden;
+}
+
+.effect h3 {
+    line-height: 35px;
+}
+
+.effect .member-image {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    transition: 0.4s;
+    z-index: 1;
+}
+
+.effect .member-image img {
+    width: 100%;
+    transition: 0.4s;
+    opacity: 1;
+    height: 100%;
+}
+
+.effect .more-info {
+    height: 208px;
+    transition: 0.4s;
+    overflow: hidden;
+    position: relative;
+}
+
+.effect:hover .member-image {
+    bottom: 40%;
+}
+
+.effect:hover .member-image img {
+    width: 0;
+    height: 0;
+    transition: 0.4s;
+    opacity: 0;
+}
 /*= effect-7 css end =*/
-.info-color{background-color: rgb(28,175,154);}
+/*= common css to all effects end =*/
+/*= effect-2 css =*/
+
+.effect-2 {
+    max-height: 302px;
+    min-height: 302px;
+    overflow: hidden;
+}
+
+.effect-2 h3 {
+    padding-top: 7px;
+    line-height: 33px;
+}
+
+.effect-2 .member-image {
+    border-bottom: 5px solid #1fb554;
+    height: 212px;
+    overflow: hidden;
+    width: 100%;
+    transition: 0.4s;
+    display: inline-block;
+    float: none;
+    vertical-align: middle;
+}
+
+.effect-2 .member-info {
+    transition: 0.4s;
+}
+
+.effect-2 .member-image img {
+    width: 100%;
+    vertical-align: bottom;
+}
+
+.effect-2 .social-touch {
+    background-color: #1fb554;
+    float: left;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    padding: 5px 0;
+    width: 100%;
+    transition: 0.4s;
+}
+
+.effect-2:hover .member-image {
+    height: 81px;
+    transition: 0.4s;
+}
+/*= effect-2 css end =*/
+/*= effect-3 css =*/
+
+.effect-3 {
+    max-height: 350px;
+    min-height: 350px;
+    overflow: hidden;
+}
+
+.effect-3 h3 {
+    padding-top: 0;
+    line-height: 33px;
+}
+
+.effect-3 .member-image {
+    /*border-bottom: 5px solid #e5642b;*/
+    /*图片分割线*/
+    transition: 0.4s;
+    height: 300px;
+    width: 100%;
+    display: inline-block;
+    float: none;
+    vertical-align: middle;
+}
+
+.effect-3 .member-info {
+    transition: 0.4s;
+}
+
+.effect-3 .member-image img {
+    width: 100%;
+    vertical-align: top;
+}
+
+.effect-3 .social-touch {
+    background-color: #e5642b;
+    float: left;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    padding: 1px 0;
+    width: 100%;
+    transition: 0.4s;
+}
+
+.effect-3:hover .member-image {
+    border-bottom: 0;
+    border-radius: 0 0 50px 50px;
+    height: 81px;
+    display: inline-block;
+    overflow: hidden;
+    width: 109px;
+    transition: 0.4s;
+    margin-left: 32%;
+}
+/*= effect-3 css end =*/
+/*= Media Query
+=============== */
+/*= Media Query End
+=================== */
+
+.info-color {
+    background-color: rgb(28,175,154);
+}
