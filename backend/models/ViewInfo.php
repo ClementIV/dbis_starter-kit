@@ -49,4 +49,14 @@ class ViewInfo extends \yii\db\ActiveRecord
             'email' => 'Email',
         ];
     }
+    /**
+     * 传入uid，返回这个uid的个人信息
+     */
+    public static function getInfoById($uid)
+    {
+        //Array ( [uid] => 92 [username] => fyq [deptname] => 530 [ccid] => 113 [email] => 1655@qq.com ) )
+        return ViewInfo::find()
+            ->where(['uid'=>$uid])
+            ->all();
+    }
 }

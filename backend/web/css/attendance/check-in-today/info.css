@@ -1,0 +1,14 @@
+/*= common css to all effects =*/
+.single-member{width: 280px; float: left; margin: 30px 2.5%; background-color: #fff; position: relative;}
+/*= common css to all effects end =*/
+
+/*= effect-7 css =*/
+.effect{min-height: 289px; overflow: hidden;}
+.effect h3{line-height: 35px;}
+.effect .member-image{position: absolute; bottom: 0; width: 100%; transition: 0.4s; z-index: 1;}
+.effect .member-image img{width: 100%; transition: 0.4s; opacity: 1; height: 100%;}
+.effect .more-info{height: 208px; transition: 0.4s; overflow: hidden; position: relative;}
+.effect:hover .member-image{bottom: 40%;}
+.effect:hover .member-image img{width: 0; height: 0; transition: 0.4s; opacity: 0;}
+/*= effect-7 css end =*/
+.info-color{background-color: rgb(28,175,154);}
