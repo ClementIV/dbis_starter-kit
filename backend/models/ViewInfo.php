@@ -1,0 +1,52 @@
+<?php
+
+namespace backend\models;
+
+use Yii;
+
+/**
+ * This is the model class for table "view_info".
+ *
+ * @property integer $uid
+ * @property string $username
+ * @property string $deptname
+ * @property string $ccid
+ * @property string $email
+ */
+class ViewInfo extends \yii\db\ActiveRecord
+{
+    /**
+     * @inheritdoc
+     */
+    public static function tableName()
+    {
+        return 'view_info';
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+            [['uid', 'email'], 'required'],
+            [['uid'], 'integer'],
+            [['username'], 'string', 'max' => 32],
+            [['deptname', 'ccid', 'email'], 'string', 'max' => 255],
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'uid' => 'Uid',
+            'username' => 'Username',
+            'deptname' => 'Deptname',
+            'ccid' => 'Ccid',
+            'email' => 'Email',
+        ];
+    }
+}
