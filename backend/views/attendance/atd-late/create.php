@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 $this->registerCssFile('@web/css/attendance/check-in-today/info.css', ['depends' => ['backend\assets\BackendAsset']]);
 ?>
 
-    <div class="panel-body pan">
+
             <?php echo $this->render('_form', [
                 'model' => $model,
                 'info' =>$info,
