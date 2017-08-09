@@ -29,7 +29,7 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js', ['depends'
 ?>
 <?php
 $str_check = '<div style="margin-top: 60px;">
-                                        <div style="float: left;margin-right: 250px;">
+                                        <div style="float: left;margin-right: 250px; font-size:22px;" >
                                             已签到
                                         </div>
                                         <div>
@@ -37,7 +37,7 @@ $str_check = '<div style="margin-top: 60px;">
                                         </div>
                                     </div>';
 $str_not_check = '<div style="margin-top: 60px;">
-                                        <div style="float: left;margin-right: 250px;">
+                                        <div style="float: left;margin-right: 250px; font-size:22px;" >
                                             未签到
                                         </div>
                                         <div>
@@ -52,8 +52,11 @@ $str_not_check = '<div style="margin-top: 60px;">
         <table>
             <tr style="height:200px;">
                 <div>
-                    <td>
-                        <div style="width: 920px">今日签到</div>
+                    <td style="padding-top:0px">
+                        <div class="info-header">
+                            <h2 class="info-head">今日签到</h2>
+                            <h3 class="info-tip">美好的一天从按时签到开始<br></h3>
+                        </div>
                     </td>
                     <td>
                         <div style="margin-left: 10%;">
@@ -172,15 +175,18 @@ $str_not_check = '<div style="margin-top: 60px;">
                             <div class="more-info"style="margin-top:-10px;margin-left: 15px;margin-right:15px">
                                 <p style="font-size: 14px; font-weight: 300; line-height: 22px; padding: 0 30px; margin-bottom: 0px;">
                                 <h3 style="color:#ffffff;font-weight: bold; text-align:center;">个人考勤信息</h3>
-                                <h4 style="font-weight: bold;font-size: 20px;color: #ffffff;" >用户id：<?php echo $info['uid'] ?></h4>
-                                <h4 style="font-weight: bold;font-size: 20px;color: #ffffff;">用户名：<?php echo $info['username'] ?></h4>
-                                <h4 style="font-weight: bold;font-size: 20px;color: #ffffff;">工位号：<?php echo $info['ccid'] ?></h4>
-                                <h4 style="font-weight: bold;font-size: 20px;color: #ffffff;">部门：<?php echo $info['deptname'] ?></h4>
-                                <h4 style="font-weight: bold;font-size: 20px;color: #ffffff;">email：<?php echo $info['email'] ?></h4>
+                                <h4 style="font-weight: bold;font-size: 18px;color: #ffffff;" >用户id：<?php echo $info['uid'] ?></h4>
+                                <h4 style="font-weight: bold;font-size: 18px;color: #ffffff;">用户名：<?php echo $info['username'] ?></h4>
+                                <h4 style="font-weight: bold;font-size: 18px;color: #ffffff;">工位号：<?php echo $info['ccid'] ?></h4>
+                                <h4 style="font-weight: bold;font-size: 18px;color: #ffffff;">部门：<?php echo $info['deptname'] ?></h4>
+                                <h4 style="font-weight: bold;font-size: 18px;color: #ffffff;">email：<?php echo $info['email'] ?></h4>
                                 </p>
                                 <div class="social-touch" style="align:center;">
                                     <a class="" href="#"></a>
                                 </div>
+                            </div>
+                            <div class="more-info" style="margin-top:25px">
+                                <h4 style="color:#ffffff;font-weight: bold; text-align:center;">DBIS, Nankai University</h3>
                             </div>
                         </div>
 

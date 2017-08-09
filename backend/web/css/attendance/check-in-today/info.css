@@ -1,4 +1,5 @@
 /*= common css to all effects =*/
+
 .single-member {
     width: 300px;
     float: left;
@@ -7,13 +8,11 @@
     position: relative;
 }
 /*= common css to all effects end =*/
-
 .member-image img {
     max-width: 100%;
     vertical-align: middle;
 }
 /*= effect-7 css =*/
-
 .effect {
     min-height: 289px;
     overflow: hidden;
@@ -58,7 +57,6 @@
 /*= effect-7 css end =*/
 /*= common css to all effects end =*/
 /*= effect-2 css =*/
-
 .effect-2 {
     max-height: 302px;
     min-height: 302px;
@@ -107,7 +105,6 @@
 }
 /*= effect-2 css end =*/
 /*= effect-3 css =*/
-
 .effect-3 {
     max-height: 350px;
     min-height: 350px;
@@ -165,7 +162,33 @@
 =============== */
 /*= Media Query End
 =================== */
-
 .info-color {
     background-color: rgb(28,175,154);
+}
+
+.info-head {
+    margin: 10px;
+    font-size: 33px;
+    font-family: 微软雅黑;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+}
+
+.info-tip {
+    margin: 15px;
+    font-size: 22px;
+    font-style: normal;
+    font-family: 微软雅黑;
+    color: #ffffff;
+    text-align: center;
+}
+
+.info-header {
+    background-color: rgb(28,175,154);
+    height: 121px;
+    width: 100%;
+    /*vertical-align: top;*/
+    margin-top: -17px;
+    padding-top: 10px;
 }
