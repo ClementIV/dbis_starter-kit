@@ -1,5 +1,4 @@
 /*= common css to all effects =*/
-
 .single-member {
     width: 300px;
     float: left;
@@ -8,11 +7,13 @@
     position: relative;
 }
 /*= common css to all effects end =*/
+
 .member-image img {
     max-width: 100%;
     vertical-align: middle;
 }
 /*= effect-7 css =*/
+
 .effect {
     min-height: 289px;
     overflow: hidden;
@@ -57,6 +58,7 @@
 /*= effect-7 css end =*/
 /*= common css to all effects end =*/
 /*= effect-2 css =*/
+
 .effect-2 {
     max-height: 302px;
     min-height: 302px;
@@ -105,6 +107,7 @@
 }
 /*= effect-2 css end =*/
 /*= effect-3 css =*/
+
 .effect-3 {
     max-height: 350px;
     min-height: 350px;
@@ -162,6 +165,7 @@
 =============== */
 /*= Media Query End
 =================== */
+
 .info-color {
     background-color: rgb(28,175,154);
 }
@@ -191,4 +195,94 @@
     /*vertical-align: top;*/
     margin-top: -17px;
     padding-top: 10px;
+}
+
+.panel {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+    border: 5px solid #e5e5e5;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.panel > .panel-heading {
+    font-size: 18px;
+    padding: 7px 15px;
+    border-top-right-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-color: #e5e5e5 !important;
+}
+
+.panel > .panel-footer {
+    font-size: 18px;
+    padding: 7px 15px;
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+.panel.panel-primary {
+    border-color: #dc6767;
+}
+
+.panel.panel-primary > .panel-heading {
+    color: #FFFFFF;
+    background: #dc6767;
+    border-color: #dc6767 !important;
+}
+
+.panel.panel-primary > .panel-footer {
+    color: #FFFFFF;
+    background: #dc6767;
+    border-color: #dc6767 !important;
+}
+
+.panel.panel-red {
+    border-color: #bf4346;
+}
+
+.panel.panel-red > .panel-heading {
+    color: #FFFFFF;
+    background: #bf4346;
+    border-color: #bf4346 !important;
+}
+
+.panel.panel-red > .panel-footer {
+    color: #FFFFFF;
+    background: #bf4346;
+    border-color: #bf4346 !important;
+}
+
+.panel.panel-orange {
+    border-color: #e9662c;
+}
+
+.panel.panel-orange > .panel-heading {
+    color: #FFFFFF;
+    background: #e9662c;
+    border-color: #e9662c !important;
+}
+
+.panel.panel-orange > .panel-footer {
+    color: #FFFFFF;
+    background: #e9662c;
+    border-color: #e9662c !important;
+}
+
+.panel.panel-green {
+    border-color: #488c6c;
+}
+
+.panel.panel-green > .panel-heading {
+    color: #FFFFFF;
+    background: #488c6c;
+    border-color: #488c6c !important;
+}
+
+.panel.panel-green > .panel-footer {
+    color: #FFFFFF;
+    background: #488c6c;
+    border-color: #488c6c !important;
 }

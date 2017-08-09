@@ -15,6 +15,7 @@ Yii::setAlias('@console', realpath(__DIR__.'/../../console'));
 Yii::setAlias('@storage', realpath(__DIR__.'/../../storage'));
 Yii::setAlias('@tests', realpath(__DIR__.'/../../tests'));
 Yii::setAlias('@install', realpath(__DIR__.'/../../install'));
+
 /**
  * Setting url aliases
  */

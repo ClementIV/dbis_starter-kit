@@ -49,6 +49,7 @@ class ComposerStaticInit6793ff63a54b90c4a642b264aa414fa8
         'm' => 
         array (
             'mihaildev\\elfinder\\' => 19,
+            'mdm\\admin\\' => 10,
         ),
         'l' => 
         array (
@@ -200,6 +201,10 @@ class ComposerStaticInit6793ff63a54b90c4a642b264aa414fa8
         'mihaildev\\elfinder\\' => 
         array (
             0 => __DIR__ . '/..' . '/mihaildev/yii2-elfinder',
+        ),
+        'mdm\\admin\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mdmsoft/yii2-admin',
         ),
         'liasica\\qywechat\\' => 
         array (

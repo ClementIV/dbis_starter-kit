@@ -1,12 +1,12 @@
 <?php
 
-namespace backend\controllers;
+namespace backend\controllers\attendance;
 
 use Yii;
 use backend\models\ViewInfo;
 use backend\models\AtdRecord;
 
-class AttendanceController extends \yii\web\Controller
+class TodayCheckController extends \yii\web\Controller
 {
     public function actionIndex()
     {

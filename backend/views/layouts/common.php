@@ -140,18 +140,19 @@ $bundle = BackendAsset::register($this);
                     'items'=>[
                         [
                             'label'=>Yii::t('backend', 'Person'),
+                            //'icon'=>'<i class="fa fa-id-card-o"></i>',
                             'options' => ['class' => 'header'],
-                            'visible'=>Yii::$app->user->can('Student'),
+                            //'visible'=>Yii::$app->user->can('Student'),
                         ],
                         [
                            'label'=>Yii::t('backend','Edit profile'),
-                           'icon'=>'<i class="fa fa-graduation-cap"></i>',
+                           'icon'=>'<i class="fa fa-address-card-o"></i>',
                            'url'=>['/user-student/update?id='.Yii::$app->user->id],
-                           'visible'=>Yii::$app->user->can('student'),
+                           //'visible'=>Yii::$app->user->can('student'),
                         ],
                         [
                            'label'=>Yii::t('backend', 'Edit profile'),
-                           'icon'=>'<i class="fa fa-graduation-cap"></i>',
+                           'icon'=>'<i class="fa fa-address-card-o"></i>',
                            'url'=>['/user-teacher/update?id='.Yii::$app->user->id],
                            'visible'=>Yii::$app->user->can('teacher'),
                         ],
@@ -161,14 +162,14 @@ $bundle = BackendAsset::register($this);
                             'url'=>'#',
                             'options'=>['class'=>'treeview'],
                             'items'=>[
-                                ['label'=>Yii::t('backend', 'Today Check'), 'url'=>['/attendance/check-in-today'], 'icon'=>'<i class="fa fa-check-square-o"></i>'],
+                                ['label'=>Yii::t('backend', 'Today Check'), 'url'=>['/attendance/today-check/check-in-today'], 'icon'=>'<i class="fa fa-check-square-o"></i>'],
                                 [
                                     'label'=>Yii::t('backend', 'Apply Late and Early Leave'),
                                     'url'=>'#',
                                     'icon'=>'<i class="fa  fa-comments-o"></i>',
                                     'options'=>['class'=>'treeview'],
                                     'items'=>[
-                                        ['label'=>Yii::t('backend', 'Apply Late'), 'url'=>['/attendance/check-in-today'], 'icon'=>'<i class="fa fa-sign-in"></i>'],
+                                        ['label'=>Yii::t('backend', 'Apply Late'), 'url'=>['/attendance/atd-late/create'], 'icon'=>'<i class="fa fa-sign-in"></i>'],
                                         ['label'=>Yii::t('backend', 'Apply Early Leave'), 'url'=>['/attendance/check-in-today'], 'icon'=>'<i class="fa fa-sign-out"></i>'],
                                     ]
                                 ],
@@ -183,13 +184,13 @@ $bundle = BackendAsset::register($this);
                                     ]
                                 ],
                             ],
-                            'visible'=>Yii::$app->user->can('Student'),
+                            //'visible'=>Yii::$app->user->can('Student'),
                         ],
 
                        [
                            'label'=>Yii::t('backend', 'My Department'),
                            'options' => ['class' => 'header'],
-                           'visible'=>Yii::$app->user->can('Student')
+                           //'visible'=>Yii::$app->user->can('Student')
                        ],
                         [
                             'label'=>Yii::t('backend', 'Main'),
