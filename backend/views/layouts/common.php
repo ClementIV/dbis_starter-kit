@@ -139,19 +139,61 @@ $bundle = BackendAsset::register($this);
                     'activateParents'=>true,
                     'items'=>[
                         [
-                            'label'=>Yii::t('backend', 'Main'),
-                            'options' => ['class' => 'header']
+                            'label'=>Yii::t('backend', 'Person'),
+                            'options' => ['class' => 'header'],
+                            'visible'=>Yii::$app->user->can('Student'),
                         ],
                         [
-                            'label'=>Yii::t('backend', 'Attendence'),
-                            'icon'=>'<i class="fa fa-users"></i>',
+                           'label'=>Yii::t('backend','Edit profile'),
+                           'icon'=>'<i class="fa fa-graduation-cap"></i>',
+                           'url'=>['/user-student/update?id='.Yii::$app->user->id],
+                           'visible'=>Yii::$app->user->can('student'),
+                        ],
+                        [
+                           'label'=>Yii::t('backend', 'Edit profile'),
+                           'icon'=>'<i class="fa fa-graduation-cap"></i>',
+                           'url'=>['/user-teacher/update?id='.Yii::$app->user->id],
+                           'visible'=>Yii::$app->user->can('teacher'),
+                        ],
+                        [
+                            'label'=>Yii::t('backend', 'Person Attendence'),
+                            'icon'=>'<i class="fa fa-user"></i>',
                             'url'=>'#',
                             'options'=>['class'=>'treeview'],
                             'items'=>[
-                                ['label'=>Yii::t('backend', '今日签到'), 'url'=>['/attendance/check-in-today'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
-                                ['label'=>Yii::t('backend', 'test2'), 'url'=>['/article/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
-                                ['label'=>Yii::t('backend', 'test3'), 'url'=>['/article-category/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>']
-                            ]
+                                ['label'=>Yii::t('backend', 'Today Check'), 'url'=>['/attendance/check-in-today'], 'icon'=>'<i class="fa fa-check-square-o"></i>'],
+                                [
+                                    'label'=>Yii::t('backend', 'Apply Late and Early Leave'),
+                                    'url'=>'#',
+                                    'icon'=>'<i class="fa  fa-comments-o"></i>',
+                                    'options'=>['class'=>'treeview'],
+                                    'items'=>[
+                                        ['label'=>Yii::t('backend', 'Apply Late'), 'url'=>['/attendance/check-in-today'], 'icon'=>'<i class="fa fa-sign-in"></i>'],
+                                        ['label'=>Yii::t('backend', 'Apply Early Leave'), 'url'=>['/attendance/check-in-today'], 'icon'=>'<i class="fa fa-sign-out"></i>'],
+                                    ]
+                                ],
+                                [
+                                    'label'=>Yii::t('backend', 'Ask For Leave'),
+                                    'url'=>'#',
+                                    'icon'=>'<i class="fa fa-medkit"></i>',
+                                    'options'=>['class'=>'treeview'],
+                                    'items'=>[
+                                        ['label'=>Yii::t('backend', 'Official Business'), 'url'=>['/attendance/check-in-today'], 'icon'=>'<i class="fa fa-suitcase"></i>'],
+                                        ['label'=>Yii::t('backend', 'Private Affairs'), 'url'=>['/attendance/check-in-today'], 'icon'=>'<i class="fa fa-plus-square-o"></i>'],
+                                    ]
+                                ],
+                            ],
+                            'visible'=>Yii::$app->user->can('Student'),
+                        ],
+
+                       [
+                           'label'=>Yii::t('backend', 'My Department'),
+                           'options' => ['class' => 'header'],
+                           'visible'=>Yii::$app->user->can('Student')
+                       ],
+                        [
+                            'label'=>Yii::t('backend', 'Main'),
+                            'options' => ['class' => 'header']
                         ],
                         [
                             'label'=>Yii::t('backend', 'Content'),
@@ -170,6 +212,20 @@ $bundle = BackendAsset::register($this);
                                 ['label'=>Yii::t('backend', 'Text Widgets'), 'url'=>['/widget-text/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
                                 ['label'=>Yii::t('backend', 'Menu Widgets'), 'url'=>['/widget-menu/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
                                 ['label'=>Yii::t('backend', 'Carousel Widgets'), 'url'=>['/widget-carousel/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
+                            ]
+                        ],
+                        [
+                            'label'=>Yii::t('backend', 'Authority'),
+                            'url' => '#',
+                            'icon'=>'<i class="fa fa-edit"></i>',
+                            'options'=>['class'=>'treeview'],
+                            'visible'=>Yii::$app->user->can('administrator'),
+                            'items'=>[
+                                ['label'=>Yii::t('backend', 'Route'), 'url'=>['/admin/route'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
+                                ['label'=>Yii::t('backend', 'Permission'), 'url'=>['/admin/permission'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
+                                ['label'=>Yii::t('backend', 'Role'), 'url'=>['/admin/role'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
+                                ['label'=>Yii::t('backend', 'Assignment'), 'url'=>['/admin/assignment'], 'icon'=>'<i class="fa fa-angle-double-right"></i>', 'visible'=>Yii::$app->user->can('post')],
+                                ['label'=>Yii::t('backend', 'Menu'), 'url'=>['/admin/menu'], 'icon'=>'<i class="fa fa-angle-double-right"></i>', 'visible'=>Yii::$app->user->can('project')]
                             ]
                         ],
                         [
