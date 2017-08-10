@@ -175,6 +175,16 @@ $str_not_check = '<div style="margin-top: 60px;">
                             <div class="more-info"style="margin-top:-10px;margin-left: 15px;margin-right:15px">
                                 <p style="font-size: 14px; font-weight: 300; line-height: 22px; padding: 0 30px; margin-bottom: 0px;">
                                 <h3 style="color:#ffffff;font-weight: bold; text-align:center;">个人考勤信息</h3>
+                                <h4 style="font-weight: bold;font-size: 18px;color: #ffffff;" >
+                                    用户状态：
+                                        <?php
+                                            if($info['checkin']!=0){
+                                                echo Yii::t('backend','Checkin');
+                                            } else {
+                                                echo Yii::t('backend','Checkout');
+                                            }
+                                        ?>
+                                </h4>
                                 <h4 style="font-weight: bold;font-size: 18px;color: #ffffff;" >用户id：<?php echo $info['uid'] ?></h4>
                                 <h4 style="font-weight: bold;font-size: 18px;color: #ffffff;">用户名：<?php echo $info['username'] ?></h4>
                                 <h4 style="font-weight: bold;font-size: 18px;color: #ffffff;">工位号：<?php echo $info['ccid'] ?></h4>
@@ -185,7 +195,7 @@ $str_not_check = '<div style="margin-top: 60px;">
                                     <a class="" href="#"></a>
                                 </div>
                             </div>
-                            <div class="more-info" style="margin-top:25px">
+                            <div class="more-info" style="margin-top:22px">
                                 <h4 style="color:#ffffff;font-weight: bold; text-align:center;">DBIS, Nankai University</h3>
                             </div>
                         </div>

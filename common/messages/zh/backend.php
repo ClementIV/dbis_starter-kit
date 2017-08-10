@@ -45,6 +45,8 @@ return [
     'Carousel Widgets' => 'Carousel Widgets',
     'Carousel slide was successfully saved' => 'Carousel slide was successfully saved',
     'Category' => '分类',
+    'Checkin' => '签入',
+    'Checkout' => '签出',
     'Clear' => '清除',
     'Content' => '内容',
     'Confirm' => '确定',
