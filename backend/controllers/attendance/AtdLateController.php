@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use backend\models\ViewInfo;
+use backend\models\AtdRecord;
 /**
  * AtdLateController implements the CRUD actions for AtdLate model.
  */
@@ -52,7 +53,10 @@ class AtdLateController extends Controller
             'model' => $this->findModel($id),
         ]);
     }
-
+    public function actionErrorApply()
+    {
+        return $this->render('error-apply');
+    }
     /**
      * Creates a new AtdLate model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -62,13 +66,19 @@ class AtdLateController extends Controller
     {
         $model = new AtdLate();
         $info = ViewInfo::getInfoById(Yii::$app->user->identity->id);
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $searchModel = new AtdLateQuery();
-            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-            return $this->render('index', [
-                'searchModel' => $searchModel,
-                'dataProvider' => $dataProvider,
-            ]);
+        // $record = AtdRecord::getRecordById(Yii::$app->user->identity->id);
+        if ($model->load(Yii::$app->request->post()) ) {
+            try{
+                $record = AtdRecord::getLateRecord($info[0]['ccid'],$model['date'],$model['category']);
+                if($record>0){
+                    $model->save();
+                    return $this->redirect(['view', 'id' => $model->lid]);
+                } else {
+                    return $this->render('error-apply');
+                }
+            }catch(Exception $e){
+                echo $e;
+            }
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -86,12 +96,13 @@ class AtdLateController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        $info = ViewInfo::getInfoById(Yii::$app->user->identity->id);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->lid]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'info' =>$info[0],
             ]);
         }
     }

@@ -282,7 +282,106 @@
     background: #488c6c;
     border-color: #488c6c !important;
 }
+.panel.panel-yellow {
+  border-color: #f2994b;
+}
+.panel.panel-yellow > .panel-heading {
+  color: #FFFFFF;
+  background: #f2994b;
+  border-color: #f2994b !important;
+}
+.panel.panel-yellow > .panel-footer {
+  color: #FFFFFF;
+  background: #f2994b;
+  border-color: #f2994b !important;
+}
+.panel.panel-blue {
+  background: #f2f5f6; /* Old browsers */
+background: -moz-linear-gradient(top, #f2f5f6 0%, #c8d7dc 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f5f6), color-stop(100%,#c8d7dc)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #f2f5f6 0%,#c8d7dc 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #f2f5f6 0%,#c8d7dc 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #f2f5f6 0%,#c8d7dc 100%); /* IE10+ */
+background: linear-gradient(to bottom, #f2f5f6 0%,#c8d7dc 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', endColorstr='#c8d7dc',GradientType=0 ); /* IE6-9 */
 
+  border-color: #d8d8d8;
+}
+.panel.panel-blue > .panel-heading {
+  color: #FFFFFF;
+  background: #0a819c;
+  border-color: #0a819c !important;
+}
+.panel.panel-blue > .panel-footer {
+  color: #FFFFFF;
+  background: #0a819c;
+  border-color: #0a819c !important;
+}
+.panel.panel-pink {
+  border-color: #bf3773;
+}
+.panel.panel-pink > .panel-heading {
+  color: #FFFFFF;
+  background: #bf3773;
+  border-color: #bf3773 !important;
+}
+.panel.panel-pink > .panel-footer {
+  color: #FFFFFF;
+  background: #bf3773;
+  border-color: #bf3773 !important;
+}
+.panel.panel-violet {
+  border-color: #9351ad;
+}
+.panel.panel-violet > .panel-heading {
+  color: #FFFFFF;
+  background: #9351ad;
+  border-color: #9351ad !important;
+}
+.panel.panel-violet > .panel-footer {
+  color: #FFFFFF;
+  background: #9351ad;
+  border-color: #9351ad !important;
+}
+.panel.panel-grey {
+  border-color: #4b5d67;
+}
+.panel.panel-grey > .panel-heading {
+  color: #FFFFFF;
+  background: #4b5d67;
+  border-color: #4b5d67 !important;
+}
+.panel.panel-grey > .panel-footer {
+  color: #FFFFFF;
+  background: #4b5d67;
+  border-color: #4b5d67 !important;
+}
+.panel.panel-dark {
+  border-color: #594857;
+}
+.panel.panel-dark > .panel-heading {
+  color: #FFFFFF;
+  background: #594857;
+  border-color: #594857 !important;
+}
+.panel.panel-dark > .panel-footer {
+  color: #FFFFFF;
+  background: #594857;
+  border-color: #594857 !important;
+}
+.panel.panel-white {
+  border-color: #efefef;
+}
+.panel.panel-white > .panel-heading {
+  border-bottom: 1px solid #faf9fb;
+  color: #999999;
+  background: #FFFFFF;
+}
+.panel.panel-white > .panel-footer {
+  border-top: 1px solid #faf9fb;
+  color: #999999;
+  background: #FFFFFF;
+}
 .input-icon {
     position: relative;
 }
@@ -310,16 +409,17 @@
 }
 
 .input-icon.right i {
-    right: 8px;
+    right: 15px;
     float: right;
 }
 .input-icon.left input {
     padding-left: 12px !important;
     padding-right: 33px !important;
-    width:93%;
+    width:20%;
 }
 
 .input-icon.left i {
-    right: 8px;
+    margin-left: 25px;
+    left: 15px;
     float: left;
 }

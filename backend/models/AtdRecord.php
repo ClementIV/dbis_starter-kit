@@ -89,4 +89,35 @@ class AtdRecord extends \yii\db\ActiveRecord
 
         return [$result,$rule];
     }
+    // get a record in moring work time
+    // if not exist return null;
+    public static function getLateRecord($ccid,$data,$categroy)
+    {
+        $result = [];
+        try{
+            $rule = AtdRule::getRule();
+            $morning_in = date($data).' '.date($rule['morining_in']);
+            $morining_out = date($data).' '.date($rule['morining_out']);
+            $afternoon_in = date($data).' '.date($rule['afternoon_in']);
+            $afternoon_out = date($data).' '.date($rule['afternoon_out']);
+            if ($categroy == 1){
+                $result = AtdRecord::find()
+                    ->where(['ccid'=>$ccid,])
+                    ->andWhere(['>','clock_time',$morning_in])
+                    ->andWhere(['<','clock_time',$morining_out])
+                    ->count();
+
+            } else if ($categroy == 2){
+                $result = AtdRecord::find()
+                    ->where(['ccid'=>$ccid,])
+                    ->andWhere(['>','clock_time',$afternoon_in])
+                    ->andWhere(['<','clock_time',$afternoon_out])
+                    ->count();
+            }
+            return $result;
+        }catch(Exception $e){
+            throw new Exception("Error Processing Request", $e);
+            //return $result[];
+        }
+    }
 }
