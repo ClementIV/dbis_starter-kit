@@ -87,8 +87,8 @@ $bundle = BackendAsset::register($this);
                   <p>
                     <?php echo Yii::$app->user->identity->username ?>
                     <small>
-                                            <?php echo Yii::t('backend', 'Member since {0, date, short}', Yii::$app->user->identity->created_at) ?>
-                                        </small>
+                        <?php echo Yii::t('backend', 'Member since {0, date, short}', Yii::$app->user->identity->created_at) ?>
+                    </small>
                 </li>
                 <!-- Menu Footer-->
                 <li class="user-footer">
@@ -170,7 +170,7 @@ $bundle = BackendAsset::register($this);
                                     'options'=>['class'=>'treeview'],
                                     'items'=>[
                                         ['label'=>Yii::t('backend', 'Apply Late'), 'url'=>['/attendance/atd-late/create'], 'icon'=>'<i class="fa fa-sign-in"></i>'],
-                                        ['label'=>Yii::t('backend', 'Apply Early Leave'), 'url'=>['/attendance/check-in-today'], 'icon'=>'<i class="fa fa-sign-out"></i>'],
+                                        ['label'=>Yii::t('backend', 'Apply Early Leave'), 'url'=>['/attendance/atd-leave-early/create'], 'icon'=>'<i class="fa fa-sign-out"></i>'],
                                     ]
                                 ],
                                 [

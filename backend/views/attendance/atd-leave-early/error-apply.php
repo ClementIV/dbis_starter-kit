@@ -4,11 +4,13 @@ use yii\jui\Dialog;
 /* @var $this yii\web\View */
 /* @var $model backend\models\AtdLate */
 
-$this->title = Yii::t('backend', 'Apply Late', [
+$this->title = Yii::t('backend', 'Apply Early Leave', [
     'modelClass' => 'Atd Late',
 ]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Apply Late and Early Leave'),];
-$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Apply Late'), 'url' => ['create']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Apply Early Leave'), 'url' => ['create']];
+// $this->params['breadcrumbs'][] = ['label' => $model->lid, 'url' => ['view', 'id' => $model->lid]];
+// $this->params['breadcrumbs'][] = Yii::t('backend', 'Update');
 $this->registerCssFile('@web/css/attendance/check-in-today/info.css', ['depends' => ['backend\assets\BackendAsset']]);?>
 <div style="width:50%;">
         <?php
@@ -16,7 +18,7 @@ $this->registerCssFile('@web/css/attendance/check-in-today/info.css', ['depends'
                 'clientOptions' => [
                     'modal' => true,
                     'closeOnEscape'=>true,
-                    'title'=>Yii::t('backend','Late application exception'),
+                    'title'=>Yii::t('backend','Leave Early application exception'),
                     'closeText'=>'close',
                     'dialogClass'=>'panel panel-orange',
                     'draggable'=>false,

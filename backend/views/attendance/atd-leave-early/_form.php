@@ -34,7 +34,7 @@ use yii\bootstrap\ActiveForm;
                     <i class="fa fa-clock-o" ></i>
                     <?php echo $form->field($model, 'category')->dropDownList(['1'=>'上午','2'=>'下午']); ?>
                 </div>
-                <div class="form-group" style="text-align:center">
+                <div class="form-group" style="text-align:center;">
                     <?php echo Html::submitButton($model->isNewRecord ? Yii::t('backend', 'Apply') : Yii::t('backend', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
                 </div>
 
