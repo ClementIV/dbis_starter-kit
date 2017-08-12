@@ -10,7 +10,7 @@ use yii\bootstrap\ActiveForm;
 <div style="width:75%;padding-left:25%">
     <div class="panel panel-orange" >
         <div class="panel-heading">
-            <?php echo Yii::t('backend', 'Apply Late') ?>
+            <?php echo Yii::t('backend', 'Apply Early Leave') ?>
         </div>
         <div class="panel-body pan">
             <div class="atd-late-form">

@@ -1,0 +1,58 @@
+
+/*BEGIN TABLE STYLE*/
+.real-time-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.real-time-table .real-time-tbody{
+
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.real-time-table .real-time-tbody .real-time-tr{
+    display: table-row;
+    vertical-align: inherit;
+
+}
+.real-time-table .real-time-tbody .real-time-tr .real-time-td{
+    height: 8em;
+    width: 25%;
+    max-height: 30%;
+    min-height: 25%;
+    max-width: 25%;
+    min-width: 25%;
+    border: 1.5px solid black;
+    padding: 50px;
+}
+.real-time-tr .real-time-td {
+    width: auto;
+    border-collapse: collapse;
+    border: 1.5px solid black;
+
+}
+/*END TABLE STYLE*/
+
+/*BEGIN LABLE STYLE*/
+.real-time-label{
+
+}
+/*END LABEL STYLE*/
+.success{
+    background-color: #5cb85c;
+    text-align: center;
+    font-size: 33px;
+    color: #ffffff;
+}
+.danger{
+    background-color:#d9534f;
+    text-align: center;
+    font-size: 33px;
+    color: #ffffff;
+}
+.not-used{
+    background-color:#5bc0de;
+    text-align: center;
+    font-size: 33px;
+    color: #ffffff;
+}

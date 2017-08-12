@@ -20,7 +20,7 @@ class ViewInfo extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'view_info';
+        return '{{%view_info}}';
     }
 
     /**
@@ -57,6 +57,15 @@ class ViewInfo extends \yii\db\ActiveRecord
         //Array ( [uid] => 92 [username] => fyq [deptname] => 530 [ccid] => 113 [email] => 1655@qq.com ) )
         return ViewInfo::find()
             ->where(['uid'=>$uid])
+            ->asArray()
+            ->all();
+    }
+    public static function getAllCheckin($deptname)
+    {
+        return ViewInfo::find()
+            ->Where(['deptname'=>$deptname,])
+            ->orderBy('ccid')
+            ->asArray()
             ->all();
     }
 }

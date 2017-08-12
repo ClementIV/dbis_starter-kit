@@ -186,7 +186,21 @@ $bundle = BackendAsset::register($this);
                             ],
                             //'visible'=>Yii::$app->user->can('Student'),
                         ],
-
+                        [
+                            'label'=>Yii::t('backend', 'Real-time attendance'),
+                            'options' => ['class' => 'header']
+                        ],
+                        [
+                            'label'=>Yii::t('backend', 'Real-time state'),
+                            'icon'=> '<i class="fa fa-bar-chart"></i>',
+                            'url' => '#',
+                            'options'=>['class'=>'treeview'],
+                            'items' => [
+                                ['label'=>'530','url'=>['/attendance/real-time/index','department'=>'530'], 'icon'=>'<i class="fa fa-sitemap"></i>'],
+                                ['label'=>'531','url'=>['/attendance/real-time/index','department'=>'531'], 'icon'=>'<i class="fa fa-sitemap"></i>'],
+                                ['label'=>'532','url'=>['/attendance/real-time/index','department'=>'532'], 'icon'=>'<i class="fa fa-sitemap"></i>'],
+                            ],
+                        ],
                        [
                            'label'=>Yii::t('backend', 'My Department'),
                            'options' => ['class' => 'header'],

@@ -176,17 +176,17 @@ $str_not_check = '<div style="margin-top: 60px;">
                                 <p style="font-size: 14px; font-weight: 300; line-height: 22px; padding: 0 30px; margin-bottom: 0px;">
                                 <h3 style="color:#ffffff;font-weight: bold; text-align:center;">个人考勤信息</h3>
                                 <h4 style="font-weight: bold;font-size: 18px;color: #ffffff;" >
-                                    用户状态：
+                                    当前状态：
                                         <?php
                                             if($info['checkin']!=0){
-                                                echo Yii::t('backend','Checkin');
+                                                echo Yii::t('backend','Checkin').' <i class="fa fa-check-square" style="color:green;"></i>';
                                             } else {
-                                                echo Yii::t('backend','Checkout');
+                                                echo Yii::t('backend','Checkout').' <i class="fa fa-window-close" style="color:blue;"></i>';
                                             }
                                         ?>
                                 </h4>
-                                <h4 style="font-weight: bold;font-size: 18px;color: #ffffff;" >用户id：<?php echo $info['uid'] ?></h4>
-                                <h4 style="font-weight: bold;font-size: 18px;color: #ffffff;">用户名：<?php echo $info['username'] ?></h4>
+                                <h4 style="font-weight: bold;font-size: 18px;color: #ffffff;" >用户id：<?php echo $info['uid'] ?></h4>                                
+                                <h4 style="font-weight: bold;font-size: 18px;color: #ffffff;">真实姓名：<?php echo $info['real_name'] ?></h4>
                                 <h4 style="font-weight: bold;font-size: 18px;color: #ffffff;">工位号：<?php echo $info['ccid'] ?></h4>
                                 <h4 style="font-weight: bold;font-size: 18px;color: #ffffff;">部门：<?php echo $info['deptname'] ?></h4>
                                 <h4 style="font-weight: bold;font-size: 18px;color: #ffffff;">email：<?php echo $info['email'] ?></h4>
