@@ -16,14 +16,14 @@
 
 }
 .real-time-table .real-time-tbody .real-time-tr .real-time-td{
-    height: 8em;
+    height: 5em;
     width: 25%;
     max-height: 30%;
     min-height: 25%;
     max-width: 25%;
     min-width: 25%;
     border: 1.5px solid black;
-    padding: 50px;
+    padding: 45px;
 }
 .real-time-tr .real-time-td {
     width: auto;
