@@ -1,11 +1,13 @@
 <?php
-/**
- * Yii2 Shortcuts
- * @author Eugene Terentev <eugene@terentev.net>
- * -----
- * This file is just an example and a place where you can add your own shortcuts,
- * it doesn't pretend to be a full list of available possibilities
- * -----
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
  */
 
 /**
@@ -18,7 +20,8 @@ function getMyId()
 
 /**
  * @param string $view
- * @param array $params
+ * @param array  $params
+ *
  * @return string
  */
 function render($view, $params = [])
@@ -29,6 +32,7 @@ function render($view, $params = [])
 /**
  * @param $url
  * @param int $statusCode
+ *
  * @return \yii\web\Response
  */
 function redirect($url, $statusCode = 302)
@@ -42,6 +46,7 @@ function redirect($url, $statusCode = 302)
  * @param $attribute
  * @param array $inputOptions
  * @param array $fieldOptions
+ *
  * @return string
  */
 function activeTextinput($form, $model, $attribute, $inputOptions = [], $fieldOptions = [])
@@ -51,11 +56,12 @@ function activeTextinput($form, $model, $attribute, $inputOptions = [], $fieldOp
 
 /**
  * @param string $key
- * @param mixed $default
+ * @param mixed  $default
+ *
  * @return mixed
  */
-function env($key, $default = false) {
-
+function env($key, $default = false)
+{
     $value = getenv($key);
 
     if ($value === false) {
@@ -66,7 +72,6 @@ function env($key, $default = false) {
         case 'true':
         case '(true)':
             return true;
-
         case 'false':
         case '(false)':
             return false;
@@ -74,8 +79,7 @@ function env($key, $default = false) {
 
     return $value;
 }
-function setEnv($key,$value)
+function setEnv($key, $value)
 {
-  $_SERVER[$key]=$value;
-  return ;
+    $_SERVER[$key] = $value;
 }

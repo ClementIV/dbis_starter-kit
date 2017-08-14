@@ -89,7 +89,7 @@ $str_not_check = '<div style="margin-top: 60px;">
                                                 <h4 class="value">
 		                                            <span data-counter="" data-start="10" data-end="50" data-step="1"
                                                           data-duration="0">
-		                                            </span><span><?php echo $rule['morning_begin'] . '-' . $rule['morining_in'] ?></span>
+		                                            </span><span><?php echo $rule['morning_begin'] . '-' . $rule['morning_in'] ?></span>
                                                 </h4>
                                                 <!--		                            <p class="description">-->
                                                 <!--		                                Profit description</p>-->
@@ -112,7 +112,7 @@ $str_not_check = '<div style="margin-top: 60px;">
                                                     <i class="icon fa fa-folder"></i>
                                                 </p>
                                                 <h4 class="value">
-                                                    <span><?php echo $rule['morining_out'] . '-' . $rule['morning_end'] ?></span>
+                                                    <span><?php echo $rule['morning_out'] . '-' . $rule['morning_end'] ?></span>
                                                 </h4>
                                                 <?php
                                                 if ($model[1] > 0)
@@ -185,7 +185,7 @@ $str_not_check = '<div style="margin-top: 60px;">
                                             }
                                         ?>
                                 </h4>
-                                <h4 style="font-weight: bold;font-size: 18px;color: #ffffff;" >用户id：<?php echo $info['uid'] ?></h4>                                
+                                <h4 style="font-weight: bold;font-size: 18px;color: #ffffff;" >用户id：<?php echo $info['uid'] ?></h4>
                                 <h4 style="font-weight: bold;font-size: 18px;color: #ffffff;">真实姓名：<?php echo $info['real_name'] ?></h4>
                                 <h4 style="font-weight: bold;font-size: 18px;color: #ffffff;">工位号：<?php echo $info['ccid'] ?></h4>
                                 <h4 style="font-weight: bold;font-size: 18px;color: #ffffff;">部门：<?php echo $info['deptname'] ?></h4>

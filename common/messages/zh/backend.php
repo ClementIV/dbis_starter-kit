@@ -34,6 +34,7 @@ return [
     'Articles' => '文章',
     'Ask For Leave'=>'请假',
     'Person Attendence'=>'个人考勤',
+    'Back' => '返回',
     'Backend sidebar collapsed' => '后台边栏',
     'Backend theme' => '后台主题',
     'Boxed backend layout' => 'Boxed backend layout',

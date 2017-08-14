@@ -38,7 +38,7 @@ $this->registerCssFile('@web/css/attendance/check-in-today/info.css', ['depends'
                     ],
                 ]) ?>
                 <p style="text-align:center;">
-                    <?php echo Html::a(Yii::t('backend', 'Apply'), ['index'], ['class' => 'btn btn-primary']) ?>
+                    <?php echo Html::a(Yii::t('backend', 'Back'), ['create'], ['class' => 'btn btn-primary']) ?>
                 </p>
             </div>
         </div>

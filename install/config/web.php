@@ -1,6 +1,5 @@
 <?php
 $config = [
-    'homeUrl'=> $homeUrl,
     'controllerNamespace' => 'install\controllers',
     'defaultRoute'=>'site/index',
     'controllerMap'=>[

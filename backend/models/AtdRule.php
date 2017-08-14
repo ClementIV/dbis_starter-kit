@@ -35,7 +35,7 @@ class AtdRule extends \yii\db\ActiveRecord
         return [
             [['ruid', 'morning_begin'], 'required'],
             [['ruid'], 'integer'],
-            [['morning_begin', 'morning_end', 'morining_in', 'morining_out', 'afternoon_begin', 'afternoon_end', 'afternoon_in', 'afternoon_out'], 'safe'],
+            [['morning_begin', 'morning_end', 'morning_in', 'morning_out', 'afternoon_begin', 'afternoon_end', 'afternoon_in', 'afternoon_out'], 'safe'],
         ];
     }
 
@@ -48,8 +48,8 @@ class AtdRule extends \yii\db\ActiveRecord
             'ruid' => 'Ruid',
             'morning_begin' => 'Morning Begin',
             'morning_end' => 'Morning End',
-            'morining_in' => 'Morining In',
-            'morining_out' => 'Morining Out',
+            'morning_in' => 'Morning In',
+            'morning_out' => 'Morning Out',
             'afternoon_begin' => 'Afternoon Begin',
             'afternoon_end' => 'Afternoon End',
             'afternoon_in' => 'Afternoon In',
