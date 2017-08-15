@@ -80,7 +80,7 @@ class AtdLeaveEarly extends \yii\db\ActiveRecord
             ->Where(['uid' => $date, 'date' => $date, 'category' => $timekey])
             ->count();
         } catch (Exception $e) {
-            throw new Exception($e);
+            throw new Exception('Earyleave model Exception',$e);
         }
     }
 }

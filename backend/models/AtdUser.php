@@ -27,7 +27,7 @@ class AtdUser extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'dbis_atd_user';
+        return '{{%atd_user}}';
     }
 
     /**

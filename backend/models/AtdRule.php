@@ -61,7 +61,12 @@ class AtdRule extends \yii\db\ActiveRecord
      */
     public static function getRule()
     {
-        return AtdRule::findOne(1);
+        try{
+            return AtdRule::findOne(1);
+        }catch(Exception $e)
+        {
+            throw new Exception('Rule Exception',$e);
+        }
     }
 
 }

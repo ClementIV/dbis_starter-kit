@@ -7,7 +7,7 @@ use yii\helpers\Html;
 // @var $model backend\models\AtdLate
 // @var $form yii\bootstrap\ActiveForm
 ?>
-<div style="width:75%;padding-left:25%">
+<div class="apply-form">
     <div class="panel panel-orange" >
         <div class="panel-heading">
             <?php echo Yii::t('backend', 'Apply Late'); ?>

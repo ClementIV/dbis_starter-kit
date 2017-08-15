@@ -47,13 +47,14 @@ class TodayCheckController extends \yii\web\Controller
     {
         $result = [];
         $info = ViewInfo::getInfoById(Yii::$app->user->identity->id);
-        $history = [0 => date('Y-m-d',strtotime('-1 day')), 1 => date('Y-m-d',strtotime('-2 day')), 2 => date('Y-m-d',strtotime('-3 day'))];
+        $history = [0 => date('Y-m-d', strtotime('-1 day')), 1 => date('Y-m-d', strtotime('-2 day')), 2 => date('Y-m-d', strtotime('-3 day'))];
         $time = ['1' => 'morning', '2' => 'afternoon'];
         $verify = ['machine' => 1, 'apply' => 2];
+
         try {
             foreach ($history as $each_date) {
                 foreach ($time as $time_key => $each_time) {
-                    $record_result = AtdRecord::getHistoryRecord($info[0]['ccid'], $each_date,$verify['machine'], $each_time);
+                    $record_result = AtdRecord::getHistoryRecord($info[0]['ccid'], $each_date, $verify['machine'], $each_time);
                     // Attendance machine in and out normal
                     if ($record_result[$each_time.'_in'] > 0 && $record_result[$each_time.'_out'] > 0) {
                         $result[$each_date][$each_time] = 'Attendance in';
@@ -74,7 +75,8 @@ class TodayCheckController extends \yii\web\Controller
                     }
                 }
             }
-            return $this->render('history-record',['result'=>$result,'late'=>$late]);
+
+            return $this->render('history-record', ['result' => $result, 'late' => $late]);
         } catch (Exception $e) {
             throw new Exception('History Exception!', $e);
         }

@@ -63,42 +63,46 @@ class AtdRecord extends \yii\db\ActiveRecord
      */
     public static function getRecordById($uid)
     {
-        $rule = AtdRule::getRule();
-        //做根据日期和ccid返回一个数组带四个值
-        $ccid = AtdUser::findOne($uid)['ccid'];
+        try {
+            $rule = AtdRule::getRule();
+            //做根据日期和ccid返回一个数组带四个值
+            $ccid = AtdUser::findOne($uid)['ccid'];
 
-        $time1 = date('Y-m-d ').date($rule['morning_begin']);
-        $time2 = date('Y-m-d ').date($rule['morning_in']);
-        $time3 = date('Y-m-d ').date($rule['morning_out']);
-        $time4 = date('Y-m-d ').date($rule['morning_end']);
-        $time5 = date('Y-m-d ').date($rule['afternoon_begin']);
-        $time6 = date('Y-m-d ').date($rule['afternoon_in']);
-        $time7 = date('Y-m-d ').date($rule['afternoon_out']);
-        $time8 = date('Y-m-d ').date($rule['afternoon_end']);
+            $time1 = date('Y-m-d ').date($rule['morning_begin']);
+            $time2 = date('Y-m-d ').date($rule['morning_in']);
+            $time3 = date('Y-m-d ').date($rule['morning_out']);
+            $time4 = date('Y-m-d ').date($rule['morning_end']);
+            $time5 = date('Y-m-d ').date($rule['afternoon_begin']);
+            $time6 = date('Y-m-d ').date($rule['afternoon_in']);
+            $time7 = date('Y-m-d ').date($rule['afternoon_out']);
+            $time8 = date('Y-m-d ').date($rule['afternoon_end']);
 
-        $result = [];
-        $result[0] = self::find()
+            $result = [];
+            $result[0] = self::find()
             ->where(['ccid' => $ccid])
             ->andWhere(['>', 'clock_time', $time1])
             ->andWhere(['<=', 'clock_time', $time2])
             ->count();
-        $result[1] = self::find()
+            $result[1] = self::find()
             ->where(['ccid' => $ccid])
             ->andWhere(['>=', 'clock_time', $time3])
             ->andWhere(['<', 'clock_time', $time4])
             ->count();
-        $result[2] = self::find()
+            $result[2] = self::find()
             ->where(['ccid' => $ccid])
             ->andWhere(['>', 'clock_time', $time5])
             ->andWhere(['<=', 'clock_time', $time6])
             ->count();
-        $result[3] = self::find()
+            $result[3] = self::find()
             ->where(['ccid' => $ccid])
             ->andWhere(['>=', 'clock_time', $time7])
             ->andWhere(['<', 'clock_time', $time8])
             ->count();
 
-        return [$result, $rule];
+            return [$result, $rule];
+        } catch (Exception $e) {
+            throw new Exception('Record model Exception',$e);
+        }
     }
 
     // get a record in work time
@@ -118,13 +122,13 @@ class AtdRecord extends \yii\db\ActiveRecord
             $morining_out = date($date).' '.date($rule['morning_out']);
             $afternoon_in = date($date).' '.date($rule['afternoon_in']);
             $afternoon_out = date($date).' '.date($rule['afternoon_out']);
-            if ($categroy == 1) {
+            if ($categroy === 1) {
                 $result = self::find()
                     ->where(['ccid' => $ccid])
                     ->andWhere(['>', 'clock_time', $morning_in])
                     ->andWhere(['<', 'clock_time', $morining_out])
                     ->count();
-            } elseif ($categroy == 2) {
+            } elseif ($categroy === 2) {
                 $result = self::find()
                     ->where(['ccid' => $ccid])
                     ->andWhere(['>', 'clock_time', $afternoon_in])
@@ -158,7 +162,7 @@ class AtdRecord extends \yii\db\ActiveRecord
             $time_out = date($date).' '.date($rule[$time.'_out']);
             $time_end = date($date).' '.date($rule[$time.'_end']);
             $result[$time.'_in'] = self::find()
-                ->Where(['ccid' => $ccid,'verify' => $verify])
+                ->Where(['ccid' => $ccid, 'verify' => $verify])
                 ->andWhere(['>=', 'clock_time', $time_begin])
                 ->andWhere(['<=', 'clock_time', $time_in])
                 ->count();

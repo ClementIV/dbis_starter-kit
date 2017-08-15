@@ -17,7 +17,7 @@ $this->registerCssFile('@web/css/attendance/real-time/real-time.css', ['depends'
 $content = '';
 foreach ($station as $key => $value) {
     $content = $content.'$("#station'.$key.'").removeClass("not-used");';
-    if ($value['checkin'] === 1) {
+    if ($value['checkin'] == 1) {
         $content = $content.'$("#station'.$key.'").addClass("success");';
     } else {
         $content = $content.'$("#station'.$key.'").addClass("danger");';

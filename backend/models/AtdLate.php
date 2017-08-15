@@ -80,7 +80,7 @@ class AtdLate extends \yii\db\ActiveRecord
             ->Where(['uid' => $uid, 'date' => $date, 'category' => $timekey])
             ->count();
         } catch (Exception $e) {
-            throw new Exception($e);
+            throw new Exception('Late exception',$e);
         }
     }
 }

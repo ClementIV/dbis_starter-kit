@@ -1,22 +1,23 @@
-
 /*BEGIN TABLE STYLE*/
-.real-time-table{
+
+.real-time-table {
     width: 100%;
     border-collapse: collapse;
     margin: auto;
 }
-.real-time-table .real-time-tbody{
 
+.real-time-table .real-time-tbody {
     display: table-row-group;
     vertical-align: middle;
     border-color: inherit;
 }
-.real-time-table .real-time-tbody .real-time-tr{
+
+.real-time-table .real-time-tbody .real-time-tr {
     display: table-row;
     vertical-align: inherit;
-
 }
-.real-time-table .real-time-tbody .real-time-tr .real-time-td{
+
+.real-time-table .real-time-tbody .real-time-tr .real-time-td {
     height: 5em;
     width: 25%;
     max-height: 30%;
@@ -26,34 +27,67 @@
     border: 1.5px solid black;
     padding: 40px;
 }
+
 .real-time-tr .real-time-td {
     width: auto;
     border-collapse: collapse;
     border: 1.5px solid black;
-
 }
 /*END TABLE STYLE*/
-
 /*BEGIN LABLE STYLE*/
-.real-time-label{
-
-}
+.real-time-label {}
 /*END LABEL STYLE*/
-.success{
+
+.success {
     background-color: #5cb85c;
     text-align: center;
     font-size: 33px;
     color: #ffffff;
 }
-.danger{
-    background-color:#d9534f;
+
+.danger {
+    background-color: #d9534f;
     text-align: center;
     font-size: 33px;
     color: #ffffff;
 }
-.not-used{
-    background-color:#5bc0de;
+
+.not-used {
+    background-color: #5bc0de;
     text-align: center;
     font-size: 33px;
     color: #ffffff;
+}
+@media screen and (max-width: 768px) {
+    .success {
+        background-color: #5cb85c;
+        text-align: center;
+        font-size: 20px;
+        color: #ffffff;
+    }
+
+    .danger {
+        background-color: #d9534f;
+        text-align: center;
+        font-size: 20px;
+        color: #ffffff;
+    }
+
+    .not-used {
+        background-color: #5bc0de;
+        text-align: center;
+        font-size: 20px;
+        color: #ffffff;
+    }
+
+    .real-time-table .real-time-tbody .real-time-tr .real-time-td {
+        height: 1em;
+        width: 25%;
+        max-height: 25%;
+        min-height: 25%;
+        max-width: 25%;
+        min-width: 25%;
+        border: 1px solid black;
+        padding: 13px;
+    }
 }
