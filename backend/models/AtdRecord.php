@@ -169,7 +169,7 @@ class AtdRecord extends \yii\db\ActiveRecord
             $result[$time.'_out'] = self::find()
                 ->Where(['ccid' => $ccid, 'verify' => $verify])
                 ->andWhere(['>=', 'clock_time', $time_out])
-                ->andWhere(['<=', 'clock_time', $time_out])
+                ->andWhere(['<=', 'clock_time', $time_end])
                 ->count();
 
             return $result;

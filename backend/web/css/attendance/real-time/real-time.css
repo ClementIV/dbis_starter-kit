@@ -33,6 +33,10 @@
     border-collapse: collapse;
     border: 1.5px solid black;
 }
+.real-time-panel-body{
+    width:90%;
+    padding-left:10%;
+}
 /*END TABLE STYLE*/
 /*BEGIN LABLE STYLE*/
 .real-time-label {}
@@ -62,21 +66,24 @@
     .success {
         background-color: #5cb85c;
         text-align: center;
-        font-size: 20px;
+        font-size: 25px;
         color: #ffffff;
     }
-
+    .real-time-panel-body{
+        width:95%;
+        padding-left:5%;
+    }
     .danger {
         background-color: #d9534f;
         text-align: center;
-        font-size: 20px;
+        font-size: 25px;
         color: #ffffff;
     }
 
     .not-used {
         background-color: #5bc0de;
         text-align: center;
-        font-size: 20px;
+        font-size: 25px;
         color: #ffffff;
     }
 
@@ -88,6 +95,6 @@
         max-width: 25%;
         min-width: 25%;
         border: 1px solid black;
-        padding: 13px;
+        padding:0 15px;
     }
 }

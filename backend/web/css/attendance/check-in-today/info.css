@@ -430,7 +430,8 @@
     font-weight: bold;
     font-size: 18px;
     color: #ffffff;
-    margin-left: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .info-color {
@@ -464,7 +465,7 @@
     padding-top: 0;
 }
 
-. .check-in-today {
+.check-in-today {
     margin-top: 40px;
     margin-left: 80px;
 }
@@ -477,22 +478,26 @@
 
 .check {
     color: #3f903f;
-    font-size: 50px;
+    font-size: 42px;
     float: right;
-    margin-right: 6%;
+    margin-right: 7%;
 }
 
 .window-close {
     color: #d9534f;
-    font-size: 50px;
+    font-size: 42px;
     float: right;
-    margin-right: 6%;
+    margin-right: 7%;
 }
 @media screen and (max-width: 768px) {
     .apply-form {
         width: 90%;
         margin-left: 5%;
         margin-right: 5%;
+    }
+    .error-apply{
+        width: 95%;
+        padding: 20px;
     }
 
 }
@@ -506,13 +511,19 @@
     .col-md-3 {
         margin-left: 5%;
     }
-
+    .col-md-7 {
+        margin-left: 3%;
+        margin-right: 3%
+    }
     .row .mbl {
         margin-left: 0;
         margin-right: 0;
     }
+    .error-apply{
+        width:50%;
+    }
 
     .single-member {
-        margin-top: 20px;
+        /*margin-top: 20px;*/
     }
 }

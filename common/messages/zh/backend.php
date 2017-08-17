@@ -80,6 +80,7 @@ return [
     'Free memory' => '空闲内存',
     'Frontend maintenance mode' => '前台维护模式',
     'Hello, {username}' => 'Hello, {username}',
+    'History Record' => '历史记录',
     'Hostname' => '主机名',
     'I18n Messages' => '国际化信息',
     'I18n Source Messages' => '国际化源信息',

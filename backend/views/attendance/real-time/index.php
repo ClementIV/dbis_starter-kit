@@ -27,7 +27,7 @@ foreach ($station as $key => $value) {
 $this->registerJs($content);
 ?>
 
-<div style="width:90%;height:100%;padding-left:10%">
+<div class="real-time-panel-body">
     <div class="panel panel-blue" >
         <div class="panel-heading" style="height:6%;font-size:35px">
             <?php echo  $department.' '.Yii::t('backend', 'Real-time state'); ?>

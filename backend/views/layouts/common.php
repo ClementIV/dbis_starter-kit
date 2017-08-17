@@ -163,6 +163,7 @@ $bundle = BackendAsset::register($this);
                             'options'=>['class'=>'treeview'],
                             'items'=>[
                                 ['label'=>Yii::t('backend', 'Today Check'), 'url'=>['/attendance/today-check/check-in-today'], 'icon'=>'<i class="fa fa-check-square-o"></i>'],
+                                ['label'=>Yii::t('backend', 'History Record'), 'url'=>['/attendance/today-check/history-record'], 'icon'=>'<i class="fa fa-history"></i>'],
                                 [
                                     'label'=>Yii::t('backend', 'Apply Late and Early Leave'),
                                     'url'=>'#',

@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Real-time state'
 $this->params['breadcrumbs'][] = $this->title;
 // $this->params['breadcrumbs'][] = Yii::t('backend', 'Update');
 $this->registerCssFile('@web/css/attendance/check-in-today/info.css', ['depends' => ['backend\assets\BackendAsset']]);?>
-<div style="width:50%;">
+<div class="error-apply">
         <?php
             Dialog::begin([
                 'clientOptions' => [
@@ -23,7 +23,7 @@ $this->registerCssFile('@web/css/attendance/check-in-today/info.css', ['depends'
                     'closeText'=>'close',
                     'dialogClass'=>'panel panel-orange',
                     'draggable'=>false,
-                    'width'=>'40%'
+                    'width'=>'350px'
                 ],
                 'clientEvents'=>[
                     'close'=> 'function(){location.href="index?department=530";}',
@@ -31,7 +31,7 @@ $this->registerCssFile('@web/css/attendance/check-in-today/info.css', ['depends'
 
             ]);
         ?>
-        <div style="width:98%;height:90%;">
+        <div style="width:100%;height:90%;">
             <div class="panel panel-orange">
                 <div class="panel-heading ">
                     <i class="fa fa-bug" ></i>
@@ -42,10 +42,10 @@ $this->registerCssFile('@web/css/attendance/check-in-today/info.css', ['depends'
                     <br>
                     <br>
                     <p style="padding-left:2%;">
-                        <i class='fa fa-info'> <?php echo Yii::t('backend','Please select the correct department number');?></i>
+                        <i class='fa fa-exclamation-circle'> <?php echo Yii::t('backend','Please select the correct department number');?></i>
                         <br>
                         <br>
-                        <i class='fa fa-info'> <?php echo Yii::t('backend','Please add this department');?></i>
+                        <i class='fa fa-exclamation-circle'> <?php echo Yii::t('backend','Please add this department');?></i>
                     </p>
                     <p style="text-align:center;">
                         <?php echo Html::a(Yii::t('backend', 'Confirm'), ['index?department=530'], ['class' => 'btn btn-primary']) ?>

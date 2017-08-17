@@ -1,12 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Chavezye
- * Date: 2017/8/3
- * Time: 9:14.
- */
 use backend\assets\BackendAsset;
 
+$this->title = Yii::t('backend', 'Today Check');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Today Check')];
 $bundle = BackendAsset::register($this);
 ?>
     <?php
@@ -29,16 +25,16 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js', ['depends'
 ?>
 <?php
     $str_check = '<div style="margin-top: 80px;">
-                        <div style="float: left;font-size:33px;" >
+                        <div style="float: left;font-size:25px;" >
                             已签到
                         </div>
-                        <i class="fa fa-check check"></i>
-                    </div>';
+                        <i class="fa fa-check-square-o check"></i>
+                        </div>';
     $str_not_check = '<div style="margin-top: 80px;">
-                        <div style="float: left; font-size:33px;">
+                        <div style="float: left; font-size:25px;">
                             未签到
                         </div>
-                        <i class="fa fa-window-close window-close"></i>
+                        <i class="fa fa-window-close-o window-close"></i>
                     </div>';
 ?>
 
@@ -53,11 +49,11 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js', ['depends'
                 </div>
             </div>
         </div>
-        <div class="col-sm-12 col-md-8">
-            <div class="widget widget-info widget-padding-sm">
-                <h2 class="info-head">今日签到</h2>
-                <h3 class="info-tip">美好的一天从按时签到开始<br></h3>
-            </div>
+        <div class="col-sm-12 col-md-7">
+                <div class="widget widget-info widget-padding-sm">
+                    <h2 class="info-head">今日签到</h2>
+                    <h3 class="info-tip">美好的一天从按时签到开始<br></h3>
+                </div>
         </div>
     </div>
     <div class="row">
@@ -76,7 +72,7 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js', ['depends'
                         <div class="info-self">
                             <h4>当前状态：
                                         <?php
-                                            if ($info['checkin'] != 0) {
+                                            if ($info['checkin'] !== 0) {
                                                 echo Yii::t('backend', 'Checkin').' <i class="fa fa-check-square" style="color:green;"></i>';
                                             } else {
                                                 echo Yii::t('backend', 'Checkout').' <i class="fa fa-window-close" style="color:blue;"></i>';
@@ -100,8 +96,8 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js', ['depends'
             </div>
         </div>
 
-        <div class="col-xs-12 col-md-8 ">
-            <div id="sum_box" class="row">
+        <div class="col-xs-12 col-md-7 ">
+            <div id="sum_box">
                 <div class="col-sm-6 col-md-6 ">
                     <div class="panel profit db mbm">
                         <div class="panel-body">
@@ -132,9 +128,9 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js', ['depends'
                             <?php
                                 if ($model[1] > 0) {
                                     echo $str_check;
-                                    } else {
+                                } else {
                                     echo $str_not_check;
-                                    }
+                                }
                             ?>
                         </div>
                     </div>
@@ -172,7 +168,7 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js', ['depends'
                                     echo $str_check;
                                 } else {
                                     echo $str_not_check;
-                                    }
+                                }
                             ?>
                         </div>
                     </div>
