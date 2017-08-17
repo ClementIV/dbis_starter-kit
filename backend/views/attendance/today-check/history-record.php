@@ -7,7 +7,7 @@ $this->registerCssFile('@web/css/attendance/check-in-today/font-awesome.min.css'
 ?>
 <?php \yii\widgets\Pjax::begin(); ?>
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-4">
         <ul class="timeline">
                 <?php foreach ($result as $timekey => $day): ?>
                     <!-- timeline time label -->
