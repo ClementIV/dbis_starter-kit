@@ -207,6 +207,17 @@ $bundle = BackendAsset::register($this);
                            'options' => ['class' => 'header'],
                            //'visible'=>Yii::$app->user->can('Student')
                        ],
+                       [
+                           'label'=>Yii::t('backend', 'ministry of interior'),
+                           'icon'=> '<i class="fa fa-calendar-check-o"></i>',
+                           'url' => '#',
+                           'options'=>['class'=>'treeview'],
+                           'items' => [
+                               ['label'=>'Last month\'s attendance','url'=>['/attendance/month-attendance/index'], 'icon'=>'<i class="fa fa-calendar"></i>'],
+                               ['label'=>'531','url'=>['/attendance/real-time/index','department'=>'531'], 'icon'=>'<i class="fa fa-sitemap"></i>'],
+                               ['label'=>'532','url'=>['/attendance/real-time/index','department'=>'532'], 'icon'=>'<i class="fa fa-sitemap"></i>'],
+                           ],
+                       ],
                         [
                             'label'=>Yii::t('backend', 'Main'),
                             'options' => ['class' => 'header']
