@@ -42,10 +42,12 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js', ['depends'
 
     <div class="row">
         <div class="col-sm-12 col-md-3 ">
-            <div class="widget widget-info widget-padding-sm">
-                <div class="widget-big-int plugin-clock">00:00</div>
-                <div class="widget-buttons">
-                    <div class="widget-title plugin-date">Loading...</div>
+            <div class="col-sm-12 col-md-10 col-md-offset-1 ">
+                <div class="widget widget-info widget-padding-sm">
+                    <div class="widget-big-int plugin-clock">00:00</div>
+                    <div class="widget-buttons">
+                        <div class="widget-title plugin-date">Loading...</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -58,7 +60,7 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js', ['depends'
     </div>
     <div class="row">
         <div class="col-sm-12 col-md-3">
-            <div class="col-md-12">
+            <div class="col-sm-12 col-md-10 col-md-offset-1">
                 <div class="single-member effect-3 info-color">
                     <div class="member-info">
                         <h2 style="font-size: 24px;color: #ffffff; font-weight: bold;  text-transform: uppercase; text-align: center;">用户信息</h2>
@@ -72,7 +74,7 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js', ['depends'
                         <div class="info-self">
                             <h4>当前状态：
                                         <?php
-                                            if ($info['checkin'] !== 0) {
+                                            if ($info['checkin'] != 0) {
                                                 echo Yii::t('backend', 'Checkin').' <i class="fa fa-check-square" style="color:green;"></i>';
                                             } else {
                                                 echo Yii::t('backend', 'Checkout').' <i class="fa fa-window-close" style="color:blue;"></i>';
