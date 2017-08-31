@@ -71,7 +71,7 @@ class AtdLate extends \yii\db\ActiveRecord
      * @param $uid user id
      * @param $date late Date
      * @param $timekey timezone
-     * @return
+     * @return user once late
      */
     public static function getLate($uid, $date, $timekey)
     {
@@ -79,6 +79,30 @@ class AtdLate extends \yii\db\ActiveRecord
             return self::find()
             ->Where(['uid' => $uid, 'date' => $date, 'category' => $timekey])
             ->count();
+        } catch (Exception $e) {
+            throw new Exception('Late exception', $e);
+        }
+    }
+    /*
+     * @param $uid user id
+     * @param $timekey timezone
+     * @return user late number
+     */
+    public static function getOneLateNum($uid, $timekey)
+    {
+        $result = 0;
+
+        try {
+            $result = self::find()
+            ->Where(['uid' => $uid, 'category' => $timekey])
+            ->select(['count(*) as late_num'])
+            ->asArray()
+            ->all();
+            if (!empty($result)) {
+                return $result;
+            }
+
+            return 0;
         } catch (Exception $e) {
             throw new Exception('Late exception', $e);
         }

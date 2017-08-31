@@ -42,7 +42,7 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js', ['depends'
 
     <div class="row">
         <div class="col-sm-12 col-md-3 ">
-            <div class="col-sm-12 col-md-10 col-md-offset-1 ">
+            <div class="col-sm-12 col-md-11 col-md-offset-1 ">
                 <div class="widget widget-info widget-padding-sm">
                     <div class="widget-big-int plugin-clock">00:00</div>
                     <div class="widget-buttons">
@@ -60,7 +60,7 @@ $this->registerJsFile('@web/js/attendance/check-in-today/actions.js', ['depends'
     </div>
     <div class="row">
         <div class="col-sm-12 col-md-3">
-            <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <div class="col-sm-12 col-md-11 col-md-offset-1">
                 <div class="single-member effect-3 info-color">
                     <div class="member-info">
                         <h2 style="font-size: 24px;color: #ffffff; font-weight: bold;  text-transform: uppercase; text-align: center;">用户信息</h2>

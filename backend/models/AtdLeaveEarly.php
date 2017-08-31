@@ -69,7 +69,7 @@ class AtdLeaveEarly extends \yii\db\ActiveRecord
 
     /*
      * @param $uid user id
-     * @param $date late Date
+     * @param $date Early Leave Date
      * @param $timekey timezone
      * @return
      */
@@ -81,6 +81,29 @@ class AtdLeaveEarly extends \yii\db\ActiveRecord
             ->count();
         } catch (Exception $e) {
             throw new Exception('Earyleave model Exception', $e);
+        }
+    }
+    /*
+     * @param $uid user id
+     * @param $timekey timezone
+     * @return number of user early leave
+     */
+    public static function getOneEarlyNum($uid, $timekey){
+        $result = 0;
+
+        try {
+            $result = self::find()
+            ->Where(['uid' => $uid, 'category' => $timekey])
+            ->select(['count(*) as early_num'])
+            ->asArray()
+            ->all();
+            if (!empty($result)) {
+                return $result;
+            }
+
+            return 0;
+        } catch (Exception $e) {
+            throw new Exception('Early Leave exception', $e);
         }
     }
 }

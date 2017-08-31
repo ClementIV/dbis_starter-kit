@@ -68,4 +68,14 @@ class ViewInfo extends \yii\db\ActiveRecord
             ->asArray()
             ->all();
     }
+    /*
+     * @return all attendance user
+     */
+    public static function getAllUser()
+    {
+        return self::find()
+            ->select(['uid','ccid','real_name'])
+            ->asArray()
+            ->all();
+    }
 }

@@ -1,0 +1,114 @@
+.month-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.month-table .month-tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.month-table .month-tbody .month-tr {
+    display: table-row;
+    vertical-align: inherit;
+}
+
+.month-panel {
+    webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+    /* border: 5px solid #e5e5e5; */
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.month-table .month-tbody .month-tr .month-td {
+    border-collapse: collapse;
+    border:  1px solid #ddd;
+    border-top: 1px solid #efefef;*/
+    line-height: 1.42857143;
+    padding: 8px;
+}
+
+
+.month-tr .month-th {
+    border: 1px solid #ddd;
+    border-top: 1px solid #efefef;
+    line-height: 1.42857143;
+    padding: 8px;
+}
+
+.month-panel-body {
+    width: 96%;
+    padding-left: 4%;
+}
+/*END TABLE STYLE*/
+/*BEGIN LABLE STYLE*/
+
+.month-label {}
+/*END LABEL STYLE*/
+.success {
+    /*background-color: #5cb85c;*/
+    text-align: center;
+    font-size: 13px;
+    color: #3c8dbc;
+}
+
+.danger {
+    /*background-color: #d9534f;*/
+    text-align: center;
+    font-size: 12px;
+    color: #636363;
+}
+
+.not-used {
+    /*background-color: #5bc0de;*/
+    text-align: center;
+    font-size: 13px;
+    color: #636363;
+}
+@media screen and (max-width: 768px) {
+    .success {
+        /*background-color: #5cb85c;*/
+        text-align: center;
+        font-size: 3px;
+        color: #636363;
+    }
+
+    .month-panel-body {
+        width: 98%;
+        padding-left: 2%;
+    }
+
+    .danger {
+        /*background-color: #d9534f;*/
+        text-align: center;
+        font-size: 3px;
+        color: #636363;
+    }
+
+    .not-used {
+        /*background-color: #5bc0de;*/
+        text-align: center;
+        font-size: 3px;
+        color: #636363;
+    }
+
+    .month-table .month-tbody .month-tr .month-td {
+        border: 1px solid #ddd;
+        border-top: 1px solid #efefef;
+        line-height: 1.42857143;
+        padding: 0 2px;
+    }
+
+    .month-tr .month-th {
+        border: 1px solid #ddd;
+        border-top: 1px solid #efefef;
+        line-height: 1.42857143;
+        padding: 0 2px;
+    }
+}

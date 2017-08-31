@@ -3,7 +3,7 @@
 }
 
 .history-result {
-    font-size: 33px;
+    font-size: 25px;
     color: #ffffff;
     /*margin-left: 10px;*/
     padding: 20px 0 10px 30px;
@@ -32,7 +32,7 @@
 }
 .history-time {
     text-align:left;
-    font-size: 22px;
+    font-size: 18px;
     color: #ffffff;
     border-bottom: 1px solid #f4f4f4;
     padding: 10px;
@@ -44,7 +44,7 @@
 
 .history-icon {
     text-align:right;
-    font-size: 22px;
+    font-size: 18px;
     color: #ffffff;
     float: right;
 }

@@ -19,7 +19,6 @@ $this->params['breadcrumbs'][] = $this->title;
     'modelClass' => 'Atd Leave Early',
 ]), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-
     <?php echo GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -31,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'date',
             'category',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            //  ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 

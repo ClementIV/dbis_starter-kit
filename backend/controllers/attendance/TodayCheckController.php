@@ -14,6 +14,7 @@ namespace backend\controllers\attendance;
 
 use backend\models\AtdLate;
 use backend\models\AtdLeaveEarly;
+use backend\models\AtdMonthAttendance;
 use backend\models\AtdRecord;
 use backend\models\ViewInfo;
 use Yii;
@@ -46,12 +47,12 @@ class TodayCheckController extends \yii\web\Controller
     public function actionHistoryRecord()
     {
         $result = [];
-        $info = ViewInfo::getInfoById(Yii::$app->user->identity->id);
         $history = [0 => date('Y-m-d', strtotime('-1 day')), 1 => date('Y-m-d', strtotime('-2 day')), 2 => date('Y-m-d', strtotime('-3 day')), 3 => date('Y-m-d', strtotime('-4 day'))];
         $time = ['1' => 'morning', '2' => 'afternoon'];
         $verify = ['machine' => 1, 'apply' => 2];
 
         try {
+            $info = ViewInfo::getInfoById(Yii::$app->user->identity->id);
             foreach ($history as $each_date) {
                 foreach ($time as $time_key => $each_time) {
                     $record_result = AtdRecord::getHistoryRecord($info[0]['ccid'], $each_date, $verify['machine'], $each_time);
@@ -75,8 +76,14 @@ class TodayCheckController extends \yii\web\Controller
                     }
                 }
             }
+            $person_result = AtdMonthAttendance::getOneMonthRecord($info[0]['uid'], date('Y-m', strtotime('-1 month')));
+            if (!empty($person_result)) {
+                print_r($person_result);
+            } else {
+                $person_result = 'No Result!';
+            }
 
-            return $this->render('history-record', ['result' => $result]);
+            return $this->render('history-record', ['result' => $result, 'person_result' => $person_result]);
         } catch (Exception $e) {
             throw new Exception('History Exception!', $e);
         }

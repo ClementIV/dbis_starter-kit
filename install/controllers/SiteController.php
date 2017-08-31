@@ -18,7 +18,6 @@ use install\models\CreateDatabase;
 use install\models\NewDB;
 use Yii;
 use yii\base\Exception;
-use yii\filters\AccessControl;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\Controller;
@@ -28,7 +27,6 @@ use yii\web\Controller;
  */
 class SiteController extends Controller
 {
-
     public function getCount()
     {
         return $this->count;
@@ -76,6 +74,7 @@ class SiteController extends Controller
         if ($model->checkPHP()) {
             $result = PHP_VERSION;
         }
+
         return $this->render('check-env', ['phpve' => $result, 'os' => $model->getOS(), 'space' => $model->getFreeSpace()]);
     }
 
@@ -126,14 +125,13 @@ class SiteController extends Controller
 
     public function actionTest($td)
     {
-        for($i=0;$i<10;$i=$i+1)
-        {
-            if(($i%5) == 0)
-            {
-                echo $this->render(['test','i'=>$i]);
+        for ($i = 0; $i < 10; $i = $i + 1) {
+            if (($i % 5) === 0) {
+                echo $this->render(['test', 'i' => $i]);
             }
         }
-        return  $this->render('test',['i'=>$i]) ;
+
+        return  $this->render('test', ['i' => $i]);
     }
 
     /**
