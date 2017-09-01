@@ -213,9 +213,9 @@ $bundle = BackendAsset::register($this);
                            'url' => '#',
                            'options'=>['class'=>'treeview'],
                            'items' => [
-                               ['label'=>'Last month\'s attendance','url'=>['/attendance/month-attendance/index'], 'icon'=>'<i class="fa fa-calendar"></i>'],
-                               ['label'=>'531','url'=>['/attendance/real-time/index','department'=>'531'], 'icon'=>'<i class="fa fa-sitemap"></i>'],
-                               ['label'=>'532','url'=>['/attendance/real-time/index','department'=>'532'], 'icon'=>'<i class="fa fa-sitemap"></i>'],
+                               ['label'=>Yii::t('backend','Last month\'s attendance'),'url'=>['/attendance/month-attendance/month'], 'icon'=>'<i class="fa fa-calendar"></i>'],
+                               ['label'=>Yii::t('backend','hitory month\'s attendance'),'url'=>['/attendance/month-attendance/history-month','date'=>date('Y-m',strtotime('-2 month'))], 'icon'=>'<i class="fa fa-sitemap"></i>'],
+                             
                            ],
                        ],
                         [

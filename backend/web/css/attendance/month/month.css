@@ -28,12 +28,15 @@
 
 .month-table .month-tbody .month-tr .month-td {
     border-collapse: collapse;
-    border:  1px solid #ddd;
-    border-top: 1px solid #efefef;*/
-    line-height: 1.42857143;
+    border: 1px solid #ddd;
+    border-top: 1px solid #efefef;
+    */ line-height: 1.42857143;
     padding: 8px;
 }
 
+.month-tbody > tr:hover {
+    background: #f5f5f5;
+}
 
 .month-tr .month-th {
     border: 1px solid #ddd;
@@ -48,9 +51,9 @@
 }
 /*END TABLE STYLE*/
 /*BEGIN LABLE STYLE*/
-
 .month-label {}
 /*END LABEL STYLE*/
+
 .success {
     /*background-color: #5cb85c;*/
     text-align: center;
@@ -71,11 +74,30 @@
     font-size: 13px;
     color: #636363;
 }
+.month-arrorw-left {
+    font-size: 35px;
+    text-align: center;
+    color: #ffffff;
+    margin-right: 15px;
+}
+.month-arrorw-right {
+    font-size: 35px;
+    text-align: center;
+    color: #ffffff;
+    margin-left: 15px;
+}
+.month-error{
+    background-color: #ffffff;
+    width: 100%;
+    font-size:25px;
+    text-align: center;;
+    color: #333;
+}
 @media screen and (max-width: 768px) {
     .success {
         /*background-color: #5cb85c;*/
         text-align: center;
-        font-size: 3px;
+        font-size: 4px;
         color: #636363;
     }
 
@@ -87,14 +109,14 @@
     .danger {
         /*background-color: #d9534f;*/
         text-align: center;
-        font-size: 3px;
+        font-size: 4px;
         color: #636363;
     }
 
     .not-used {
         /*background-color: #5bc0de;*/
         text-align: center;
-        font-size: 3px;
+        font-size: 4px;
         color: #636363;
     }
 
@@ -110,5 +132,25 @@
         border-top: 1px solid #efefef;
         line-height: 1.42857143;
         padding: 0 2px;
+    }
+
+    .month-arrorw-left {
+        font-size: 35px;
+        text-align: center;
+        color: #ffffff;
+        margin-right: 5px;
+    }
+    .month-arrorw-right {
+        font-size: 35px;
+        text-align: center;
+        color: #ffffff;
+        margin-left: 5px;
+    }
+    .month-error{
+        background-color: #ffffff;
+        width: 90%;
+        font-size:25px;
+        text-align: center;;
+        color: #333;
     }
 }

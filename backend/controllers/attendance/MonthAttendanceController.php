@@ -60,6 +60,21 @@ class MonthAttendanceController extends Controller
             throw new Exception('Error Request in Person result', $e);
         }
     }
+    public function actionHistoryMonth($date)
+    {
+        try {
+            // get all user attendance
+            $all_result = AtdMonthAttendance::getAllMonthRecord($date.'-01');
+            if(!empty($all_result)){
+                return $this->render('history-month',['all_result' => $all_result,'date' =>$date]);
+            } else {
+                return $this->render('error-history',['date'=>$date]);
+            }
+
+        } catch (Exception $e){
+            throw new Exception('History Exception',$e);
+        }
+    }
 
     /*
      *calculate number of attendance number
@@ -76,7 +91,7 @@ class MonthAttendanceController extends Controller
 
         try {
             // get all user attendance
-            $all_result = AtdMonthAttendance::getAllMonthRecord($date);
+            $all_result = AtdMonthAttendance::getAllMonthRecord($date.'-01');
             if (!empty($all_result)) {
                 return $this->render('month',['all_result' => $all_result]);
             } else { // calculate all user attendance
@@ -114,7 +129,7 @@ class MonthAttendanceController extends Controller
                     $AtdMonth= new AtdMonthAttendance();
                     $AtdMonth->storeAll($person);
                 }
-                return $this->redirect(['month']); 
+                return $this->redirect(['month']);
             }
         } catch (Exception $e) {
             throw new Exception('Error Request in Month result', $e);

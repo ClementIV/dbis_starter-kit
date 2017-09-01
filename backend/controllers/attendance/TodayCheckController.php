@@ -76,7 +76,7 @@ class TodayCheckController extends \yii\web\Controller
                     }
                 }
             }
-            $person_result = AtdMonthAttendance::getOneMonthRecord($info[0]['uid'], date('Y-m', strtotime('-1 month')));
+            $person_result = AtdMonthAttendance::getOneMonthRecord($info[0]['uid'], date('Y-m', strtotime('-1 month')).'-01');
             if (!empty($person_result)) {
                 print_r($person_result);
             } else {
