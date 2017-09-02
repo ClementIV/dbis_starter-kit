@@ -79,8 +79,87 @@
 .history-result.late-leave-early:after{
     border-color: transparent #e9662c transparent transparent;
 }
+.history-pan{
+    border: 5px solid #3c8dbc;
+    border-radius: 0 0 5px 5px;\
+    width: 100%;
+}
+.history-person-head{
+    margin-top: 40px;
+    background: #3c8dbc;
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Open Sans', 'sans-serif';
+    color: #fff;
+    border-radius: 5px 5px 0 0;
+}
+.history-person-info{
+    font-family: 'Open Sans', 'sans-serif';
+    color:#333;
+    background-color: #fff;
+    font-size: 20px;
+    border-bottom: 1px solid #999;
+}
+.history-person-info:last-child{
+    margin-bottom: 10px;
+    border-bottom: 1px;
+}
+.history-person-info >h2{
+    margin-top: 0px;
+    font-size:25px;
+    font-family: 'Open Sans', sans-serif;
+    color:#636363;
+    background-color: #fff;
+    text-align: center;
+    line-height: 1.4;
+}
+.history-in{
+    border: 1px solid transparent;
+    border-top: 4px solid transparent;
+    padding-top: 0px;
+    text-align: center;
+}
+.history-in >h2{
+    font-size: 35px;
+    color:#636363;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+.history-in >h2 >span:last-child{
+    font-size: 12px;
+    color:#636363;
+}
+.history-in >span{
+    font-size: 12px;
+    color:#636363;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+.history-in:hover{
+    border: 1px solid #E0EEEE;
+    border-top: 4px solid #E0EEEE;
+    padding-top: 0px;
+    text-align: center;
+    background-color: #E0EEEE;
 
-.history
+}
+.history-person-info >h3{
+    font-size:20px;
+    font-family: 'Open Sans', sans-serif;
+    color:#636363;
+    background-color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+    line-height: 1.4;
+
+}
+.history-person-info >h3 >span:first-child{
+    margin-right: 25px;
+
+}
+.history-no-result{
+
+}
 @media only screen and (max-width: 768px) {
     [class^='col-lg-'],
     [class^='col-md-'],
@@ -97,7 +176,10 @@
         /*margin-left: 10px;*/
         padding-left: 20px;
     }
+    .history-person-info >h3 >span:first-child{
+        margin-right: 2px;
 
+    }
 }
 
 .x-navigation-minimized .xn-logo {

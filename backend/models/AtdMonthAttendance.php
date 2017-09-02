@@ -90,9 +90,11 @@ class AtdMonthAttendance extends \yii\db\ActiveRecord
 
         try {
             $result = self::find()
-                ->Where(['uid' => $uid])
+                ->Where(['{{%atd_month_attendance}}.uid' => $uid])
                 ->andWhere(['>=', 'atd_date', $date])
                 ->andWhere(['<', 'atd_date', $nextMonth])
+                ->rightJoin('{{%view_info}}', '{{%view_info.uid}}={{%atd_month_attendance.uid}}')
+                ->select(['real_name','ccid','{{%atd_month_attendance}}.*', 'DATE_FORMAT(atd_date , "%Y-%m") as atd_date'])
                 ->asArray()
                 ->All();
 

@@ -1,14 +1,15 @@
 <?php
+use yii\helpers\Html;
 
 $this->title = Yii::t('backend', 'History Record');
 $this->registerCssFile('@web/css/attendance/check-in-today/history-record.css', ['depends' => ['backend\assets\BackendAsset']]);
 $this->registerCssFile('@web/css/attendance/check-in-today/font-awesome.min.css', ['depends' => ['backend\assets\BackendAsset']]);
  // print_r($result);
 ?>
+<?php $filter = ['real_name', 'atd_date', 'ccid', 'caid', 'atd_date', 'uid']; ?>
 <body>
-    <?php \yii\widgets\Pjax::begin(); ?>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-12">
             <ul class="timeline">
                     <?php foreach ($result as $timekey => $day): ?>
                         <!-- timeline time label -->
@@ -60,7 +61,44 @@ $this->registerCssFile('@web/css/attendance/check-in-today/font-awesome.min.css'
                     </li>
             </ul>
         </div>
-
+        <div class= "col-md-6 col-md-offset-1 col-sm-12">
+            <div class="history-person-head">
+                <?php echo $person_result['atd_date'].' '.Yii::t('backend', 'History Record'); ?>
+            </div>
+            <div class="history-pan col-md-12 col-sm-12">
+                <?php if (is_array($person_result)):?>
+                    <div class="history-person-info">
+                        <h2><?php echo $person_result['atd_date']; ?></h2>
+                        <h3>
+                            <span><?php echo Html::encode('CCID : '); echo $person_result['ccid']; ?></span>
+                            <span><?php echo Yii::t('backend', 'real_name').' : '; echo $person_result['real_name']; ?></span>
+                        </h3>
+                    </div>
+                    <div class="history-person-info col-md-12 col-sm-12">
+                        <?php foreach ($person_result as $category => $result):?>
+                            <?php if (!in_array($category, $filter, true)):?>
+                            <div class="col-md-4 history-in col-sm-6">
+                                <span ><?php echo Yii::t('backend', $category); ?></span>
+                                <h2>
+                                    <strong><?php echo $result; ?></strong>
+                                    <span><?php echo Yii::t('backend', 'times'); ?></span>
+                                </h2>
+                            </div>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+                <?php else:?>
+                    <div class="history-no-result">
+                        <div class="history-in">
+                            <h2>
+                                 <i class="fa fa-exclamation-triangle ">
+                                <?php echo Yii::t('backend', 'No result from this month!');?>
+                                </i>
+                            </h2>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
     </div>
-    <?php \yii\widgets\Pjax::end(); ?>
 </body>

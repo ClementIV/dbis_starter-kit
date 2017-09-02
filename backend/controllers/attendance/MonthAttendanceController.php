@@ -60,6 +60,11 @@ class MonthAttendanceController extends Controller
             throw new Exception('Error Request in Person result', $e);
         }
     }
+    /*
+     *calculate number of attendance number
+     *@return mix
+     *
+     */
     public function actionHistoryMonth($date)
     {
         try {

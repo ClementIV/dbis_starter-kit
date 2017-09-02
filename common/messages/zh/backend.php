@@ -132,7 +132,7 @@ return [
     'Network' => 'Network',
     'New user ({identity}) was registered at {created_at}' => '新用户 ({identity}) 注册时间 {created_at}',
     'No Attendance' => '缺勤',
-    'No result from this month to before!' => '此月没有记录',
+    'No result from this month!' => '此月没有记录或尚未统计',
     'No events found' => 'No events found',
     'Not Published' => '未发布',
     'Number of cores' => '核数',

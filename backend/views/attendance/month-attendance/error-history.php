@@ -43,7 +43,9 @@ $this->registerJsFile('@web/js/attendance/check-in-today/plugins/bootstrap/boots
         </div>
         <div class="panel-body pan" >
             <div class="month-error">
-            <?php echo Yii::t('backend','No result from this month to before!')?>
+                <i class="fa fa-exclamation-triangle ">
+                <?php echo Yii::t('backend','No result from this month!')?>
+                </i>
             </div>
         </div>
 </div>

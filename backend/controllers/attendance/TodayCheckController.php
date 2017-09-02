@@ -77,13 +77,11 @@ class TodayCheckController extends \yii\web\Controller
                 }
             }
             $person_result = AtdMonthAttendance::getOneMonthRecord($info[0]['uid'], date('Y-m', strtotime('-1 month')).'-01');
-            if (!empty($person_result)) {
-                print_r($person_result);
-            } else {
+            if (empty($person_result)) {
                 $person_result = 'No Result!';
             }
 
-            return $this->render('history-record', ['result' => $result, 'person_result' => $person_result]);
+            return $this->render('history-record', ['result' => $result, 'person_result' => $person_result[0]]);
         } catch (Exception $e) {
             throw new Exception('History Exception!', $e);
         }
