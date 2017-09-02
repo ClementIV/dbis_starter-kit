@@ -68,10 +68,10 @@ $this->registerCssFile('@web/css/attendance/check-in-today/font-awesome.min.css'
             <div class="history-pan col-md-12 col-sm-12">
                 <?php if (is_array($person_result)):?>
                     <div class="history-person-info">
-                        <h2><?php echo $person_result['atd_date']; ?></h2>
+                        <h2><i class="fa fa-calendar history-person-icon" ></i><?php echo $person_result['atd_date']; ?></h2>
                         <h3>
-                            <span><?php echo Html::encode('CCID : '); echo $person_result['ccid']; ?></span>
-                            <span><?php echo Yii::t('backend', 'real_name').' : '; echo $person_result['real_name']; ?></span>
+                            <span><i class="fa fa-id-card-o history-person-icon"></i><?php echo Html::encode('CCID : '); echo $person_result['ccid']; ?></span>
+                            <span><i class="fa fa-user-circle-o history-person-icon"></i><?php echo Yii::t('backend', 'real_name').' : '; echo $person_result['real_name']; ?></span>
                         </h3>
                     </div>
                     <div class="history-person-info col-md-12 col-sm-12">

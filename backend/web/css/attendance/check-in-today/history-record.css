@@ -143,6 +143,9 @@
     background-color: #E0EEEE;
 
 }
+.history-person-icon{
+    margin-right: 8px;
+}
 .history-person-info >h3{
     font-size:20px;
     font-family: 'Open Sans', sans-serif;
@@ -167,6 +170,12 @@
     [class^='col-xs-'] {
         margin-bottom: 10px;
     }
+    .history-person-info >h3 >span:first-child{
+        margin-right: 1px;
+    }
+    .history-person-icon{
+        margin-right: 1px;
+    }
     /* LOGIN */
 }
 @media screen and (max-width:360px) {
@@ -177,8 +186,10 @@
         padding-left: 20px;
     }
     .history-person-info >h3 >span:first-child{
-        margin-right: 2px;
-
+        margin-right: 1px;
+    }
+    .history-person-icon{
+        margin-right: 1px;
     }
 }
 
