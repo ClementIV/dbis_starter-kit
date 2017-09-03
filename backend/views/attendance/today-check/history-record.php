@@ -61,7 +61,7 @@ $this->registerCssFile('@web/css/attendance/check-in-today/font-awesome.min.css'
                     </li>
             </ul>
         </div>
-        <div class= "col-md-6 col-md-offset-1 col-sm-12">
+        <div class= "col-md-5 col-md-offset-1 col-sm-12">
             <div class="history-person-head">
                 <?php echo $person_result['atd_date'].' '.Yii::t('backend', 'History Record'); ?>
             </div>

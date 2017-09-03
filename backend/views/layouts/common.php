@@ -214,8 +214,10 @@ $bundle = BackendAsset::register($this);
                            'options'=>['class'=>'treeview'],
                            'items' => [
                                ['label'=>Yii::t('backend','Last month\'s attendance'),'url'=>['/attendance/month-attendance/month'], 'icon'=>'<i class="fa fa-calendar"></i>'],
-                               ['label'=>Yii::t('backend','hitory month\'s attendance'),'url'=>['/attendance/month-attendance/history-month','date'=>date('Y-m',strtotime('-2 month'))], 'icon'=>'<i class="fa fa-sitemap"></i>'],
-                             
+                               ['label'=>Yii::t('backend','hitory month\'s attendance'),'url'=>['/attendance/month-attendance/history-month','date'=>date('Y-m',strtotime('-2 month'))], 'icon'=>'<i class="fa fa-history"></i>'],
+                               ['label'=>Yii::t('backend','Attendance users'),'url'=>['/attendance/atd-user/index'], 'icon'=>'<i class="fa fa-users"></i>'],
+                               ['label'=>Yii::t('backend','department'),'url'=>['/attendance/atd-department/index'], 'icon'=>'<i class="fa fa-sitemap"></i>'],
+                               ['label'=>Yii::t('backend','Ask For Leave'),'url'=>['/attendance/atd-leave-category/index'], 'icon'=>'<i class="fa fa-medkit"></i>'],
                            ],
                        ],
                         [

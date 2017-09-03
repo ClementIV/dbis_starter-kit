@@ -2,7 +2,7 @@
 $config = [
     'homeUrl'=>Yii::getAlias('@backendUrl'),
     'controllerNamespace' => 'backend\controllers',
-    'defaultRoute'=>'timeline-event/index',
+    'defaultRoute'=>'/sign-in/account',
     'controllerMap'=>[
         'file-manager-elfinder' => [
             'class' => 'mihaildev\elfinder\Controller',

@@ -78,4 +78,10 @@ class ViewInfo extends \yii\db\ActiveRecord
             ->asArray()
             ->all();
     }
+    public function getInfoUser()
+    {
+        return self::find()
+            ->select(['uid','ccid','real_name']);
+
+    }
 }
