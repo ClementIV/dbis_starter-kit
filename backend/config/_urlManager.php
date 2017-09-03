@@ -2,7 +2,7 @@
 return [
     'class'=>'yii\web\UrlManager',
     'enablePrettyUrl'=>true,
-    'showScriptName'=>false,
+    'showScriptName'=>true,
     'rules'=>[
         // url rules
     ]

@@ -61,7 +61,7 @@ class SoftwareQuery extends Software
 
 
         $query->andFilterWhere([
-            'projectid' => $projectid,
+            'softid' => $projectid,
         ]);
 
         $model = $query->all();

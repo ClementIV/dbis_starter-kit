@@ -22,10 +22,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <?php echo $model->body ?>
 
-        <?php if (!empty($model->itemAttachments)): ?>
+        <?php if (!empty($model->articleAttachments)): ?>
             <h3><?php echo Yii::t('frontend', 'Attachments') ?></h3>
             <ul id="article-attachments">
-                <?php foreach ($model->itemAttachments as $attachment): ?>
+                <?php foreach ($model->articleAttachments as $attachment): ?>
                     <li>
                         <?php echo \yii\helpers\Html::a(
                             $attachment->name,

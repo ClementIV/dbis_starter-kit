@@ -24,6 +24,7 @@ use yii\helpers\Html;
             </span>
         </div>
         <div class="article-content">
+
             <div class="article-text">
                 <?php echo \yii\helpers\StringHelper::truncate($model->body, 150, '...', null, true) ?>
             </div>
