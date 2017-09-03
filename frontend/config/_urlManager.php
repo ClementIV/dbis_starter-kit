@@ -2,6 +2,7 @@
 return [
     'class'=>'yii\web\UrlManager',
     'enablePrettyUrl'=>true,
+    'showScriptName'=>flase,
     'rules'=> [
         // Pages
         ['pattern'=>'page/<slug>', 'route'=>'page/view'],
