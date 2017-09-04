@@ -12,6 +12,9 @@ use yii\helpers\Html;
     <meta charset="<?php echo Yii::$app->charset ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
+    <meta name="author" content="DBIS Yongqi Feng">
+    <meta name="description" content="DBIS,Nankai University">
+    <meta name="keywords" content="DBIS,Nankai University,南开大学，南开大学数据库与信息系统实验室">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <title><?php echo Html::encode($this->title) ?></title>
     <?php $this->head() ?>

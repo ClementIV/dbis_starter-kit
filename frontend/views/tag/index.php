@@ -1,5 +1,6 @@
 <?php
 /* @var $this yii\web\View */
+$this->title = "南开大学数据库与信息系统实验室";
 ?>
 <h2 class="heading-cascade heading-cascade--danger"><?php echo $model->tagname;?>  搜索结果</h2>
 <h2 class="block-title block-title--top-larger">相关教师</h2>

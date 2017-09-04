@@ -19,7 +19,9 @@ $this->params['body-class'] = array_key_exists('body-class', $this->params) ?
 <head>
     <meta charset="<?php echo Yii::$app->charset ?>">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-
+    <meta name="author" content="DBIS Yongqi Feng">
+    <meta name="description" content="DBIS,Nankai University">
+    <meta name="keywords" content="DBIS,Nankai University,南开大学，南开大学数据库与信息系统实验室">
     <?php echo Html::csrfMetaTags() ?>
     <title><?php echo Html::encode($this->title) ?></title>
     <?php $this->head() ?>

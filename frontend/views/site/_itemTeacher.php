@@ -13,7 +13,3 @@ use yii\helpers\Html;
         <img src="<?php echo $model->getAvatar()?>">
     </div>
 </a>
-
-
-
-

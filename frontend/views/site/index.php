@@ -2,7 +2,7 @@
 <?php
 /* @var $this yii\web\View */
 use yii\helpers\Url;
-$this->title = Yii::$app->name;
+$this->title = "南开大学数据库与信息系统实验室";
 ?>
 <div class="container">
 <div class="site-index">

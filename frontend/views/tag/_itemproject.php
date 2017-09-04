@@ -4,7 +4,6 @@
  * @var $model common\models\Article
  */
 use yii\helpers\Html;
-
 ?>
 
 
@@ -32,7 +31,3 @@ use yii\helpers\Html;
 
     </article><!-- end article -->
 </div><!-- end col -->
-
-
-
-

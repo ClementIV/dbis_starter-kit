@@ -1,5 +1,6 @@
 <?php
 /* @var $this yii\web\View */
+$this->title = "南开大学数据库与信息系统实验室";
 ?>
 
 <div class="row">

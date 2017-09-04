@@ -33,7 +33,3 @@ use yii\helpers\Html;
 
     </article><!-- end article -->
 </div><!-- end col -->
-
-
-
-

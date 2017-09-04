@@ -1,10 +1,8 @@
 <?php
 
-use yii\helpers\Html;
-use yii\widgets\DetailView;
 
-/* @var $this yii\web\View */
-/* @var $model common\models\Project */
+// @var $this yii\web\View
+// @var $model common\models\Project
 
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Projects', 'url' => ['index']];
@@ -15,10 +13,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="col-sm-6">
         <!-- Minimal slider -->
         <div class="image-container">
-            <img src="<?php if(!empty($model['thumbnail_base_url']))
-                echo $model['thumbnail_base_url'] . '/' . $model['thumbnail_path'];
-            else
-                echo '#'?>" alt="">
+            <img src="<?php if (!empty($model['thumbnail_base_url'])) {
+    echo $model['thumbnail_base_url'].'/'.$model['thumbnail_path'];
+} else {
+                echo '#';
+            }?>" alt="">
         </div>
 
         <!-- end minimal slider -->
@@ -31,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <li class="list__item"><span class="list__item-head">项目名称:</span> <?php echo $model['name']; ?></li>
                 <li class="list__item"><span class="list__item-head">指导教师</span> <?php echo $model->teacher->name; ?></li>
                 <li class="list__item"><span class="list__item-head">起止日期:</span>
-                    <?php echo Yii::$app->formatter->asDatetime($model['startdate'],'YYYY年m月d日').'-'.Yii::$app->formatter->asDatetime($model['enddate'], 'YYYY年m月d日') ?>
+                    <?php echo Yii::$app->formatter->asDatetime($model['startdate'], 'YYYY年m月d日').'-'.Yii::$app->formatter->asDatetime($model['enddate'], 'YYYY年m月d日'); ?>
                 </li>
                 <li class="list__item"><span class="list__item-head">在线展示:</span><a href="<?php echo $model['displayurl']; ?>">DeepOcean</a> </li>
             </ul>
@@ -59,13 +58,11 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="table-responsive">
                 <!-- Wide table with range of cols -->
                 <table class="table table-bordered table--wide table-present">
-                    <colgroup class="col-sm-width">
-                    </colgroup><colgroup class="col-sm-width">
-                    </colgroup><colgroup class="col-sm-width">
-                    </colgroup><colgroup class="col-sm-width">
-                    </colgroup><colgroup class="col-sm-width">
-                    </colgroup><colgroup class="col-sm-width">
-
+                    <colgroup class="col-sm-width"> </colgroup>
+                    <colgroup class="col-sm-width"> </colgroup>
+                    <colgroup class="col-sm-width"> </colgroup>
+                    <colgroup class="col-sm-width"> </colgroup>
+                    <colgroup class="col-sm-width"> </colgroup>
                     </colgroup><thead>
                     <tr>
                         <th>编号</th>
@@ -78,18 +75,19 @@ $this->params['breadcrumbs'][] = $this->title;
                     <tbody>
                     <?php foreach ($paper as $model): ?>
                         <tr>
-                            <td><?php echo $model->paper_id?></td>
-                            <td><?php echo $model->title?></td>
-                            <td><?php echo $model->author?></td>
-                            <td><?php echo $model->journal_name?></td>
+                            <td><?php echo $model->paper_id;?></td>
+                            <td><?php echo $model->title;?></td>
+                            <td><?php echo $model->author;?></td>
+                            <td><?php echo $model->journal_name;?></td>
                             <td>
-                                <?php if (!$model->itemAttachments==null): ?>
+                                <?php if (!$model->itemAttachments === null): ?>
                                     <ul id="item-attachments">
                                         <?php foreach ($model->itemAttachments as $attachment): ?>
                                             <li>
                                                 <?php echo \yii\helpers\Html::a(
                                                     $attachment->name,
-                                                    ['../article/attachment-download', 'id' => $attachment->id])
+                                                    ['../article/attachment-download', 'id' => $attachment->id]
+                );
                                                 ?>
                                             </li>
                                         <?php endforeach; ?>
@@ -106,14 +104,12 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="table-responsive">
                 <!-- Wide table with range of cols -->
                 <table class="table table-bordered table--wide table-present">
-                    <colgroup class="col-sm-width">
-                    </colgroup><colgroup class="col-sm-width">
-                    </colgroup><colgroup class="col-sm-width">
-                    </colgroup><colgroup class="col-sm-width">
-                    </colgroup><colgroup class="col-sm-width">
-                    </colgroup><colgroup class="col-sm-width">
-
-                    </colgroup><thead>
+                    <colgroup class="col-sm-width"></colgroup>
+                    <colgroup class="col-sm-width"></colgroup>
+                    <colgroup class="col-sm-width"></colgroup>
+                    <colgroup class="col-sm-width"></colgroup>
+                    <colgroup class="col-sm-width"> </colgroup>
+                    <thead>
                     <tr>
                         <th>编号</th>
                         <th>专利名称</th>
@@ -125,18 +121,19 @@ $this->params['breadcrumbs'][] = $this->title;
                     <tbody>
                         <?php foreach ($patent as $model): ?>
                             <tr>
-                                <td><?php echo $model->patent_id?></td>
-                                <td><?php echo $model->title?></td>
-                                <td><?php echo $model->inventors?></td>
-                                <td class="table__wait"><i class="fa fa-spinner"></i><?php echo $model->status?></td>
+                                <td><?php echo $model->patent_id;?></td>
+                                <td><?php echo $model->title;?></td>
+                                <td><?php echo $model->inventors;?></td>
+                                <td class="table__wait"><i class="fa fa-spinner"></i><?php echo $model->status;?></td>
                                 <td>
-                                    <?php if (!$model->itemAttachments==null): ?>
+                                    <?php if (!$model->itemAttachments === null): ?>
                                         <ul id="item-attachments">
                                             <?php foreach ($model->itemAttachments as $attachment): ?>
                                                 <li>
                                                     <?php echo \yii\helpers\Html::a(
                                                         $attachment->name,
-                                                        ['../article/attachment-download', 'id' => $attachment->id])
+                                                        ['../article/attachment-download', 'id' => $attachment->id]
+                                                );
                                                     ?>
                                                 </li>
                                             <?php endforeach; ?>
@@ -154,14 +151,13 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="table-responsive">
                 <!-- Wide table with range of cols -->
                 <table class="table table-bordered table--wide table-present">
-                    <colgroup class="col-sm-width">
-                    </colgroup><colgroup class="col-sm-width">
-                    </colgroup><colgroup class="col-sm-width">
-                    </colgroup><colgroup class="col-sm-width">
-                    </colgroup><colgroup class="col-sm-width">
-                    </colgroup><colgroup class="col-sm-width">
-
-                    </colgroup><thead>
+                    <colgroup class="col-sm-width"></colgroup>
+                    <colgroup class="col-sm-width"></colgroup>
+                    <colgroup class="col-sm-width"></colgroup>
+                    <colgroup class="col-sm-width"></colgroup>
+                    <colgroup class="col-sm-width"> </colgroup>
+                    <colgroup class="col-sm-width"> </colgroup>
+                    <thead>
                     <tr>
                         <th>编号</th>
                         <th>著作权名称</th>
@@ -174,19 +170,20 @@ $this->params['breadcrumbs'][] = $this->title;
                     <tbody>
                     <?php foreach ($software as $model): ?>
                         <tr>
-                            <td><?php echo $model->softid?></td>
-                            <td><?php echo $model->name?></td>
-                            <td><?php echo $model->author?></td>
-                            <td><?php echo substr($model->finishtime,0,10)?></td>
-                            <td class="table__wait"><i class="fa fa-spinner"></i><?php echo  $model->regisnumber?></td>
+                            <td><?php echo $model->softid;?></td>
+                            <td><?php echo $model->name;?></td>
+                            <td><?php echo $model->author;?></td>
+                            <td><?php echo substr($model->finishtime, 0, 10);?></td>
+                            <td class="table__wait"><i class="fa fa-registered "></i><?php echo  $model->regisnumber;?></td>
                             <td>
-                                <?php if (!$model->itemAttachments==null): ?>
+                                <?php if (!$model->itemAttachments === null): ?>
                                     <ul id="item-attachments">
                                         <?php foreach ($model->itemAttachments as $attachment): ?>
                                             <li>
                                                 <?php echo \yii\helpers\Html::a(
                                                     $attachment->name,
-                                                    ['../article/attachment-download', 'id' => $attachment->id])
+                                                    ['../article/attachment-download', 'id' => $attachment->id]
+                                                    );
                                                 ?>
                                             </li>
                                         <?php endforeach; ?>
@@ -212,4 +209,3 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
-
