@@ -248,19 +248,22 @@ class UploadBehavior extends Behavior
         $models = $this->owner->{$this->uploadRelation};
         $fields = $this->fields();
         $data = [];
-        foreach ($models as $k => $model) {
-            /* @var $model \yii\db\BaseActiveRecord */
-            $file = [];
-            foreach ($fields as $dataField => $modelAttribute) {
-                $file[$dataField] = $model->hasAttribute($modelAttribute)
-                    ? ArrayHelper::getValue($model, $modelAttribute)
-                    : null;
-            }
-            if ($file['path']) {
-                $data[$k] = $this->enrichFileData($file);
-            }
+        if(!empty($models)){
+            foreach ($models as $k => $model) {
+                /* @var $model \yii\db\BaseActiveRecord */
+                $file = [];
+                foreach ($fields as $dataField => $modelAttribute) {
+                    $file[$dataField] = $model->hasAttribute($modelAttribute)
+                        ? ArrayHelper::getValue($model, $modelAttribute)
+                        : null;
+                }
+                if ($file['path']) {
+                    $data[$k] = $this->enrichFileData($file);
+                }
 
+            }
         }
+
         $this->owner->{$this->attribute} = $data;
     }
 
@@ -303,8 +306,8 @@ class UploadBehavior extends Behavior
             $model = $this->loadModel($model, $file);
             if(get_class($model)=='common\models\ItemAttachment')
             {
-                var_dump($this->owner->getRelatedRecords()['itemAttachments'][0]->getItemType());
-                $model->setItemType($this->owner->getRelatedRecords()['itemAttachments'][0]->getItemType());
+
+                $model->setItemType($this->owner['itemAttachments']);
             }
             if ($this->getUploadRelation()->via !== null) {
                 $model->save(false);

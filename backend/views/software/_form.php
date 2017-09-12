@@ -32,7 +32,8 @@ use trntv\filekit\widget\Upload;
             'url' => ['/file-storage/upload'],
             'sortable' => true,
             'maxFileSize' => 10000000, // 10 MiB
-            'maxNumberOfFiles' => 10
+            'maxNumberOfFiles' => 10,
+            
         ]);
     ?>
 

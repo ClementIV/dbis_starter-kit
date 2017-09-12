@@ -4,6 +4,7 @@ namespace common\models;
 
 use Yii;
 use trntv\filekit\behaviors\UploadBehavior;
+
 /**
  * This is the model class for table "software".
  *
@@ -25,7 +26,8 @@ class Software extends \yii\db\ActiveRecord
      * @var array
      */
     public $attachments;
-    /**
+
+    public  $itemAttachments;/*
      * @inheritdoc
      */
     public static function tableName()
@@ -43,12 +45,14 @@ class Software extends \yii\db\ActiveRecord
                 'attribute' => 'attachments',
                 'multiple' => true,
                 'uploadRelation' => 'itemAttachments',
+                //'uploadModel' => ItemAttachment::className(),
                 'pathAttribute' => 'path',
                 'baseUrlAttribute' => 'base_url',
                 'orderAttribute' => 'order',
                 'typeAttribute' => 'type',
                 'sizeAttribute' => 'size',
-                'nameAttribute' => 'name',]
+                'nameAttribute' => 'name',
+                'itemtypeAttribute'=>'itemtype'],
         ];
     }
     /**
@@ -58,7 +62,7 @@ class Software extends \yii\db\ActiveRecord
     {
         return [
             [['softid'], 'required'],
-            [['softid','projectid'], 'integer'],
+            [['softid'], 'integer'],
             [['finishtime'], 'safe'],
             [['name', 'regisnumber'], 'string', 'max' => 255],
             [['author', 'enclosure'], 'string', 'max' => 255],

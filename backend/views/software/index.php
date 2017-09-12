@@ -21,6 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php echo GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -30,6 +31,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'finishtime',
             'regisnumber',
             // 'enclosure',
+            // [
+            //     'attribute'=>'attachments',
+            //     'format'=>'raw',
+            //     'value'=> function($data){
+            //          if(!$data->attachments){
+            //             return $data->attachments;
+            //         }
+            //
+            //     }
+            // ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

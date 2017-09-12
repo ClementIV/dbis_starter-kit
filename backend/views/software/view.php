@@ -32,6 +32,20 @@ $this->params['breadcrumbs'][] = $this->title;
             'finishtime',
             'regisnumber',
             'enclosure',
+            [
+                'attribute'=>'attachments',
+                'format'=>'raw',
+                'value'=> function($data){
+                //     if(!empty($data->attachments)){
+                //     foreach ($data->attachments as $key => $value) {
+                //         return $value;
+                //     }
+                // }
+                //
+                return "<a herf='baidu.com'>aa</>";
+                    //return $data->attachments;
+                }
+            ],
         ],
     ]) ?>
 
