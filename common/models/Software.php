@@ -27,7 +27,7 @@ class Software extends \yii\db\ActiveRecord
      */
     public $attachments;
 
-    public  $itemAttachments;/*
+    public  $items;/*
      * @inheritdoc
      */
     public static function tableName()

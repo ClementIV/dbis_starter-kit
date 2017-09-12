@@ -307,7 +307,7 @@ class UploadBehavior extends Behavior
             if(get_class($model)=='common\models\ItemAttachment')
             {
 
-                $model->setItemType($this->owner['itemAttachments']);
+                $model->setItemType($this->owner['items']);
             }
             if ($this->getUploadRelation()->via !== null) {
                 $model->save(false);

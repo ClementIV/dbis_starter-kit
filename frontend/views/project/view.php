@@ -73,14 +73,16 @@ $this->params['breadcrumbs'][] = $this->title;
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($paper as $model): ?>
+
+                    <?php
+                    foreach ($paper as $model): ?>
                         <tr>
                             <td><?php echo $model->paper_id;?></td>
                             <td><?php echo $model->title;?></td>
                             <td><?php echo $model->author;?></td>
                             <td><?php echo $model->journal_name;?></td>
                             <td>
-                                <?php if (!$model->itemAttachments === null): ?>
+                                <?php if ($model->itemAttachments != null): ?>
                                     <ul id="item-attachments">
                                         <?php foreach ($model->itemAttachments as $attachment): ?>
                                             <li>
@@ -119,6 +121,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     </tr>
                     </thead>
                     <tbody>
+                        <?php// var_dump($patent);?>
                         <?php foreach ($patent as $model): ?>
                             <tr>
                                 <td><?php echo $model->patent_id;?></td>
@@ -126,9 +129,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <td><?php echo $model->inventors;?></td>
                                 <td class="table__wait"><i class="fa fa-spinner"></i><?php echo $model->status;?></td>
                                 <td>
-                                    <?php if (!$model->itemAttachments === null): ?>
+                                    <?php if ($model->itemAttachments != null): ?>
                                         <ul id="item-attachments">
-                                            <?php foreach ($model->itemAttachments as $attachment): ?>
+                                            <?php foreach ($model->itemAttachments as $key=>$attachment): ?>
                                                 <li>
                                                     <?php echo \yii\helpers\Html::a(
                                                         $attachment->name,
@@ -176,7 +179,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <td><?php echo substr($model->finishtime, 0, 10);?></td>
                             <td class="table__wait"><i class="fa fa-registered "></i><?php echo  $model->regisnumber;?></td>
                             <td>
-                                <?php if (!$model->itemAttachments === null): ?>
+                                <?php if ($model->itemAttachments != null): ?>
                                     <ul id="item-attachments">
                                         <?php foreach ($model->itemAttachments as $attachment): ?>
                                             <li>
