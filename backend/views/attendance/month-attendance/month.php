@@ -16,10 +16,10 @@ $this->registerJsFile('@web/js/export.js', ['depends' => ['backend\assets\Backen
 <p>
 <?php echo Html::button(
 
-        yii::t('backend','Export'),
+        ' '.yii::t('backend','Export'),
 
     [
-        'class' => 'btn btn-success',
+        'class' => 'btn btn-success fa fa-file-excel-o',
         'onclick'=>'method1("month")',
     ]
     )?>

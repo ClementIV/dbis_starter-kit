@@ -220,6 +220,16 @@ $bundle = BackendAsset::register($this);
                                ['label'=>Yii::t('backend','Ask For Leave'),'url'=>['/attendance/atd-leave-category/index'], 'icon'=>'<i class="fa fa-medkit"></i>'],
                            ],
                        ],
+                       [
+                           'label'=>Yii::t('backend', 'Device'),
+                           'icon'=> '<i class="fa fa-television"></i>',
+                           'url' => '#',
+                           'options'=>['class'=>'treeview'],
+                           'items' => [
+                               ['label'=>Yii::t('backend','device information'),'url'=>['/device/device/index'], 'icon'=>'<i class="fa fa-laptop"></i>'],
+
+                           ],
+                       ],
                         [
                             'label'=>Yii::t('backend', 'Main'),
                             'options' => ['class' => 'header']

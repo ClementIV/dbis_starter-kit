@@ -12,8 +12,19 @@ $this->registerCssFile('@web/css/attendance/check-in-today/bootstrap.min.css', [
 $this->registerCssFile('@web/css/attendance/check-in-today/info.css', ['depends' => ['backend\assets\BackendAsset']]);
 $this->registerCssFile('@web/css/attendance/month/month.css', ['depends' => ['backend\assets\BackendAsset']]);
 $this->registerJsFile('@web/js/attendance/check-in-today/plugins/bootstrap/bootstrap.min.js', ['depends' => ['backend\assets\BackendAsset']]);
-
+$this->registerJsFile('@web/js/export.js', ['depends' => ['backend\assets\BackendAsset']]);
 ?>
+<p>
+<?php echo Html::button(
+
+        ' '.yii::t('backend','Export'),
+
+    [
+        'class' => 'btn btn-success fa fa-file-excel-o',
+        'onclick'=>'method1("history-month")',
+    ]
+    )?>
+</p>
 
 <?php
     $filter = ['caid','uid'];
@@ -42,7 +53,7 @@ $this->registerJsFile('@web/js/attendance/check-in-today/plugins/bootstrap/boots
             ?>
         </div>
         <div>
-        <table class="month-table col-md-12 col-sm-12">
+        <table class="month-table col-md-12 col-sm-12" id="history-month">
             <thead>
                 <tr class="month-tr">
                     <?php foreach ($all_result[0] as $each_key => $each_result): ?>
