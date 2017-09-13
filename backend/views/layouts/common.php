@@ -188,6 +188,17 @@ $bundle = BackendAsset::register($this);
                             //'visible'=>Yii::$app->user->can('Student'),
                         ],
                         [
+                            'label'=>Yii::t('backend', 'Person Device'),
+                            'icon'=> '<i class="fa fa-tv"></i>',
+                            'url' => '#',
+                            'options'=>['class'=>'treeview'],
+                            'items' => [
+                                ['label'=>'设备信息','url'=>['/device/device/person-view','uid'=>Yii::$app->user->id], 'icon'=>'<i class="fa fa-sitemap"></i>'],
+                                // ['label'=>'531','url'=>['/attendance/real-time/index','department'=>'531'], 'icon'=>'<i class="fa fa-sitemap"></i>'],
+                                // ['label'=>'532','url'=>['/attendance/real-time/index','department'=>'532'], 'icon'=>'<i class="fa fa-sitemap"></i>'],
+                            ],
+                        ],
+                        [
                             'label'=>Yii::t('backend', 'Real-time attendance'),
                             'options' => ['class' => 'header']
                         ],
@@ -221,12 +232,12 @@ $bundle = BackendAsset::register($this);
                            ],
                        ],
                        [
-                           'label'=>Yii::t('backend', 'Device'),
+                           'label'=>Yii::t('backend', 'Asset management department'),
                            'icon'=> '<i class="fa fa-television"></i>',
                            'url' => '#',
                            'options'=>['class'=>'treeview'],
                            'items' => [
-                               ['label'=>Yii::t('backend','device information'),'url'=>['/device/device/index'], 'icon'=>'<i class="fa fa-laptop"></i>'],
+                               ['label'=>Yii::t('backend','Device Information'),'url'=>['/device/device/index'], 'icon'=>'<i class="fa fa-laptop"></i>'],
 
                            ],
                        ],

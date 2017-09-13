@@ -52,7 +52,30 @@ class DeviceController extends Controller
             'model' => $this->findModel($id),
         ]);
     }
+    /**
+     * Displays a single DeviceInformation model.
+     * @param integer $uid
+     * @return mixed
+     */
+    public function actionPersonView($uid)
+    {
+        $model =new DeviceInformation;
+        try{
+            $result = $model->getOne($uid);
+            if($result!=null){
+                return $this->render('person-view', [
+                    'model' => $result,
+                ]);
+            } else {
+                return $this->redirect('create');
+            }
+        } catch( Exception $e){
+            throw new Exception('Person View Exception ',$e);
+        }
 
+
+
+    }
     /**
      * Creates a new DeviceInformation model.
      * If creation is successful, the browser will be redirected to the 'view' page.

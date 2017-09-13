@@ -13,12 +13,12 @@ use yii\bootstrap\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?php echo $form->errorSummary($model); ?>
-
-    <?php echo $form->field($model, 'deparment')->textInput(['maxlength' => true]) ?>
+    <?php echo  $form->field($model, 'uid')->textInput(['value' => Yii::$app->user->id,'readonly'=>true]) ?>
+    <?php echo $form->field($model, 'deparment')->dropDownList(['1' => '530', '2' => '531','3'=>'532']);  ?>
 
     <?php echo $form->field($model, 'student_id')->textInput(['maxlength' => true]) ?>
 
-    <?php echo $form->field($model, 'uid')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
     <?php echo $form->field($model, 'seat_number')->textInput() ?>
 
@@ -44,7 +44,7 @@ use yii\bootstrap\ActiveForm;
 
     <?php echo $form->field($model, 'MAC')->textInput(['maxlength' => true]) ?>
 
-    <?php  $form->field($model, 'update')->textInput(['value'=>date('Y-m-d'),'readonly'=>true,])  ?>
+    <?php  echo $form->field($model, 'update')->textInput(['value'=>date('Y-m-d'),'readonly'=>true,])  ?>
 
     <div class="form-group">
         <?php echo Html::submitButton($model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

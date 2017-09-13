@@ -197,7 +197,7 @@
             //设置excel可见属性
 
             try {
-                var fname = oXL.Application.GetSaveAsFilename("Excel.xlsx", "Excel Spreadsheets (*.xlsx), *.xlsx");
+                var fname = oXL.Application.GetSaveAsFilename("Excel.xls", "Excel Spreadsheets (*.xls), *.xls");
             } catch (e) {
                 print("Nested catch caught " + e);
             } finally {

@@ -53,7 +53,7 @@ class AtdUser extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['real_name'], 'required'],
+            
             [['uid'], 'required'],
             [['uid', 'did', 'auth', 'state', 'checkin'], 'integer'],
             [['ccid', 'pwd', 'real_name'], 'string', 'max' => 255],

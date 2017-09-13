@@ -10,7 +10,7 @@ use Yii;
  * @property integer $diid
  * @property string $deparment
  * @property string $student_id
- * @property string $uid
+ * @property string $name
  * @property integer $seat_number
  * @property string $host
  * @property string $host_number
@@ -41,9 +41,10 @@ class DeviceInformation extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['name'],'required'],
             [['seat_number', 'monitor_size1', 'monitor_size2'], 'integer'],
             [['update'], 'safe'],
-            [['deparment', 'student_id', 'uid', 'host', 'host_number', 'SSD', 'monitor_number1', 'monitor_type1', 'monitor_number2', 'monitor_type2', 'ip', 'MAC'], 'string', 'max' => 255],
+            [['deparment', 'student_id', 'name','uid', 'host', 'host_number', 'SSD', 'monitor_number1', 'monitor_type1', 'monitor_number2', 'monitor_type2', 'ip', 'MAC'], 'string', 'max' => 255],
         ];
     }
 
@@ -53,23 +54,28 @@ class DeviceInformation extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'diid' => Yii::t('backend', 'Diid'),
-            'deparment' => Yii::t('backend', '部门号'),
+            'diid' => Yii::t('backend', 'device information id'),
+            'uid'=>Yii::t('backend','User ID'),
+            'deparment' => Yii::t('backend', 'department id'),
             'student_id' => Yii::t('backend', 'Student ID'),
-            'uid' => Yii::t('backend', 'Uid'),
+            'name' => Yii::t('backend', 'real_name'),
             'seat_number' => Yii::t('backend', 'Seat Number'),
             'host' => Yii::t('backend', 'Host'),
             'host_number' => Yii::t('backend', 'Host Number'),
-            'SSD' => Yii::t('backend', 'Ssd'),
-            'monitor_number1' => Yii::t('backend', 'Monitor Number1'),
-            'monitor_type1' => Yii::t('backend', 'Monitor Type1'),
-            'monitor_size1' => Yii::t('backend', 'Monitor Size1'),
-            'monitor_number2' => Yii::t('backend', 'Monitor Number2'),
-            'monitor_type2' => Yii::t('backend', 'Monitor Type2'),
-            'monitor_size2' => Yii::t('backend', 'Monitor Size2'),
+            'SSD' => Yii::t('backend', 'SSD'),
+            'monitor_number1' => Yii::t('backend', 'Monitor Number').'-1',
+            'monitor_type1' => Yii::t('backend', 'Monitor Type').'-1',
+            'monitor_size1' => Yii::t('backend', 'Monitor Size').'-1',
+            'monitor_number2' => Yii::t('backend', 'Monitor Number').'-2',
+            'monitor_type2' => Yii::t('backend', 'Monitor Type').'-2',
+            'monitor_size2' => Yii::t('backend', 'Monitor Size').'-2',
             'ip' => Yii::t('backend', 'Ip'),
             'MAC' => Yii::t('backend', 'Mac'),
-            'update' => Yii::t('backend', 'Update'),
+            'update' => Yii::t('backend', 'Update').''.Yii::t('backend','Date'),
         ];
+    }
+    public function getOne($uid){
+        return self::find()
+            ->Where(['uid'=>$uid])->one();
     }
 }

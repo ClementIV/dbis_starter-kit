@@ -6,40 +6,52 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('backend', 'Device Informations');
+$this->title = Yii::t('backend', 'Device Information');
 $this->params['breadcrumbs'][] = $this->title;
+$this->registerJsFile('@web/js/export.js', ['depends' => ['backend\assets\BackendAsset']]);
 ?>
+
+
+
 <div class="device-information-index">
 
 
     <p>
         <?php echo Html::a(Yii::t('backend', 'Create {modelClass}', [
-    'modelClass' => 'Device Information',
-]), ['create'], ['class' => 'btn btn-success']) ?>
+            'modelClass' =>yii::t('backend','Device Information'),
+        ]), ['create'], ['class' => 'btn btn-success']) ?>
+        <?php echo Html::button(
+
+                ' '.yii::t('backend','Export'),
+
+            [
+                'class' => 'btn btn-success fa fa-file-excel-o',
+                'onclick'=>'method1("history-month")',
+                'style'=>'font-size:15px;padding:8px;'
+            ]
+            )?>
     </p>
 
     <?php echo GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'diid',
+            //'diid',
             'deparment',
             'student_id',
-            'uid',
+            'name',
             'seat_number',
-            // 'host',
-            // 'host_number',
-            // 'SSD',
-            // 'monitor_number1',
-            // 'monitor_type1',
-            // 'monitor_size1',
-            // 'monitor_number2',
-            // 'monitor_type2',
-            // 'monitor_size2',
-            // 'ip',
-            // 'MAC',
-            // 'update',
+            'host',
+            'host_number',
+            'SSD',
+            'monitor_number1',
+            'monitor_type1',
+            'monitor_size1',
+            'monitor_number2',
+            'monitor_type2',
+            'monitor_size2',
+            'ip',
+            'MAC',
+            'update',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
