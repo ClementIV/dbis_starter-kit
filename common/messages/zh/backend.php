@@ -81,6 +81,7 @@ return [
     'Error Message'=>'错误信息',
     'Event' => '事件',
     'External IP' => '外网 IP',
+    'Export' => '导出数据',
     'Equipment authority' => '设备权限',
     'Female' => '女性',
     'File Manager' => '文件管理',

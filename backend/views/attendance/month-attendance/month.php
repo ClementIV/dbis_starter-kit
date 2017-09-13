@@ -13,15 +13,17 @@ $this->registerCssFile('@web/css/attendance/month/month.css', ['depends' => ['ba
 $this->registerJsFile('@web/js/attendance/check-in-today/plugins/bootstrap/bootstrap.min.js', ['depends' => ['backend\assets\BackendAsset']]);
 $this->registerJsFile('@web/js/export.js', ['depends' => ['backend\assets\BackendAsset']]);
 ?>
-
+<p>
 <?php echo Html::button(
 
-        'Export',
+        yii::t('backend','Export'),
 
     [
+        'class' => 'btn btn-success',
         'onclick'=>'method1("month")',
     ]
     )?>
+</p>
 <?php $filter = ['caid','uid']; ?>
 
 <div class="month-panel-body">
