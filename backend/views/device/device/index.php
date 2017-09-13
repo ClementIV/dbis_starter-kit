@@ -26,7 +26,7 @@ $this->registerJsFile('@web/js/export.js', ['depends' => ['backend\assets\Backen
 
             [
                 'class' => 'btn btn-success fa fa-file-excel-o',
-                'onclick'=>'method1("history-month")',
+                'onclick'=>'method1("device")',
                 'style'=>'font-size:15px;padding:8px;'
             ]
             )?>
@@ -55,6 +55,10 @@ $this->registerJsFile('@web/js/export.js', ['depends' => ['backend\assets\Backen
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
+        'tableOptions'=>[
+            'id'=>'device',
+            'class' =>'table table-striped table-bordered',
+        ]
     ]); ?>
 
 </div>
